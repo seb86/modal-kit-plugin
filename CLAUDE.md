@@ -1,6 +1,6 @@
 # Modal Kit: instructions for Claude Code
 
-The free plugin (slug and text domain `modal-kit`), published on WordPress.org. The plugin is the repo root. `.github/README.md` has the commands (a root README would ship in the zip).
+The free plugin (slug and text domain `modal-kit`), published on WordPress.org. The plugin is the repo root. `README.md` is for people using the plugin, and `DEVELOPMENT.md` has the setup, commands and releasing. The zip leaves both out.
 
 The workspace's `CLAUDE.md` and `planning/` folder sit one level up: the plan, mockups (`planning/design/`) and decisions (`planning/notes/BUILD-NOTES.md`). Read the notes first and record decisions there.
 
