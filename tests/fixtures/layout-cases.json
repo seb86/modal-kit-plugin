@@ -1,0 +1,235 @@
+[
+	{
+		"name": "defaults",
+		"attributes": {},
+		"classes": [
+			"modal-kit",
+			"modal-kit--centered",
+			"modal-kit--size-m",
+			"modal-kit--m-centered",
+			"modal-kit--anim-fade-rise",
+			"has-overlay"
+		],
+		"style": "--modal-kit-overlay-opacity:0.45"
+	},
+	{
+		"name": "split with overlay color and blur",
+		"attributes": {
+			"modalLayout": "split",
+			"position": "media-right",
+			"size": "l",
+			"overlay": {
+				"show": true,
+				"color": "contrast",
+				"opacity": 35,
+				"blur": true
+			}
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--split",
+			"modal-kit--size-l",
+			"modal-kit--m-sheet",
+			"modal-kit--anim-fade-rise",
+			"modal-kit--pos-media-right",
+			"has-overlay",
+			"has-overlay-blur"
+		],
+		"style": "--modal-kit-overlay-color:var(--wp--preset--color--contrast);--modal-kit-overlay-opacity:0.35"
+	},
+	{
+		"name": "custom overlay color from the color picker",
+		"attributes": {
+			"overlay": { "show": true, "color": "", "customColor": "#1a2b3c", "opacity": 60 }
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--centered",
+			"modal-kit--size-m",
+			"modal-kit--m-centered",
+			"modal-kit--anim-fade-rise",
+			"has-overlay"
+		],
+		"style": "--modal-kit-overlay-color:#1a2b3c;--modal-kit-overlay-opacity:0.6"
+	},
+	{
+		"name": "corner never has an overlay and becomes a toast",
+		"attributes": { "modalLayout": "corner", "overlay": { "show": true } },
+		"classes": [
+			"modal-kit",
+			"modal-kit--corner",
+			"modal-kit--size-m",
+			"modal-kit--m-toast",
+			"modal-kit--anim-fade-rise",
+			"modal-kit--pos-bottom-right"
+		],
+		"style": ""
+	},
+	{
+		"name": "unknown position falls back to the first",
+		"attributes": { "modalLayout": "drawer", "position": "top" },
+		"classes": [
+			"modal-kit",
+			"modal-kit--drawer",
+			"modal-kit--size-m",
+			"modal-kit--m-drawer",
+			"modal-kit--anim-fade-rise",
+			"modal-kit--pos-right",
+			"has-overlay"
+		],
+		"style": "--modal-kit-overlay-opacity:0.45"
+	},
+	{
+		"name": "bar kept on top on mobile",
+		"attributes": {
+			"modalLayout": "bar",
+			"position": "top",
+			"mobileLayout": "same",
+			"animation": "none"
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--bar",
+			"modal-kit--size-m",
+			"modal-kit--m-bar-top",
+			"modal-kit--anim-none",
+			"modal-kit--pos-top"
+		],
+		"style": ""
+	},
+	{
+		"name": "centered switched to a sheet on mobile, overlay off",
+		"attributes": {
+			"modalLayout": "centered",
+			"mobileLayout": "sheet",
+			"overlay": { "show": false }
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--centered",
+			"modal-kit--size-m",
+			"modal-kit--m-sheet",
+			"modal-kit--anim-fade-rise"
+		],
+		"style": ""
+	},
+	{
+		"name": "inline ignores the mobile choice",
+		"attributes": { "modalLayout": "inline", "mobileLayout": "full" },
+		"classes": [
+			"modal-kit",
+			"modal-kit--inline",
+			"modal-kit--size-m",
+			"modal-kit--m-inline",
+			"modal-kit--anim-fade-rise"
+		],
+		"style": ""
+	},
+	{
+		"name": "invalid values fall back",
+		"attributes": {
+			"modalLayout": "spiral",
+			"size": "xl",
+			"animation": "spin",
+			"mobileLayout": "pip"
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--centered",
+			"modal-kit--size-m",
+			"modal-kit--m-centered",
+			"modal-kit--anim-fade-rise",
+			"has-overlay"
+		],
+		"style": "--modal-kit-overlay-opacity:0.45"
+	},
+	{
+		"name": "fixed style with theme fonts",
+		"attributes": {
+			"className": "is-style-night",
+			"styleOptions": { "accent": "style", "accentColor": "", "fonts": "theme" }
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--centered",
+			"modal-kit--size-m",
+			"modal-kit--m-centered",
+			"modal-kit--anim-fade-rise",
+			"has-overlay",
+			"mk-style",
+			"mk-style-night",
+			"mk-fonts-theme"
+		],
+		"style": "--modal-kit-overlay-opacity:0.45"
+	},
+	{
+		"name": "fixed style with a custom accent picks dark text on a light accent",
+		"attributes": {
+			"className": "is-style-harbor",
+			"styleOptions": { "accent": "custom", "accentColor": "#FFCC00", "fonts": "style" }
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--centered",
+			"modal-kit--size-m",
+			"modal-kit--m-centered",
+			"modal-kit--anim-fade-rise",
+			"has-overlay",
+			"mk-style",
+			"mk-style-harbor"
+		],
+		"style": "--modal-kit-overlay-opacity:0.45;--mk-accent:#ffcc00;--mk-accent-strong:color-mix(in srgb,#ffcc00 78%,var(--mk-ink));--mk-on-accent:#17151f;--mk-full-accent:#ffcc00;--mk-full-button:#ffcc00;--mk-on-full-button:#17151f"
+	},
+	{
+		"name": "fixed style with the theme primary falls back to the style accent",
+		"attributes": {
+			"className": "is-style-fieldnote",
+			"styleOptions": { "accent": "theme", "accentColor": "", "fonts": "style" }
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--centered",
+			"modal-kit--size-m",
+			"modal-kit--m-centered",
+			"modal-kit--anim-fade-rise",
+			"has-overlay",
+			"mk-style",
+			"mk-style-fieldnote"
+		],
+		"style": "--modal-kit-overlay-opacity:0.45;--mk-accent:var(--modal-kit-primary,#5E45CD);--mk-accent-strong:color-mix(in srgb,var(--modal-kit-primary,#5E45CD) 78%,var(--mk-ink));--mk-on-accent:var(--modal-kit-on-primary,#FFFFFF);--mk-full-accent:var(--modal-kit-primary,#5E45CD);--mk-full-button:var(--modal-kit-primary,#5E45CD);--mk-on-full-button:var(--modal-kit-on-primary,#FFFFFF)"
+	},
+	{
+		"name": "styles that follow the theme ignore the fixed-style options",
+		"attributes": {
+			"className": "is-style-soft",
+			"styleOptions": { "accent": "custom", "accentColor": "#ffcc00", "fonts": "theme" }
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--centered",
+			"modal-kit--size-m",
+			"modal-kit--m-centered",
+			"modal-kit--anim-fade-rise",
+			"has-overlay"
+		],
+		"style": "--modal-kit-overlay-opacity:0.45"
+	},
+	{
+		"name": "a custom accent without a color keeps the style accent",
+		"attributes": {
+			"className": "is-style-night",
+			"styleOptions": { "accent": "custom", "accentColor": "red" }
+		},
+		"classes": [
+			"modal-kit",
+			"modal-kit--centered",
+			"modal-kit--size-m",
+			"modal-kit--m-centered",
+			"modal-kit--anim-fade-rise",
+			"has-overlay",
+			"mk-style",
+			"mk-style-night"
+		],
+		"style": "--modal-kit-overlay-opacity:0.45"
+	}
+]
