@@ -1,0 +1,63 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Modal Kit style",
+	"description": "A fixed style's tokens (src/styles/*.json) plus description and version. Read by includes/StyleSchema.php and src/styles/schema.js, so imports are checked the same way in PHP and JS. x-kind says how each value is sanitised; unknown keys are ignored and missing ones come from Fieldnote.",
+	"type": "object",
+	"properties": {
+		"slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,39}$" },
+		"label": { "type": "string", "minLength": 1, "maxLength": 60 },
+		"description": { "type": "string", "maxLength": 200 },
+		"version": { "type": "integer", "minimum": 1 },
+		"color": {
+			"type": "object",
+			"properties": {
+				"surface": { "x-kind": "color" },
+				"ink": { "x-kind": "color" },
+				"muted": { "x-kind": "color" },
+				"line": { "x-kind": "color" },
+				"field": { "x-kind": "color" },
+				"accent": { "x-kind": "color" },
+				"accent-strong": { "x-kind": "color" },
+				"on-accent": { "x-kind": "color" },
+				"tint": { "x-kind": "color" },
+				"overlay": { "x-kind": "color" },
+				"full-bg": { "x-kind": "color" },
+				"full-ink": { "x-kind": "color" },
+				"full-accent": { "x-kind": "color" }
+			}
+		},
+		"font": {
+			"type": "object",
+			"properties": {
+				"head": { "x-kind": "family" },
+				"body": { "x-kind": "family" },
+				"mono": { "x-kind": "family" },
+				"head-weight": { "x-kind": "weight" },
+				"head-tracking": { "x-kind": "length" },
+				"head-size": { "x-kind": "size" }
+			}
+		},
+		"radius": {
+			"type": "object",
+			"properties": {
+				"panel": { "x-kind": "length" },
+				"button": { "x-kind": "length" },
+				"field": { "x-kind": "length" }
+			}
+		},
+		"shadow": { "x-kind": "shadow" }
+	},
+	"required": [ "label" ],
+	"x-contrast": [
+		[ "ink", "surface", 4.5, "body" ],
+		[ "muted", "surface", 4.5, "muted" ],
+		[ "accent", "surface", 4.5, "" ],
+		[ "accent-strong", "surface", 4.5, "" ],
+		[ "on-accent", "accent", 4.5, "button" ],
+		[ "on-accent", "accent-strong", 4.5, "" ],
+		[ "muted", "tint", 4.5, "" ],
+		[ "full-ink", "full-bg", 4.5, "" ],
+		[ "full-accent", "full-bg", 4.5, "" ],
+		[ "field", "surface", 3, "" ]
+	]
+}

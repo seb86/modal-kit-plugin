@@ -1,0 +1,68 @@
+{
+	"$comment": "Modal layouts (mockup 1d). Shared by PHP (Layouts.php) and JS (editor). 'modal' layouts block the page (showModal); the others leave it usable (show). 'mobile' is the automatic mobile mapping.",
+	"layouts": {
+		"centered": {
+			"overlay": true,
+			"modal": true,
+			"positions": [],
+			"mobile": "centered"
+		},
+		"corner": {
+			"overlay": false,
+			"modal": false,
+			"positions": [
+				"bottom-right",
+				"bottom-left",
+				"top-right",
+				"top-left"
+			],
+			"mobile": "toast"
+		},
+		"bar": {
+			"overlay": false,
+			"modal": false,
+			"positions": [ "top", "bottom" ],
+			"mobile": "bar-bottom"
+		},
+		"full": {
+			"overlay": false,
+			"modal": true,
+			"positions": [],
+			"mobile": "full"
+		},
+		"drawer": {
+			"overlay": true,
+			"modal": true,
+			"positions": [ "right", "left" ],
+			"mobile": "drawer"
+		},
+		"split": {
+			"overlay": true,
+			"modal": true,
+			"positions": [ "media-left", "media-right", "media-top" ],
+			"mobile": "sheet"
+		},
+		"sheet": {
+			"overlay": true,
+			"modal": true,
+			"positions": [],
+			"mobile": "sheet"
+		},
+		"inline": {
+			"overlay": false,
+			"modal": false,
+			"positions": [],
+			"mobile": "inline"
+		},
+		"video": {
+			"overlay": true,
+			"modal": true,
+			"positions": [],
+			"mobile": "video"
+		}
+	},
+	"mobileChoices": [ "auto", "same", "sheet", "full", "centered" ],
+	"sizes": [ "s", "m", "l", "wide" ],
+	"animations": [ "fade-rise", "fade", "none" ],
+	"breakpoint": 600
+}

@@ -1,0 +1,180 @@
+{
+	"$comment": "Site settings, one option per Settings tab (mockups 5a, 5b, 5h, 5d, 4d). Registered with register_setting (show_in_rest) and read by the settings app through core-data.",
+	"general": {
+		"type": "object",
+		"additionalProperties": false,
+		"default": {
+			"linkHash": true,
+			"linkQuery": true,
+			"linkPrefix": "modal-",
+			"autoOpenLimit": 1,
+			"cooldown": 20,
+			"defaultWaitDays": 7,
+			"remember": "browser",
+			"hideForRoles": []
+		},
+		"properties": {
+			"linkHash": { "type": "boolean" },
+			"linkQuery": { "type": "boolean" },
+			"linkPrefix": {
+				"type": "string",
+				"maxLength": 30,
+				"pattern": "^[a-z0-9-]*$"
+			},
+			"autoOpenLimit": {
+				"description": "Automatic opens per page view. 0 means no limit.",
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 10
+			},
+			"defaultWaitDays": {
+				"description": "Days a new modal waits after a visitor closes it (setup wizard, 7c).",
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 365
+			},
+			"cooldown": {
+				"description": "Seconds between automatic opens.",
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 3600
+			},
+			"remember": { "type": "string", "enum": [ "browser", "none" ] },
+			"hideForRoles": {
+				"type": "array",
+				"items": { "type": "string", "maxLength": 60 }
+			}
+		}
+	},
+	"display": {
+		"type": "object",
+		"additionalProperties": false,
+		"default": {
+			"defaultLayout": "centered",
+			"defaultMobile": "auto",
+			"defaultSize": "m",
+			"defaultStyle": "default",
+			"defaultAccent": "style",
+			"defaultAccentColor": "",
+			"defaultFonts": "style",
+			"overlayColor": "",
+			"overlayCustomColor": "",
+			"overlayOpacity": 45,
+			"closeLabelVisible": false,
+			"animation": "fade-rise",
+			"breakpoint": 600,
+			"zIndex": 100000
+		},
+		"properties": {
+			"defaultLayout": {
+				"type": "string",
+				"enum": [
+					"centered",
+					"corner",
+					"bar",
+					"full",
+					"drawer",
+					"split",
+					"sheet",
+					"inline",
+					"video"
+				]
+			},
+			"defaultMobile": {
+				"type": "string",
+				"enum": [ "auto", "same", "sheet", "full", "centered" ]
+			},
+			"defaultSize": {
+				"type": "string",
+				"enum": [ "s", "m", "l", "wide" ]
+			},
+			"defaultStyle": {
+				"description": "default, soft, editorial, or a fixed style's slug (Styles.php checks it is registered).",
+				"type": "string",
+				"pattern": "^[a-z0-9_-]{1,60}$"
+			},
+			"defaultAccent": {
+				"type": "string",
+				"enum": [ "style", "theme", "custom" ]
+			},
+			"defaultAccentColor": {
+				"type": "string",
+				"pattern": "^$|^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"
+			},
+			"defaultFonts": {
+				"type": "string",
+				"enum": [ "style", "theme" ]
+			},
+			"overlayColor": { "type": "string", "maxLength": 60 },
+			"overlayCustomColor": {
+				"description": "A color from the picker when no palette color is chosen: hex, rgb(a) or hsl(a).",
+				"type": "string",
+				"maxLength": 60,
+				"pattern": "^$|^#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$|^(?:rgb|hsl)a?\\([\\d\\s.,%/deg]+\\)$"
+			},
+			"overlayOpacity": {
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 100
+			},
+			"closeLabelVisible": { "type": "boolean" },
+			"animation": {
+				"type": "string",
+				"enum": [ "fade-rise", "fade", "none" ]
+			},
+			"breakpoint": {
+				"type": "integer",
+				"minimum": 320,
+				"maximum": 1200
+			},
+			"zIndex": { "type": "integer", "minimum": 1, "maximum": 2147483647 }
+		}
+	},
+	"accessibility": {
+		"type": "object",
+		"additionalProperties": false,
+		"default": {
+			"name": "heading",
+			"focus": "heading",
+			"closeLabel": "",
+			"lockScroll": true,
+			"inert": true,
+			"reducedMotion": "fade",
+			"allowAutoClose": false
+		},
+		"properties": {
+			"name": { "type": "string", "enum": [ "heading", "title" ] },
+			"focus": {
+				"type": "string",
+				"enum": [ "heading", "first-field", "first-button", "close" ]
+			},
+			"closeLabel": { "type": "string", "maxLength": 100 },
+			"lockScroll": { "type": "boolean" },
+			"inert": { "type": "boolean" },
+			"reducedMotion": { "type": "string", "enum": [ "fade", "none" ] },
+			"allowAutoClose": { "type": "boolean" }
+		}
+	},
+	"tools": {
+		"type": "object",
+		"additionalProperties": false,
+		"default": {
+			"debug": false,
+			"deleteOnUninstall": false
+		},
+		"properties": {
+			"debug": { "type": "boolean" },
+			"deleteOnUninstall": { "type": "boolean" }
+		}
+	},
+	"pro": {
+		"type": "object",
+		"additionalProperties": false,
+		"default": {
+			"showProTips": true
+		},
+		"properties": {
+			"showProTips": { "type": "boolean" }
+		}
+	}
+}

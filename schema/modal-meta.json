@@ -1,0 +1,236 @@
+{
+	"$comment": "Post meta for mk_modal. Shared by PHP (register_post_meta) and JS (editor defaults, rule evaluator). Uses only the JSON-schema subset the WordPress REST API understands.",
+	"enabled": {
+		"description": "The On / off switch in the modal list (1i). Off: never printed.",
+		"type": "boolean",
+		"default": true
+	},
+	"triggers": {
+		"description": "Automatic triggers. Link and button clicks always work and are not listed here.",
+		"type": "array",
+		"default": [],
+		"items": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [ "type" ],
+			"properties": {
+				"type": {
+					"type": "string",
+					"enum": [
+						"load",
+						"scroll",
+						"exit",
+						"time",
+						"inactivity",
+						"url",
+						"element"
+					]
+				},
+				"delay": {
+					"description": "Seconds: page load + delay, time on site, inactivity.",
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 3600
+				},
+				"percent": {
+					"description": "Scroll depth.",
+					"type": "integer",
+					"minimum": 1,
+					"maximum": 100
+				},
+				"touch": {
+					"description": "Exit intent on touch devices.",
+					"type": "string",
+					"enum": [ "scroll-up", "none" ]
+				},
+				"anchor": {
+					"description": "Element in view: the block anchor (HTML id).",
+					"type": "string",
+					"maxLength": 200
+				},
+				"value": {
+					"description": "URL hash or query: a query parameter (utm_campaign=autumn, or just utm_campaign) or a hash (#offer).",
+					"type": "string",
+					"maxLength": 200
+				}
+			}
+		}
+	},
+	"rules": {
+		"type": "object",
+		"additionalProperties": false,
+		"default": {
+			"showOn": {
+				"mode": "all",
+				"include": [],
+				"exclude": [],
+				"postTypes": []
+			},
+			"frequency": {
+				"mode": "days",
+				"days": 7,
+				"stopAfterCta": true,
+				"maxShows": 0
+			},
+			"devices": [ "desktop", "tablet", "mobile" ],
+			"browsers": { "mode": "all", "list": [] },
+			"schedule": { "start": "", "end": "" },
+			"visitors": { "hideLoggedIn": false, "minPageViews": 0 }
+		},
+		"properties": {
+			"showOn": {
+				"description": "Page targeting, resolved on the server when the page renders.",
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"mode": {
+						"description": "all: entire site; include: only these pages; exclude: everywhere except these pages.",
+						"type": "string",
+						"enum": [ "all", "include", "exclude" ]
+					},
+					"include": {
+						"description": "Posts picked in the editor (post:123) or paths such as / or /shop/*.",
+						"type": "array",
+						"items": { "type": "string", "maxLength": 500 }
+					},
+					"exclude": {
+						"type": "array",
+						"items": { "type": "string", "maxLength": 500 }
+					},
+					"postTypes": {
+						"type": "array",
+						"items": { "type": "string", "maxLength": 20 }
+					}
+				}
+			},
+			"frequency": {
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"mode": {
+						"type": "string",
+						"enum": [ "session", "days", "always" ]
+					},
+					"days": { "type": "integer", "minimum": 1, "maximum": 365 },
+					"stopAfterCta": { "type": "boolean" },
+					"maxShows": {
+						"description": "Most automatic opens per visitor, counted in the browser. 0: no limit. Links always open the modal.",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 100
+					}
+				}
+			},
+			"devices": {
+				"type": "array",
+				"uniqueItems": true,
+				"items": {
+					"type": "string",
+					"enum": [ "desktop", "tablet", "mobile" ]
+				}
+			},
+			"browsers": {
+				"description": "Browser targeting, decided in the browser from its user agent (never on the server, so page caches stay correct).",
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"mode": {
+						"type": "string",
+						"enum": [ "all", "only", "except" ]
+					},
+					"list": {
+						"type": "array",
+						"uniqueItems": true,
+						"items": {
+							"type": "string",
+							"enum": [
+								"chrome",
+								"safari",
+								"firefox",
+								"edge",
+								"opera",
+								"samsung",
+								"in-app",
+								"other"
+							]
+						}
+					}
+				}
+			},
+			"schedule": {
+				"description": "ISO 8601 dates, evaluated in the browser. Empty means no limit.",
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"start": { "type": "string", "maxLength": 40 },
+					"end": { "type": "string", "maxLength": 40 }
+				}
+			},
+			"visitors": {
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"hideLoggedIn": { "type": "boolean" },
+					"minPageViews": {
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 100
+					}
+				}
+			}
+		}
+	},
+	"overrides": {
+		"description": "Per-modal overrides of the site defaults. A missing key means: use the site default.",
+		"type": "object",
+		"additionalProperties": false,
+		"default": {},
+		"properties": {
+			"accessibility": {
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"name": {
+						"type": "string",
+						"enum": [ "heading", "title", "custom" ]
+					},
+					"customName": { "type": "string", "maxLength": 200 },
+					"focus": {
+						"type": "string",
+						"enum": [
+							"heading",
+							"first-field",
+							"first-button",
+							"close"
+						]
+					},
+					"closeLabel": { "type": "string", "maxLength": 100 },
+					"lockScroll": { "type": "boolean" },
+					"autoClose": { "type": "boolean" },
+					"autoCloseDelay": {
+						"type": "integer",
+						"minimum": 3,
+						"maximum": 600
+					}
+				}
+			},
+			"video": {
+				"type": "object",
+				"additionalProperties": false,
+				"properties": {
+					"aspectRatio": {
+						"type": "string",
+						"enum": [ "16:9", "9:16", "4:3", "1:1" ]
+					},
+					"autoplay": { "type": "boolean" },
+					"resume": { "type": "boolean" },
+					"closeOnEnd": { "type": "boolean" },
+					"load": { "type": "string", "enum": [ "open", "page" ] },
+					"clickToLoad": { "type": "boolean" },
+					"nocookie": { "type": "boolean" },
+					"clickToLoadMessage": { "type": "string", "maxLength": 300 }
+				}
+			}
+		}
+	}
+}
