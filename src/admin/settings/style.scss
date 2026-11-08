@@ -1,0 +1,204 @@
+/**
+ * Settings screen. wp-admin chrome: form tables with @wordpress/components.
+ */
+
+@use "../../components/overlay-color/style" as overlay-color;
+@use "../../components/style-options/style" as style-options;
+@use "../../components/style-picker/style" as style-picker;
+
+.modal-kit-settings {
+
+	.nav-tab-wrapper {
+		margin-bottom: 8px;
+	}
+
+	.form-table th {
+		width: 220px;
+	}
+
+	.form-table td > .components-base-control,
+	.form-table td > .components-toggle-control,
+	.form-table td > .components-form-token-field {
+		max-width: 420px;
+	}
+
+	.components-checkbox-control,
+	.components-toggle-control {
+		margin-bottom: 8px;
+	}
+
+	.description {
+		max-width: 520px;
+	}
+}
+
+.modal-kit-settings__notice {
+	margin: 12px 0;
+}
+
+.modal-kit-inline-field {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+
+	.components-base-control {
+		width: 100px;
+	}
+}
+
+.modal-kit-segmented {
+	display: inline-flex;
+	gap: 4px;
+}
+
+// Form at its natural width, the preview beside it taking the rest
+// (mockup 5b). Capped so very wide screens don't spread it out.
+.modal-kit-display {
+	display: grid;
+	grid-template-columns: minmax(0, 680px) minmax(360px, 1fr);
+	gap: 32px;
+	align-items: start;
+	max-width: 1600px;
+
+	@media (max-width: 1100px) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+.modal-kit-overlay-field {
+	display: grid;
+	gap: 16px;
+	max-width: 420px;
+}
+
+.modal-kit-preview {
+	position: sticky;
+	top: 48px;
+	border: 1px solid #c3c4c7;
+	background: #fff;
+}
+
+.modal-kit-preview__bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px 12px;
+	border-bottom: 1px solid #c3c4c7;
+}
+
+// The iframe is drawn at a device size and scaled to fit (display.js).
+.modal-kit-preview__frame {
+	overflow: hidden;
+	background: #f0f0f1;
+
+	iframe {
+		display: block;
+		border: 0;
+		transform-origin: 0 0;
+		pointer-events: none;
+	}
+
+	&.is-mobile {
+		display: flex;
+		justify-content: center;
+
+		iframe {
+			flex: none;
+			transform-origin: 50% 0;
+		}
+	}
+}
+
+.modal-kit-dropzone {
+	position: relative;
+	max-width: 420px;
+	margin-bottom: 8px;
+	padding: 16px;
+	border: 1px dashed #8c8f94;
+	border-radius: 4px;
+
+	p {
+		margin: 0;
+	}
+}
+
+.modal-kit-pro-table {
+	max-width: 640px;
+
+	td:not(:first-child),
+	th:not(:first-child) {
+		width: 80px;
+		text-align: center;
+	}
+}
+
+.modal-kit-pro-links {
+	margin: 16px 0 24px;
+}
+
+// Settings → Styles (14d).
+.modal-kit-styles__bar {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	margin: 16px 0;
+}
+
+.modal-kit-styles__table {
+	max-width: 960px;
+
+	.check-column {
+		width: 2.2em;
+		vertical-align: middle;
+	}
+
+	td,
+	th {
+		vertical-align: middle;
+	}
+}
+
+.modal-kit-styles__name {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+
+	.description {
+		display: block;
+		font-weight: 400;
+	}
+}
+
+.modal-kit-styles__actions {
+	white-space: nowrap;
+
+	.components-button + .components-button {
+		margin-inline-start: 12px;
+	}
+}
+
+.modal-kit-styles__export {
+	max-width: 960px;
+	margin-top: 24px;
+}
+
+.modal-kit-styles__json {
+	max-height: 240px;
+	overflow: auto;
+	padding: 12px;
+	background: #f6f7f7;
+	font-size: 12px;
+}
+
+// The Style editor note (#133): one line, dismissible.
+.modal-kit-styles__pro {
+	margin: 12px 0;
+}
+
+.modal-kit-styles__badge {
+	padding: 1px 6px;
+	border-radius: 2px;
+	background: #f0f0f0;
+	font-size: 11px;
+	font-weight: 600;
+}

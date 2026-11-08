@@ -1,0 +1,645 @@
+/**
+ * Setup wizard (mockups 7a–7d). wp-admin chrome on @wordpress/components.
+ */
+
+// Fonts, radius and shadow of the Modal Kit styles, for their samples.
+@use "../../styles/generated";
+
+.modal-kit-wizard-wrap {
+	max-width: 1100px;
+	margin: 32px auto;
+}
+
+// Mockups 7a–7d: white header and footer around a grey body.
+.modal-kit-wizard {
+	overflow: hidden;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	background: #f0f0f1;
+
+	h1 {
+		margin: 0 0 8px;
+		padding: 0;
+		font-size: 23px;
+		font-weight: 600;
+	}
+
+	fieldset {
+		margin: 24px 0 0;
+		padding: 0;
+		border: 0;
+	}
+
+	legend {
+		margin-bottom: 12px;
+		font-size: 14px;
+		font-weight: 600;
+	}
+}
+
+.modal-kit-wizard__header {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 64px;
+	padding: 0 28px;
+	border-bottom: 1px solid #e0e0e0;
+	background: #fff;
+}
+
+.modal-kit-wizard__brand {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+// The Modal Kit mark: a dialog outline with a filled panel.
+.modal-kit-wizard__mark {
+	position: relative;
+	box-sizing: border-box;
+	flex: none;
+	width: 22px;
+	height: 22px;
+	border: 2.5px solid #1e1e1e;
+	border-radius: 6px;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 4px 2px;
+		border-radius: 2px;
+		background: var(--wp-admin-theme-color, #3858e9);
+	}
+}
+
+.modal-kit-wizard__exit.components-button.is-link {
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+.modal-kit-wizard__steps {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: #757575;
+
+	li {
+		display: flex;
+		gap: 8px;
+		align-items: center;
+		margin: 0;
+	}
+
+	.is-current {
+		color: #1e1e1e;
+		font-weight: 600;
+	}
+}
+
+.modal-kit-wizard__step-line {
+	width: 28px;
+	height: 1px;
+	background: #c3c4c7;
+}
+
+.modal-kit-wizard__step-number {
+	display: inline-grid;
+	place-items: center;
+	box-sizing: border-box;
+	width: 22px;
+	height: 22px;
+	border: 1px solid #949494;
+	border-radius: 50%;
+	font-size: 11px;
+	font-weight: 600;
+
+	.is-current & {
+		border-color: var(--wp-admin-theme-color, #3858e9);
+		background: var(--wp-admin-theme-color, #3858e9);
+		color: #fff;
+	}
+
+	.is-done & {
+		border-color: #1e1e1e;
+		background: #1e1e1e;
+		color: #fff;
+	}
+}
+
+// Content column: 860px wide at most, centred on the grey body.
+.modal-kit-wizard__body {
+	padding: 36px max(28px, calc((100% - 860px) / 2));
+}
+
+.modal-kit-wizard__lead {
+	max-width: 560px;
+	margin: 0 0 24px;
+	color: #50575e;
+	font-size: 14px;
+}
+
+.modal-kit-wizard__theme {
+	display: flex;
+	gap: 16px;
+	align-items: flex-start;
+	justify-content: space-between;
+	padding: 16px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+
+	p {
+		margin: 4px 0 0;
+		color: #50575e;
+	}
+}
+
+.modal-kit-wizard__badge {
+	flex: none;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: #edfaef;
+	color: #00450c;
+	font-size: 12px;
+}
+
+.modal-kit-wizard__choices {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+
+// Use-case cards (7a): white, a blue 2px border when chosen.
+.modal-kit-wizard__choice {
+	padding: 16px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background: #fff;
+
+	&.is-checked {
+		padding: 15px;
+		border: 2px solid var(--wp-admin-theme-color, #3858e9);
+	}
+
+	.components-checkbox-control__help {
+		margin-top: 3px;
+		color: #50575e;
+		line-height: 1.45;
+	}
+}
+
+.modal-kit-wizard__detected {
+	color: #00a32a;
+}
+
+.modal-kit-wizard__styles {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+	margin-bottom: 24px;
+}
+
+.modal-kit-wizard__style {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	align-items: flex-start;
+	padding: 16px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+
+	&[aria-checked="true"] {
+		box-shadow: 0 0 0 2px var(--wp-admin-theme-color, #3858e9);
+		border-color: transparent;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+		outline-offset: 2px;
+	}
+
+	> span:last-child {
+		color: #50575e;
+		font-size: 12px;
+	}
+
+	svg {
+		margin-bottom: 4px;
+	}
+}
+
+// Starters (7d): a drawn preview on a striped page, then name and kind.
+.modal-kit-wizard__starters {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+	margin-bottom: 24px;
+}
+
+.modal-kit-wizard__starter {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+
+	&:focus-visible {
+		outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+		outline-offset: 4px;
+	}
+
+	&.is-pro {
+		cursor: default;
+	}
+}
+
+.modal-kit-wizard__starter-preview {
+	position: relative;
+	display: grid;
+	place-items: center;
+	box-sizing: border-box;
+	height: 150px;
+	overflow: hidden;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background: repeating-linear-gradient(135deg, #ecebf2 0 6px, #f6f5fa 6px 12px);
+
+	[aria-checked="true"] > & {
+		border: 2px solid var(--wp-admin-theme-color, #3858e9);
+	}
+
+	.modal-kit-wizard__starter:not(.is-pro):hover > & {
+		border-color: #949494;
+	}
+
+	.modal-kit-wizard__starter[aria-checked="true"]:hover > & {
+		border-color: var(--wp-admin-theme-color, #3858e9);
+	}
+}
+
+.modal-kit-wizard__starter-meta {
+	display: flex;
+	gap: 8px;
+	align-items: baseline;
+	justify-content: space-between;
+
+	strong {
+		min-width: 0;
+	}
+
+	> span {
+		flex: none;
+		color: #757575;
+		font-size: 12px;
+		text-align: right;
+	}
+}
+
+.modal-kit-wizard__plus {
+	color: #949494;
+	font-size: 28px;
+	line-height: 1;
+}
+
+// The miniature modal inside a preview, in the theme's colors.
+.modal-kit-wizard__mini {
+	display: flex;
+	box-sizing: border-box;
+	overflow: hidden;
+	font-size: 11px;
+	line-height: 1.15;
+	overflow-wrap: anywhere;
+
+	&.is-centered,
+	&.is-split,
+	&.is-corner,
+	&.is-sheet,
+	&.is-inline {
+		width: 150px;
+		border-radius: 5px;
+		box-shadow: 0 6px 18px rgba(20, 16, 40, 0.15);
+	}
+
+	&.is-split {
+		width: 170px;
+	}
+
+	&.is-corner {
+		position: absolute;
+		right: 12px;
+		bottom: 12px;
+		width: 120px;
+	}
+
+	&.is-sheet {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: auto;
+		border-radius: 8px 8px 0 0;
+	}
+
+	&.is-look-default {
+		border-radius: 2px;
+	}
+
+	&.is-look-soft {
+		border-radius: 12px;
+	}
+
+	&.is-sheet.is-look-soft {
+		border-radius: 12px 12px 0 0;
+	}
+
+	&.is-bar {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		justify-content: center;
+		padding: 7px 10px;
+		font-size: 8px;
+		text-align: center;
+	}
+
+	&.is-full {
+		position: absolute;
+		inset: 12px;
+		flex-direction: column;
+		justify-content: center;
+		gap: 6px;
+		padding: 14px;
+		border-radius: 3px;
+
+		.modal-kit-wizard__mini-heading {
+			font-size: 16px;
+			line-height: 1;
+		}
+
+		.modal-kit-wizard__mini-button {
+			border-radius: 9px;
+		}
+	}
+
+	&.is-drawer {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		flex-direction: column;
+		gap: 5px;
+		width: 100px;
+		padding: 10px;
+		font-size: 8px;
+	}
+}
+
+.modal-kit-wizard__mini-media {
+	flex: 0 0 40%;
+}
+
+.modal-kit-wizard__mini-content {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 5px;
+	min-width: 0;
+	padding: 12px;
+}
+
+.modal-kit-wizard__mini-heading {
+	font-weight: 600;
+}
+
+.modal-kit-wizard__mini-button {
+	align-self: flex-start;
+	padding: 3px 6px;
+	border-radius: 3px;
+	font-size: 6px;
+	white-space: nowrap;
+}
+
+.modal-kit-wizard__mini-line {
+	height: 20px;
+	border-radius: 3px;
+	background: #ecebf2;
+}
+
+.modal-kit-wizard__mini-progress {
+	height: 4px;
+	background: #ecebf2;
+
+	span {
+		display: block;
+		width: 60%;
+		height: 100%;
+	}
+}
+
+// Style samples: one modal drawn in each look, all with the same copy. The
+// card reads the --mk-* tokens: the theme's colors for Native, Soft
+// and Editorial (set inline from Wizard::colors()), the style's own for the
+// Modal Kit styles (inline, plus fonts, radius and shadow from their class).
+.modal-kit-wizard__sample {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 0;
+	margin-bottom: 8px;
+	padding: 16px;
+	border: 1px solid var(--mk-sample-border, transparent);
+	border-radius: var(--mk-radius-panel, 0);
+	background: var(--mk-surface, #fff);
+	box-shadow: var(--mk-shadow, none);
+	color: var(--mk-ink, #1e1e1e);
+	font-family: var(--mk-font-body, inherit);
+	overflow-wrap: anywhere;
+
+	// Flat: a hairline instead of a shadow, square corners.
+	.is-default & {
+		--mk-sample-border: color-mix(in srgb, var(--mk-ink) 18%, transparent);
+	}
+
+	// Rounded and layered.
+	.is-soft & {
+		--mk-radius-panel: 14px;
+		--mk-radius-button: 999px;
+		--mk-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+	}
+
+	// Inverted, with heavy, tight headings.
+	.is-editorial & {
+		--mk-head-weight: 800;
+		--mk-head-tracking: -0.02em;
+	}
+}
+
+.modal-kit-wizard__sample-eyebrow {
+	color: var(--mk-accent);
+	font-family: var(--mk-font-mono, inherit);
+	font-size: 10px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+
+	// On the theme's looks the accent is its button color, often the ink.
+	.modal-kit-wizard__style:not(.is-fixed) & {
+		color: inherit;
+		opacity: 0.7;
+	}
+}
+
+.modal-kit-wizard__sample-heading {
+	font-family: var(--mk-font-head, inherit);
+	font-size: 17px;
+	font-weight: var(--mk-head-weight, 600);
+	letter-spacing: var(--mk-head-tracking, normal);
+	line-height: 1.1;
+}
+
+.modal-kit-wizard__sample-button {
+	align-self: flex-start;
+	padding: 4px 10px;
+	border-radius: var(--mk-radius-button, 3px);
+	background: var(--mk-accent);
+	color: var(--mk-on-accent);
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.modal-kit-wizard__row {
+	display: flex;
+	gap: 24px;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	padding: 16px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+
+	p {
+		margin: 4px 0 0;
+		color: #50575e;
+	}
+
+	.components-base-control {
+		min-width: 220px;
+	}
+}
+
+// Behaviour (7c): every setting in one panel, divided by thin rules.
+.modal-kit-wizard__panel {
+	padding: 6px 20px 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background: #fff;
+
+	> * + * {
+		border-top: 1px solid #f0f0f1;
+	}
+}
+
+.modal-kit-wizard__setting {
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 14px 0;
+
+	p {
+		margin: 3px 0 0;
+		color: #50575e;
+	}
+
+	.components-base-control {
+		flex: none;
+		width: 220px;
+	}
+}
+
+.modal-kit-wizard__switch.components-toggle-control {
+	padding: 14px 0;
+
+	.components-toggle-control__label {
+		font-weight: 600;
+	}
+
+	.components-toggle-control__help {
+		margin-top: 3px;
+		color: #50575e;
+		line-height: 1.45;
+	}
+}
+
+// Filter chips (7d).
+.modal-kit-wizard__filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-bottom: 22px;
+}
+
+.modal-kit-wizard__chip.components-button {
+	height: auto;
+	padding: 5px 10px;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	background: #fff;
+	color: #1e1e1e;
+
+	&.is-pressed,
+	&.is-pressed:hover:not(:disabled) {
+		border-color: #1e1e1e;
+		background: #1e1e1e;
+		color: #fff;
+	}
+}
+
+.modal-kit-wizard__footer {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 72px;
+	padding: 0 28px;
+	border-top: 1px solid #e0e0e0;
+	background: #fff;
+}
+
+.modal-kit-wizard__selected {
+	margin-left: auto;
+	color: #50575e;
+}
+
+.modal-kit-pro-badge {
+	padding: 1px 6px;
+	border-radius: 2px;
+	background: #f0f0f0;
+	color: #1e1e1e;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+}
