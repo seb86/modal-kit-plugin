@@ -1,0 +1,281 @@
+/**
+ * Pattern picker (mockup 1h). wp-admin chrome, built on @wordpress/components.
+ */
+
+.modal-kit-picker {
+
+	.components-modal__content {
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+	}
+
+	.components-modal__header {
+		gap: 16px;
+	}
+}
+
+.modal-kit-picker__search {
+	width: min(320px, 40vw);
+}
+
+.modal-kit-picker__body {
+	display: grid;
+	flex: 1;
+	grid-template-columns: 220px minmax(0, 1fr);
+	min-height: 0;
+}
+
+.modal-kit-picker__categories {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 16px;
+	border-right: 1px solid #e0e0e0;
+
+	.modal-kit-picker__category.components-button {
+		justify-content: space-between;
+		width: 100%;
+	}
+}
+
+.modal-kit-picker__count {
+	opacity: 0.7;
+	font-variant-numeric: tabular-nums;
+}
+
+.modal-kit-picker__main {
+	padding: 16px 24px 24px;
+	overflow: auto;
+}
+
+.modal-kit-picker__hint {
+	margin: 0 0 12px;
+	color: #757575;
+}
+
+.modal-kit-picker__filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-bottom: 20px;
+}
+
+.modal-kit-picker__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 20px;
+}
+
+.modal-kit-picker__card {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	width: 100%;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	border-radius: 4px;
+	background: #fff;
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+	box-shadow: 0 0 0 1px #e0e0e0;
+
+	&:hover {
+		box-shadow: 0 0 0 1px #949494;
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+		outline-offset: 2px;
+	}
+
+	&[aria-pressed="true"] {
+		box-shadow: 0 0 0 2px var(--wp-admin-theme-color, #3858e9);
+	}
+}
+
+.modal-kit-picker__preview {
+	display: block;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+	border-bottom: 1px solid #e0e0e0;
+	pointer-events: none;
+}
+
+.modal-kit-picker__title {
+	padding: 10px 12px 0;
+	font-weight: 600;
+}
+
+.modal-kit-picker__layout {
+	padding: 2px 12px 10px;
+	color: #757575;
+	font-size: 12px;
+}
+
+.modal-kit-picker__footer {
+	position: sticky;
+	bottom: 0;
+	z-index: 1;
+	display: flex;
+	background: #fff;
+	gap: 8px;
+	justify-content: flex-end;
+	padding: 12px 24px;
+	border-top: 1px solid #e0e0e0;
+}
+
+.modal-kit-picker__empty {
+	grid-column: 1 / -1;
+	color: #757575;
+}
+
+// Pro collections (4b): listings drawn as sketches, not patterns.
+.modal-kit-picker__nav-heading {
+	margin: 16px 0 4px;
+	padding: 0 12px;
+	color: #757575;
+	font-size: 11px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.modal-kit-picker__sketch {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: center;
+	justify-content: center;
+	background: #f6f7f7;
+	color: #1e1e1e;
+	font-size: 13px;
+}
+
+.modal-kit-picker__sketch-button {
+	padding: 3px 10px;
+	border-radius: 3px;
+	background: #1e1e1e;
+	color: #fff;
+	font-size: 11px;
+}
+
+.modal-kit-picker__pro {
+	padding: 12px 24px;
+	border-top: 1px solid #e0e0e0;
+	background: #f6f7f7;
+
+	p {
+		margin: 0 0 6px;
+	}
+}
+
+.modal-kit-pro-badge {
+	padding: 1px 6px;
+	border-radius: 2px;
+	background: #f0f0f0;
+	color: #1e1e1e;
+	font-size: 10px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+}
+
+.modal-kit-picker__pro-dismiss {
+	margin: 4px 12px 0;
+}
+
+.modal-kit-pro-menu-group__items {
+	margin: 0;
+	padding: 4px 8px;
+	list-style: none;
+	font-size: 13px;
+
+	li {
+		margin: 0;
+		padding: 4px 0;
+	}
+}
+
+.modal-kit-pro-menu-group__note {
+	max-width: 260px;
+	padding: 4px 8px 8px;
+	color: #757575;
+	font-size: 12px;
+
+	p {
+		margin: 0 0 4px;
+	}
+}
+
+// 2e: with the preview pane, the body gets a third column.
+.modal-kit-picker__body:has(.modal-kit-picker__pane) {
+	grid-template-columns: 220px minmax(0, 1fr) minmax(320px, 400px);
+}
+
+.modal-kit-picker__features {
+	margin: 0;
+	padding: 0;
+	border: 0;
+
+	legend {
+		margin-bottom: 4px;
+	}
+
+	.components-checkbox-control {
+		padding: 4px 12px;
+	}
+}
+
+.modal-kit-picker__pane {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 16px;
+	overflow: auto;
+	border-left: 1px solid #e0e0e0;
+	background: #f6f7f7;
+}
+
+.modal-kit-picker__devices {
+	display: flex;
+	gap: 4px;
+}
+
+.modal-kit-picker__pane-preview {
+	overflow: hidden;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	background: #fff;
+
+	&.is-mobile {
+		align-self: center;
+		width: 200px;
+	}
+}
+
+.modal-kit-picker__pane-title,
+.modal-kit-picker__pane-details {
+	margin: 0;
+}
+
+.modal-kit-picker__pane-details {
+	color: #757575;
+}
+
+// "Change template": asks before replacing an existing modal.
+.modal-kit-picker__confirm {
+
+	p {
+		max-width: 480px;
+		margin: 0 0 12px;
+	}
+}
+
+.modal-kit-picker__confirm-actions {
+	display: flex;
+	gap: 8px;
+	justify-content: flex-end;
+	margin-top: 24px;
+}

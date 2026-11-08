@@ -1,0 +1,129 @@
+/**
+ * Modal sidebar panels (mockups 1e, 1f, 5c). wp-admin chrome.
+ */
+
+.modal-kit-panel {
+
+	.components-base-control,
+	.components-toggle-control,
+	.components-checkbox-control,
+	.components-form-token-field,
+	.modal-kit-trigger,
+	fieldset {
+		margin-bottom: 16px;
+	}
+
+	fieldset {
+		padding: 0;
+		border: 0;
+	}
+
+	legend {
+		margin-bottom: 8px;
+		font-size: 11px;
+		font-weight: 500;
+		text-transform: uppercase;
+	}
+}
+
+.modal-kit-panel__intro,
+.modal-kit-panel__help {
+	margin: 0 0 12px;
+	color: #757575;
+	font-size: 12px;
+}
+
+.modal-kit-trigger {
+	padding: 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 2px;
+
+	&.is-always-on {
+		background: #f6f7f7;
+	}
+}
+
+.modal-kit-trigger__header {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.modal-kit-trigger__badge {
+	color: #757575;
+	font-size: 11px;
+}
+
+.modal-kit-trigger__help {
+	margin: 0 0 6px;
+	color: #757575;
+	font-size: 12px;
+}
+
+.modal-kit-trigger__anchor {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+
+	code {
+		flex: 1;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.modal-kit-devices {
+	display: flex;
+	gap: 4px;
+}
+
+// Eight browsers don't fit on one row of the sidebar.
+.modal-kit-browsers {
+	flex-wrap: wrap;
+	margin: -8px 0 16px;
+}
+
+// Pro listing at the end of Display rules (Upsell.php, area "rules").
+.modal-kit-rules-listing {
+	margin-top: 16px;
+	padding-top: 12px;
+	border-top: 1px solid #e0e0e0;
+
+	p {
+		margin: 0 0 6px;
+	}
+}
+
+.modal-kit-override-dot {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin-left: 8px;
+	border-radius: 50%;
+	background: var(--wp-admin-theme-color, #3858e9);
+	vertical-align: middle;
+}
+
+.modal-kit-overridden {
+	display: block;
+	margin: -10px 0 14px;
+	color: var(--wp-admin-theme-color, #3858e9);
+	font-size: 12px;
+}
+
+// Display rules → Pages: suggestions show as you type, so the field's own
+// "Separate with commas…" hint is hidden on screen. Screen readers still
+// get it: the input stays linked to it.
+.modal-kit-page-tokens {
+	margin-bottom: 16px;
+
+	.components-form-token-field__help {
+		display: none;
+	}
+
+	.modal-kit-panel__help {
+		margin: 8px 0 0;
+	}
+}

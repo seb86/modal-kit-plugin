@@ -1,0 +1,137 @@
+/**
+ * The Style dropdown and the Accent and Fonts overrides
+ * (components/style-options). Imported by the Modal block's editor styles
+ * and the Settings screen.
+ */
+
+.modal-kit-style-select {
+	display: block;
+	width: 100%;
+}
+
+.modal-kit-style-select__toggle.components-button {
+	gap: 10px;
+	justify-content: flex-start;
+	width: 100%;
+	padding: 0 32px 0 12px;
+	border: 1px solid #949494;
+	border-radius: 2px;
+	background: #fff;
+	color: #1e1e1e;
+
+	// The select chevron.
+	&::after {
+		content: "";
+		position: absolute;
+		inset-inline-end: 12px;
+		width: 6px;
+		height: 6px;
+		border-block-end: 1.5px solid currentcolor;
+		border-inline-end: 1.5px solid currentcolor;
+		transform: translateY(-2px) rotate(45deg);
+	}
+
+	&[aria-expanded="true"] {
+		border-color: var(--wp-admin-theme-color, #3858e9);
+		box-shadow: 0 0 0 0.5px var(--wp-admin-theme-color, #3858e9);
+	}
+}
+
+.modal-kit-style-select__menu {
+	min-width: 240px;
+	padding: 4px;
+
+	.components-menu-group__label {
+		padding-inline: 8px;
+	}
+}
+
+.modal-kit-style-select__item {
+	display: inline-flex;
+	gap: 10px;
+	align-items: center;
+}
+
+// Two dots per Modal Kit style: its surface and its accent.
+.modal-kit-style-swatches {
+	display: inline-flex;
+	flex: none;
+	gap: 2px;
+
+	> span {
+		box-sizing: border-box;
+		width: 10px;
+		height: 10px;
+		border: 1px solid rgb(0 0 0 / 20%);
+		border-radius: 50%;
+	}
+}
+
+.modal-kit-style-options {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	.components-notice {
+		margin: 0;
+	}
+}
+
+// A segmented choice (Settings → Display's Size, Accent, Fonts).
+.modal-kit-segmented {
+	display: flex;
+	gap: 2px;
+	padding: 3px;
+	border: 1px solid #949494;
+	border-radius: 2px;
+	background: #fff;
+
+	.components-button {
+		flex: 1;
+		justify-content: center;
+		height: 34px;
+		min-height: 34px;
+		padding: 0 6px;
+		font-size: 12px;
+		white-space: nowrap;
+	}
+
+	// Accent and Fonts (13a), one option per row: side by side, "Theme
+	// primary" and "Custom" don't fit the 280px sidebar.
+	&.is-stacked {
+		flex-direction: column;
+
+		.components-button {
+			flex: none;
+			justify-content: flex-start;
+			width: 100%;
+			height: 36px;
+			min-height: 36px;
+			padding: 0 10px;
+			font-size: 13px;
+			text-align: start;
+		}
+	}
+}
+
+// Swatches and "Aa" samples on the Accent and Fonts options (13a).
+.modal-kit-style-options__swatch {
+	flex: none;
+	width: 14px;
+	height: 14px;
+	margin-inline-end: 6px;
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 1px rgb(0 0 0 / 15%);
+}
+
+.modal-kit-style-options__aa {
+	margin-inline-end: 6px;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.modal-kit-style-options__ratio {
+	margin: 4px 0 0;
+	color: #757575;
+	font-size: 12px;
+}

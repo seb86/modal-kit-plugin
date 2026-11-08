@@ -1,0 +1,31 @@
+/**
+ * The overlay color control (components/overlay-color): a row like core's
+ * Background color control. Imported by the Modal block's editor styles and
+ * the Settings screen.
+ */
+
+.modal-kit-overlay-color {
+	display: block;
+	width: 100%;
+}
+
+.modal-kit-overlay-color__toggle.components-button {
+	gap: 8px;
+	justify-content: flex-start;
+	width: 100%;
+	height: 40px;
+	padding: 0 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 2px;
+	background: #fff;
+
+	&[aria-expanded="true"] {
+		color: var(--wp-admin-theme-color, #3858e9);
+		background: #f0f0f0;
+	}
+}
+
+.modal-kit-overlay-color__popover {
+	width: 260px;
+	padding: 16px;
+}
