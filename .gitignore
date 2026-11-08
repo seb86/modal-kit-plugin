@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+/vendor/
+
+# Build output
+/build/
+/dist/
+/releases/
+*.zip
+
+# Tests and tooling
+/artifacts/
+/test-results/
+/playwright-report/
+/coverage/
+.phpunit.result.cache
+phpunit.xml
+.env
+.phpcs-cache
+.eslintcache
+.wp-env.override.json
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+*.log

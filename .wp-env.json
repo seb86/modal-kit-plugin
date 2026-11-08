@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/wp-env.json",
+	"$comment": "Used by CI only. Local development runs on Laragon (see .env.example).",
+	"core": null,
+	"testsEnvironment": false,
+	"port": 8889,
+	"plugins": [
+		"https://downloads.wordpress.org/plugin/woocommerce.zip",
+		"https://downloads.wordpress.org/plugin/simply-static.zip"
+	],
+	"themes": [
+		"https://downloads.wordpress.org/theme/ollie.zip",
+		"https://downloads.wordpress.org/theme/twentytwentyfive.zip",
+		"https://downloads.wordpress.org/theme/twentytwentyone.zip"
+	],
+	"mappings": {
+		"wp-content/plugins/modal-kit": ".",
+		"wp-content/mu-plugins/modal-kit-e2e.php": "./tests/e2e/mu-plugins/modal-kit-e2e.php",
+		"wp-content/static-export": "./artifacts/static-export"
+	},
+	"config": {
+		"WP_DEBUG": true,
+		"SCRIPT_DEBUG": false
+	},
+	"lifecycleScripts": {
+		"afterStart": "npx @wordpress/env@12 run cli wp plugin activate modal-kit && npx @wordpress/env@12 run cli wp plugin deactivate woocommerce simply-static"
+	}
+}

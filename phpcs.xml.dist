@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<ruleset name="Modal Kit">
+	<description>Coding standards for Modal Kit.</description>
+
+	<file>.</file>
+
+	<exclude-pattern>*/build/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<!-- Local tooling, not part of the plugin. -->
+	<exclude-pattern>*/bin/*</exclude-pattern>
+	<exclude-pattern>*/artifacts/*</exclude-pattern>
+	<exclude-pattern>*/tests/phpstan/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="cache" value=".phpcs-cache"/>
+	<arg name="parallel" value="8"/>
+	<arg value="sp"/>
+
+	<config name="testVersion" value="7.4-"/>
+	<config name="minimum_wp_version" value="6.6"/>
+
+	<rule ref="WordPress-Extra"/>
+	<rule ref="WordPress-Docs"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="modal-kit"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="modal_kit"/>
+				<element value="ModalKit"/>
+				<element value="MODAL_KIT"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Classes follow the plan's PSR-4 style file names (includes/PostType.php). -->
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>*/includes/*</exclude-pattern>
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+
+	<!-- Test method names describe the behaviour; no doc block needed. -->
+	<rule ref="Squiz.Commenting.FunctionComment.Missing">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="Generic.Commenting.DocComment.MissingShort">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+</ruleset>
