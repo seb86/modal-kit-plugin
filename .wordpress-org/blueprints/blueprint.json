@@ -1,0 +1,33 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Modal Kit",
+		"author": "Sébastien Dumont",
+		"description": "Every free starter as a modal, on a front page with a button for each."
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "modal-kit"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php\n/**\n * Demo content for the WordPress.org \"Live Preview\" (Playground): every free\n * starter as a published modal, and a front page with a button for each.\n * The Shipping notice bar opens on its own; the rest open from their button.\n *\n * Embedded as the blueprint's runPHP step by `npm run wporg:blueprint`\n * (bin/blueprint.mjs). Not part of the plugin.\n *\n * @package ModalKit\n */\n\n// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals -- A Playground script, not plugin code.\n\nrequire '/wordpress/wp-load.php';\n\nwp_set_current_user( 1 );\n\n// The preview starts with demo modals, so skip the first-run redirect.\ndelete_transient( 'modal_kit_wizard_redirect' );\nupdate_option( 'modal_kit_wizard_done', time(), false );\n\n$defaults = \\ModalKit\\Meta::schema( 'rules' )['default'];\n$settings = \\ModalKit\\Patterns::starter_settings();\n$page_id  = wp_insert_post(\n\tarray(\n\t\t'post_type'   => 'page',\n\t\t'post_status' => 'publish',\n\t\t'post_title'  => 'Modal Kit',\n\t\t'post_name'   => 'modal-kit',\n\t)\n);\n$buttons  = array();\n\nforeach ( WP_Block_Patterns_Registry::get_instance()->get_all_registered() as $pattern ) {\n\tif ( 0 !== strpos( $pattern['name'], 'modal-kit/' ) ) {\n\t\tcontinue;\n\t}\n\n\t$slug  = substr( $pattern['name'], strlen( 'modal-kit/' ) );\n\t$own   = isset( $settings[ $pattern['name'] ] ) ? $settings[ $pattern['name'] ] : array();\n\t$rules = \\ModalKit\\Meta::merge_defaults( isset( $own['rules'] ) ? $own['rules'] : array(), $defaults );\n\n\t// Only on the demo page, and links always open it.\n\t$rules['showOn']['mode']    = 'include';\n\t$rules['showOn']['include'] = array( 'post:' . $page_id );\n\n\t$modal_id = wp_insert_post(\n\t\tarray(\n\t\t\t'post_type'    => \\ModalKit\\PostType::NAME,\n\t\t\t'post_status'  => 'publish',\n\t\t\t'post_title'   => $pattern['title'],\n\t\t\t'post_name'    => $slug,\n\t\t\t'post_content' => $pattern['content'],\n\t\t)\n\t);\n\n\tupdate_post_meta(\n\t\t$modal_id,\n\t\t'_modal_kit_triggers',\n\t\t'shipping-notice' === $slug ? array(\n\t\t\tarray(\n\t\t\t\t'type'  => 'load',\n\t\t\t\t'delay' => 1,\n\t\t\t),\n\t\t) : array()\n\t);\n\tupdate_post_meta( $modal_id, '_modal_kit_rules', $rules );\n\n\t$buttons[ $pattern['title'] ] = '<!-- wp:button {\"className\":\"is-style-outline\"} --><div class=\"wp-block-button is-style-outline\"><a class=\"wp-block-button__link wp-element-button\" href=\"#modal-' . esc_attr( $slug ) . '\">' . esc_html( $pattern['title'] ) . '</a></div><!-- /wp:button -->';\n}\n\nksort( $buttons );\n\n// The theme prints the page title.\n$content = '<!-- wp:paragraph --><p>Modals and popups built from core blocks, in your theme’s colors, fonts and spacing. Each button opens one of the starter templates: try them on a phone-sized window too.</p><!-- /wp:paragraph -->'\n\t. '<!-- wp:buttons --><div class=\"wp-block-buttons\">' . implode( '', $buttons ) . '</div><!-- /wp:buttons -->'\n\t. '<!-- wp:paragraph --><p>To edit them, or to start a new one from a starter, go to <a href=\"' . esc_url( admin_url( 'edit.php?post_type=' . \\ModalKit\\PostType::NAME ) ) . '\">Modal Kit → All Modals</a>. <a href=\"' . esc_url( admin_url( 'edit.php?post_type=' . \\ModalKit\\PostType::NAME . '&page=modal-kit-settings' ) ) . '\">Settings</a> holds the site-wide defaults and styles.</p><!-- /wp:paragraph -->';\n\nwp_update_post(\n\tarray(\n\t\t'ID'           => $page_id,\n\t\t'post_content' => $content,\n\t)\n);\n\nupdate_option( 'blogname', 'Modal Kit demo' );\nupdate_option( 'show_on_front', 'page' );\nupdate_option( 'page_on_front', $page_id );\n"
+		}
+	]
+}

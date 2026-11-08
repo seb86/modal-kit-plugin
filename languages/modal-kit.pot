@@ -1,0 +1,3294 @@
+# Copyright (C) 2026 Sébastien Dumont
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Modal Kit 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/modal-kit\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-08T02:00:45+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: modal-kit\n"
+
+#. Plugin Name of the plugin
+#: modal-kit.php
+msgid "Modal Kit"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: modal-kit.php
+msgid "https://github.com/seb86/modal-kit-plugin"
+msgstr ""
+
+#. Description of the plugin
+#: modal-kit.php
+msgid "Modals made of blocks: popups, slide-ins, bars, drawers, full-screen takeovers, bottom sheets and inline panels, built with core blocks."
+msgstr ""
+
+#. Author of the plugin
+#: modal-kit.php
+msgid "Sébastien Dumont"
+msgstr ""
+
+#: build/blocks/modal/render.php:33
+#: includes/Render.php:263
+msgid "Pause"
+msgstr ""
+
+#: includes/Accessibility.php:41
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+#: build/editor/index.js:13
+msgid "Close"
+msgstr ""
+
+#: includes/Admin/ModalList.php:56
+msgid "Title"
+msgstr ""
+
+#: includes/Admin/ModalList.php:57
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "Layout"
+msgstr ""
+
+#: includes/Admin/ModalList.php:58
+#: build/editor/index.js:8
+#: build/editor/index.js:9
+msgid "Triggers"
+msgstr ""
+
+#: includes/Admin/ModalList.php:59
+msgid "Shows on"
+msgstr ""
+
+#: includes/Admin/ModalList.php:60
+msgid "On / off"
+msgstr ""
+
+#: includes/Admin/ModalList.php:61
+msgid "Modified"
+msgstr ""
+
+#. translators: %s: modal title.
+#: includes/Admin/ModalList.php:111
+#, php-format
+msgid "Show “%s” on the site"
+msgstr ""
+
+#: includes/Admin/ModalList.php:132
+#: build/admin/settings.js:7
+#: build/admin/wizard.js:1
+#: build/editor/index.js:1
+msgid "Centered"
+msgstr ""
+
+#: includes/Admin/ModalList.php:133
+#: build/admin/settings.js:7
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:22
+#: build/editor/index.js:1
+msgid "Corner"
+msgstr ""
+
+#: includes/Admin/ModalList.php:134
+#: build/admin/settings.js:7
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:22
+#: build/editor/index.js:1
+#: build/editor/index.js:2
+msgid "Bar"
+msgstr ""
+
+#: includes/Admin/ModalList.php:135
+#: build/admin/settings.js:7
+#: build/admin/wizard.js:1
+#: build/editor/index.js:1
+msgid "Full-screen"
+msgstr ""
+
+#: includes/Admin/ModalList.php:136
+#: build/admin/settings.js:7
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:22
+#: build/editor/index.js:1
+msgid "Drawer"
+msgstr ""
+
+#: includes/Admin/ModalList.php:137
+#: build/admin/settings.js:7
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:22
+#: build/editor/index.js:1
+msgid "Split"
+msgstr ""
+
+#: includes/Admin/ModalList.php:138
+#: build/admin/settings.js:7
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:22
+#: build/editor/index.js:1
+msgid "Sheet"
+msgstr ""
+
+#: includes/Admin/ModalList.php:139
+#: build/admin/settings.js:7
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:22
+#: build/editor/index.js:1
+msgid "Inline"
+msgstr ""
+
+#: includes/Admin/ModalList.php:140
+#: includes/Patterns.php:33
+#: includes/Render.php:265
+#: includes/VideoLinks.php:143
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:22
+#: build/editor/index.js:1
+#: build/editor/index.js:2
+#: build/editor/index.js:13
+msgid "Video"
+msgstr ""
+
+#: includes/Admin/ModalList.php:166
+msgid "Page load"
+msgstr ""
+
+#. translators: %d: seconds.
+#: includes/Admin/ModalList.php:168
+#, php-format
+msgid "Page load + %ds"
+msgstr ""
+
+#. translators: %d: percent.
+#: includes/Admin/ModalList.php:172
+#, php-format
+msgid "Scroll %d%%"
+msgstr ""
+
+#: includes/Admin/ModalList.php:175
+#: build/editor/index.js:8
+msgid "Leaving the page"
+msgstr ""
+
+#. translators: %d: seconds.
+#: includes/Admin/ModalList.php:179
+#, php-format
+msgid "Time on site %ds"
+msgstr ""
+
+#. translators: %d: seconds.
+#: includes/Admin/ModalList.php:183
+#, php-format
+msgid "Inactivity %ds"
+msgstr ""
+
+#. translators: %s: query or hash.
+#: includes/Admin/ModalList.php:187
+#, php-format
+msgid "URL %s"
+msgstr ""
+
+#. translators: %s: element anchor.
+#: includes/Admin/ModalList.php:191
+#, php-format
+msgid "Element in view #%s"
+msgstr ""
+
+#. translators: %s: link anchor, e.g. #modal-hours.
+#: includes/Admin/ModalList.php:198
+#, php-format
+msgid "Click #%s"
+msgstr ""
+
+#: includes/Admin/ModalList.php:215
+msgid "Home"
+msgstr ""
+
+#: includes/Admin/ModalList.php:222
+msgid "(private page)"
+msgstr ""
+
+#: includes/Admin/ModalList.php:226
+msgid "(deleted page)"
+msgstr ""
+
+#: includes/Admin/ModalList.php:236
+#: build/editor/index.js:10
+msgid "Entire site"
+msgstr ""
+
+#: includes/Admin/ModalList.php:247
+msgid "No pages yet"
+msgstr ""
+
+#. translators: 1: where it shows, 2: excluded paths.
+#: includes/Admin/ModalList.php:252
+#, php-format
+msgid "%1$s, except %2$s"
+msgstr ""
+
+#: includes/Admin/ModalList.php:284
+#: build/admin/settings.js:30
+#: build/admin/settings.js:32
+msgid "Duplicate"
+msgstr ""
+
+#: includes/Admin/ModalList.php:293
+msgid "Copy link"
+msgstr ""
+
+#. translators: %s: start date.
+#: includes/Admin/ModalList.php:317
+#, php-format
+msgid "Scheduled · starts %s"
+msgstr ""
+
+#: includes/Admin/ModalList.php:321
+msgid "Off"
+msgstr ""
+
+#. translators: %s: count.
+#: includes/Admin/ModalList.php:380
+#, php-format
+msgid "Active <span class=\"count\">(%s)</span>"
+msgid_plural "Active <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: count.
+#: includes/Admin/ModalList.php:382
+#, php-format
+msgid "Scheduled <span class=\"count\">(%s)</span>"
+msgid_plural "Scheduled <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Admin/ModalList.php:440
+msgid "You can’t duplicate this modal."
+msgstr ""
+
+#. translators: %s: modal title.
+#: includes/Admin/ModalList.php:448
+#, php-format
+msgid "%s (copy)"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:70
+msgid "Modal Kit Settings"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:71
+#: includes/Admin/SettingsPage.php:86
+#: includes/Admin/SettingsPage.php:99
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:87
+#: includes/Wizard.php:124
+msgid "Loading…"
+msgstr ""
+
+#: includes/Patterns.php:29
+#: patterns/monthly-letter.php:25
+#: build/admin/wizard.js:1
+msgid "Newsletter"
+msgstr ""
+
+#: includes/Patterns.php:30
+msgid "Promo & discount"
+msgstr ""
+
+#: includes/Patterns.php:31
+#: build/admin/wizard.js:1
+msgid "Announcement"
+msgstr ""
+
+#: includes/Patterns.php:32
+msgid "Exit offer"
+msgstr ""
+
+#: includes/PostType.php:41
+msgid "Modals built from blocks."
+msgstr ""
+
+#: includes/PostType.php:129
+msgctxt "post type general name"
+msgid "Modals"
+msgstr ""
+
+#: includes/PostType.php:130
+msgctxt "post type singular name"
+msgid "Modal"
+msgstr ""
+
+#: includes/PostType.php:131
+msgctxt "admin menu"
+msgid "Modal Kit"
+msgstr ""
+
+#: includes/PostType.php:132
+msgctxt "add new on admin bar"
+msgid "Modal"
+msgstr ""
+
+#: includes/PostType.php:133
+#: includes/PostType.php:134
+msgid "Add New Modal"
+msgstr ""
+
+#: includes/PostType.php:135
+msgid "New Modal"
+msgstr ""
+
+#: includes/PostType.php:136
+msgid "Edit Modal"
+msgstr ""
+
+#: includes/PostType.php:137
+msgid "View Modal"
+msgstr ""
+
+#: includes/PostType.php:138
+msgid "All Modals"
+msgstr ""
+
+#: includes/PostType.php:139
+msgid "Search Modals"
+msgstr ""
+
+#: includes/PostType.php:140
+msgid "No modals found."
+msgstr ""
+
+#: includes/PostType.php:141
+msgid "No modals found in Trash."
+msgstr ""
+
+#: includes/PostType.php:142
+msgid "Modal published."
+msgstr ""
+
+#: includes/PostType.php:143
+msgid "Modal updated."
+msgstr ""
+
+#: includes/PostType.php:144
+msgid "Modal scheduled."
+msgstr ""
+
+#: includes/PostType.php:145
+msgid "Modal reverted to draft."
+msgstr ""
+
+#: includes/PostType.php:146
+msgid "Filter modals list"
+msgstr ""
+
+#: includes/PostType.php:147
+msgid "Modals list navigation"
+msgstr ""
+
+#: includes/PostType.php:148
+msgid "Modals list"
+msgstr ""
+
+#: includes/Preview.php:116
+#: includes/Preview.php:136
+#: build/admin/settings.js:7
+#: build/editor/index.js:3
+msgid "Preview"
+msgstr ""
+
+#. translators: %s: style name, e.g. Harbor.
+#: includes/Preview.php:120
+#, php-format
+msgid "The %s style."
+msgstr ""
+
+#: includes/Preview.php:121
+msgid "Your theme’s fonts and colors."
+msgstr ""
+
+#: includes/Preview.php:123
+msgid "Button"
+msgstr ""
+
+#: includes/Render.php:264
+#: includes/Video.php:217
+#: includes/VideoLinks.php:89
+msgid "Play video"
+msgstr ""
+
+#. translators: %s: video service, e.g. YouTube.
+#: includes/Render.php:267
+#: includes/Video.php:212
+#, php-format
+msgid "Loads from %s, which may set cookies."
+msgstr ""
+
+#: includes/Render.php:268
+msgid "Resume"
+msgstr ""
+
+#: includes/Render.php:269
+msgid "Copied ✓"
+msgstr ""
+
+#: includes/Render.php:270
+msgid "Couldn’t copy. Select the text and copy it yourself."
+msgstr ""
+
+#: includes/Rest/Modals.php:38
+msgid "Sorry, you are not allowed to view modals."
+msgstr ""
+
+#: includes/Rest/StyleLibrary.php:184
+msgid "This file isn’t a Modal Kit style. It needs at least a name."
+msgstr ""
+
+#: includes/Rest/StyleLibrary.php:245
+msgid "There’s no style with that name."
+msgstr ""
+
+#: includes/Rest/StyleLibrary.php:272
+msgid "Built-in styles can be exported and duplicated, not deleted."
+msgstr ""
+
+#. translators: %d: number of modals.
+#: includes/Rest/StyleLibrary.php:282
+#: build/admin/settings.js:34
+#, php-format,js-format
+msgid "%d modal uses this style. Choose the style it switches to."
+msgid_plural "%d modals use this style. Choose the style they switch to."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Rest/StyleLibrary.php:333
+msgid "Sorry, you are not allowed to export styles."
+msgstr ""
+
+#: includes/Rest/StyleLibrary.php:342
+msgid "This server can’t make .zip files. Export the styles one at a time instead."
+msgstr ""
+
+#: includes/Rest/Tools.php:161
+msgid "This isn’t a Modal Kit export file."
+msgstr ""
+
+#: includes/Upsell.php:143
+msgid "Make this button go to another step, so you can build offer → email → thank-you flows inside one modal."
+msgstr ""
+
+#: includes/Upsell.php:144
+msgid "Collect emails right in the modal and send them to Kit, Mailchimp, HubSpot, GetResponse, Constant Contact, Keap, MailerLite, Brevo, Emma, MailPoet, FluentCRM, WPForms or a webhook."
+msgstr ""
+
+#: includes/Upsell.php:151
+msgid "Next / previous step"
+msgstr ""
+
+#: includes/Upsell.php:152
+#: includes/Upsell.php:160
+#: build/admin/settings.js:34
+msgid "Multi-step modals"
+msgstr ""
+
+#: includes/Upsell.php:159
+msgid "Go to step"
+msgstr ""
+
+#: includes/Upsell.php:167
+msgid "Submit form"
+msgstr ""
+
+#: includes/Upsell.php:168
+#: includes/Upsell.php:244
+msgid "Forms"
+msgstr ""
+
+#: includes/Upsell.php:181
+msgid "Events"
+msgstr ""
+
+#: includes/Upsell.php:185
+msgid "Games"
+msgstr ""
+
+#: includes/Upsell.php:189
+msgid "Popups"
+msgstr ""
+
+#: includes/Upsell.php:193
+#: patterns/shipping-notice.php:32
+msgid "Shop"
+msgstr ""
+
+#: includes/Upsell.php:197
+msgid "Studio"
+msgstr ""
+
+#: includes/Upsell.php:203
+msgid "Welcome offer"
+msgstr ""
+
+#: includes/Upsell.php:205
+msgid "Want 15% off your first order?"
+msgstr ""
+
+#: includes/Upsell.php:206
+msgid "Yes, please"
+msgstr ""
+
+#: includes/Upsell.php:207
+msgid "Uses Multi-step and Form, which come with Modal Kit Pro."
+msgstr ""
+
+#: includes/Upsell.php:209
+msgid "Monthly letter (one step, button links to your signup page)"
+msgstr ""
+
+#: includes/Upsell.php:212
+#: build/admin/wizard.js:2
+msgid "Added-to-cart drawer"
+msgstr ""
+
+#: includes/Upsell.php:214
+msgid "Added to your cart ✓"
+msgstr ""
+
+#: includes/Upsell.php:215
+msgid "Checkout"
+msgstr ""
+
+#: includes/Upsell.php:216
+msgid "Uses WooCommerce blocks and cart triggers, which come with Modal Kit Pro."
+msgstr ""
+
+#: includes/Upsell.php:218
+msgid "Event announcement (a drawer with a link to your cart)"
+msgstr ""
+
+#: includes/Upsell.php:221
+msgid "Countdown bar"
+msgstr ""
+
+#: includes/Upsell.php:223
+msgid "Sale ends in 02:14:33"
+msgstr ""
+
+#: includes/Upsell.php:224
+msgid "Shop now"
+msgstr ""
+
+#: includes/Upsell.php:225
+msgid "Uses the Countdown block, which comes with Modal Kit Pro."
+msgstr ""
+
+#: includes/Upsell.php:227
+msgid "Shipping notice (a bar without the timer)"
+msgstr ""
+
+#: includes/Upsell.php:230
+msgid "Quick view"
+msgstr ""
+
+#: includes/Upsell.php:232
+msgid "Field Notebook, A5"
+msgstr ""
+
+#: includes/Upsell.php:233
+msgid "Add to cart"
+msgstr ""
+
+#: includes/Upsell.php:234
+msgid "Uses WooCommerce product blocks, which come with Modal Kit Pro."
+msgstr ""
+
+#: includes/Upsell.php:236
+msgid "Discount code (a split layout that links to the product)"
+msgstr ""
+
+#: includes/Upsell.php:252
+msgid "Wait for a returning visitor"
+msgstr ""
+
+#: includes/Upsell.php:253
+msgid "Show it from a visitor’s 2nd, 3rd or later visit (session), or only to new visitors, by referrer, cookie or country."
+msgstr ""
+
+#: includes/Upsell.php:260
+msgid "Style editor"
+msgstr ""
+
+#: includes/Upsell.php:261
+msgid "Change a style’s colours, fonts, corners and shadow with a live preview, or start a new style from scratch."
+msgstr ""
+
+#: includes/Upsell.php:277
+msgid "WooCommerce · detected"
+msgstr ""
+
+#: includes/Upsell.php:279
+msgid "Added to cart"
+msgstr ""
+
+#: includes/Upsell.php:280
+msgid "Cart total over…"
+msgstr ""
+
+#: includes/Upsell.php:281
+msgid "Product or category in cart"
+msgstr ""
+
+#: includes/Upsell.php:283
+msgid "Open this modal when the cart passes an amount, e.g. a free-shipping nudge at $30."
+msgstr ""
+
+#: includes/Upsell.php:344
+msgid "Go Pro"
+msgstr ""
+
+#: includes/Upsell.php:367
+msgid "Three modals live. Nice. Pro adds forms, multi-step flows and WooCommerce templates. This is the only time we’ll mention it here."
+msgstr ""
+
+#: includes/Upsell.php:369
+#: build/editor/index.js:8
+msgid "See Pro"
+msgstr ""
+
+#: includes/Video.php:208
+msgid "the video service"
+msgstr ""
+
+#: includes/Wizard.php:108
+#: includes/Wizard.php:109
+#: build/admin/wizard.js:2
+msgid "Modal Kit setup"
+msgstr ""
+
+#: patterns/discount-code.php:14
+msgctxt "Pattern title"
+msgid "Discount code"
+msgstr ""
+
+#: patterns/discount-code.php:15
+msgid "A split promo with a highlighted offer and a code to copy."
+msgstr ""
+
+#: patterns/discount-code.php:17
+msgid "sale"
+msgstr ""
+
+#: patterns/discount-code.php:17
+msgid "coupon"
+msgstr ""
+
+#: patterns/discount-code.php:17
+msgid "discount"
+msgstr ""
+
+#: patterns/discount-code.php:28
+msgid "20%"
+msgstr ""
+
+#: patterns/discount-code.php:50
+msgid "Autumn sale · ends Sunday"
+msgstr ""
+
+#: patterns/discount-code.php:56
+msgid "20% off every notebook and pen."
+msgstr ""
+
+#: patterns/discount-code.php:57
+msgid "Use the code at checkout. Free shipping over $40."
+msgstr ""
+
+#: patterns/discount-code.php:60
+#: patterns/discount-code.php:67
+msgid "AUTUMN20"
+msgstr ""
+
+#: patterns/discount-code.php:64
+#: build/editor/index.js:6
+msgid "Copy"
+msgstr ""
+
+#: patterns/discount-code.php:84
+msgid "Shop the sale"
+msgstr ""
+
+#: patterns/event-announcement.php:14
+msgctxt "Pattern title"
+msgid "Event announcement"
+msgstr ""
+
+#: patterns/event-announcement.php:15
+msgid "A side drawer with the details of an upcoming event."
+msgstr ""
+
+#: patterns/event-announcement.php:17
+msgid "event"
+msgstr ""
+
+#: patterns/event-announcement.php:17
+msgid "workshop"
+msgstr ""
+
+#: patterns/event-announcement.php:17
+msgid "drawer"
+msgstr ""
+
+#: patterns/event-announcement.php:25
+msgid "Workshops"
+msgstr ""
+
+#: patterns/event-announcement.php:31
+msgid "Bookbinding, Nov 8"
+msgstr ""
+
+#: patterns/event-announcement.php:32
+msgid "A half-day class in the studio. Twelve seats, materials included."
+msgstr ""
+
+#: patterns/event-announcement.php:36
+msgid "Reserve a seat"
+msgstr ""
+
+#: patterns/monthly-letter.php:14
+msgctxt "Pattern title"
+msgid "Monthly letter"
+msgstr ""
+
+#: patterns/monthly-letter.php:15
+msgid "A centered invite to join a newsletter."
+msgstr ""
+
+#: patterns/monthly-letter.php:17
+msgid "newsletter"
+msgstr ""
+
+#: patterns/monthly-letter.php:17
+msgid "signup"
+msgstr ""
+
+#: patterns/monthly-letter.php:17
+msgid "email"
+msgstr ""
+
+#: patterns/monthly-letter.php:31
+msgid "One good idea, once a month."
+msgstr ""
+
+#: patterns/monthly-letter.php:32
+msgid "Essays on craft and the tools we make, sent the first Sunday of every month. No noise, unsubscribe anytime."
+msgstr ""
+
+#: patterns/monthly-letter.php:36
+msgid "Join the list"
+msgstr ""
+
+#: patterns/parting-gift.php:14
+msgctxt "Pattern title"
+msgid "Parting gift"
+msgstr ""
+
+#: patterns/parting-gift.php:15
+msgid "A full-screen, high-contrast offer for visitors about to leave."
+msgstr ""
+
+#: patterns/parting-gift.php:17
+msgid "leaving the page"
+msgstr ""
+
+#: patterns/parting-gift.php:17
+msgid "download"
+msgstr ""
+
+#: patterns/parting-gift.php:17
+msgid "guide"
+msgstr ""
+
+#: patterns/parting-gift.php:25
+msgid "Before you go"
+msgstr ""
+
+#: patterns/parting-gift.php:31
+msgid "Take the field guide with you."
+msgstr ""
+
+#: patterns/parting-gift.php:32
+msgid "Forty pages on choosing paper, breaking in a pen and keeping a notebook you’ll actually reread. Free, no account."
+msgstr ""
+
+#: patterns/parting-gift.php:36
+msgid "Download the guide (PDF)"
+msgstr ""
+
+#: patterns/product-drop.php:14
+msgctxt "Pattern title"
+msgid "Product drop"
+msgstr ""
+
+#: patterns/product-drop.php:15
+msgid "A small corner slide-in announcing something new."
+msgstr ""
+
+#: patterns/product-drop.php:17
+msgid "new"
+msgstr ""
+
+#: patterns/product-drop.php:17
+msgid "launch"
+msgstr ""
+
+#: patterns/product-drop.php:17
+msgid "slide-in"
+msgstr ""
+
+#: patterns/product-drop.php:26
+msgid "New"
+msgstr ""
+
+#: patterns/product-drop.php:32
+msgid "The pocket ledger is back."
+msgstr ""
+
+#: patterns/product-drop.php:36
+msgid "See it →"
+msgstr ""
+
+#: patterns/shipping-notice.php:14
+msgctxt "Pattern title"
+msgid "Shipping notice"
+msgstr ""
+
+#: patterns/shipping-notice.php:15
+msgid "A slim bar across the top of the page with one link."
+msgstr ""
+
+#: patterns/shipping-notice.php:17
+msgid "bar"
+msgstr ""
+
+#: patterns/shipping-notice.php:17
+msgid "shipping"
+msgstr ""
+
+#: patterns/shipping-notice.php:17
+msgid "notice"
+msgstr ""
+
+#: patterns/shipping-notice.php:28
+msgid "Free shipping on orders over $40 this week"
+msgstr ""
+
+#: patterns/video-tour.php:14
+msgctxt "Pattern title"
+msgid "Video tour"
+msgstr ""
+
+#: patterns/video-tour.php:15
+msgid "A video lightbox with a caption and a button under the player."
+msgstr ""
+
+#: patterns/video-tour.php:17
+msgid "video"
+msgstr ""
+
+#: patterns/video-tour.php:17
+msgid "tour"
+msgstr ""
+
+#: patterns/video-tour.php:17
+msgid "lightbox"
+msgstr ""
+
+#: patterns/video-tour.php:37
+msgid "The three-minute tour"
+msgstr ""
+
+#: patterns/video-tour.php:38
+msgid "How we make a Field Notebook, start to finish."
+msgstr ""
+
+#: patterns/video-tour.php:42
+msgid "Shop the notebooks"
+msgstr ""
+
+#: build/admin/list.js:1
+msgid "Modal turned on."
+msgstr ""
+
+#: build/admin/list.js:1
+msgid "Modal turned off."
+msgstr ""
+
+#: build/admin/list.js:1
+msgid "Couldn’t save. Try again."
+msgstr ""
+
+#: build/admin/list.js:1
+#: build/editor/index.js:6
+msgid "Copied"
+msgstr ""
+
+#: build/admin/list.js:1
+msgid "Link copied."
+msgstr ""
+
+#: build/admin/settings.js:1
+msgid "Links"
+msgstr ""
+
+#: build/admin/settings.js:1
+msgid "Modal links"
+msgstr ""
+
+#: build/admin/settings.js:1
+msgid "#slug anchors"
+msgstr ""
+
+#: build/admin/settings.js:1
+msgid "?modal=slug query"
+msgstr ""
+
+#. translators: 1: example anchor link, 2: example query link.
+#: build/admin/settings.js:2
+#, js-format
+msgid "Example: %1$s or %2$s"
+msgstr ""
+
+#: build/admin/settings.js:2
+msgid "Link prefix"
+msgstr ""
+
+#: build/admin/settings.js:2
+msgid "Avoids clashes with heading anchors. Leave empty for #autumn-sale."
+msgstr ""
+
+#: build/admin/settings.js:2
+msgid "This site"
+msgstr ""
+
+#: build/admin/settings.js:2
+msgid "Modals"
+msgstr ""
+
+#. translators: 1: number of modals, 2: number active.
+#: build/admin/settings.js:3
+#, js-format
+msgid "%1$d modal · %2$d active"
+msgid_plural "%1$d modals · %2$d active"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/admin/settings.js:3
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:22
+msgid "Theme"
+msgstr ""
+
+#. translators: %s: theme name.
+#: build/admin/settings.js:4
+#, js-format
+msgid "%s (block theme)"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Frequency across all modals"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Auto-open limit"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "1 modal per page view"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "2 modals per page view"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "3 modals per page view"
+msgstr ""
+
+#: build/admin/settings.js:4
+#: build/admin/wizard.js:2
+msgid "No limit"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Click-triggered modals are never limited."
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Cool-down"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "seconds between auto-opening modals"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Remember dismissals"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "In the browser (localStorage, no cookies)"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Don’t remember (show every time)"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Nothing personal is stored. Changing a modal’s content resets its “seen” state."
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Don’t show to"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Roles"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Add role…"
+msgstr ""
+
+#: build/admin/settings.js:4
+msgid "Logged-in users with these roles still see modals in previews, and links still open them."
+msgstr ""
+
+#. translators: %s: color name or value.
+#: build/admin/settings.js:5
+#: build/blocks/modal/index.js:2
+#, js-format
+msgid "Overlay color: %s"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/blocks/modal/index.js:2
+msgid "Overlay color: text color"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/blocks/modal/index.js:2
+#: build/blocks/modal/index.js:24
+msgid "Color"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/admin/settings.js:34
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:17
+msgid "Native"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/admin/settings.js:34
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:17
+msgid "Soft"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/admin/settings.js:34
+#: build/admin/wizard.js:1
+#: build/blocks/modal/index.js:17
+msgid "Editorial"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/blocks/modal/index.js:17
+msgid "Follows your theme"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/blocks/modal/index.js:17
+msgid "Modal Kit styles"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/admin/settings.js:10
+#: build/blocks/modal/index.js:2
+#: build/blocks/modal/index.js:4
+msgid "Aa"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:2
+#: build/blocks/modal/index.js:4
+msgid "Accent"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/admin/settings.js:7
+#: build/admin/settings.js:25
+#: build/admin/wizard.js:2
+#: build/blocks/modal/index.js:2
+#: build/blocks/modal/index.js:21
+#: build/blocks/modal/index.js:22
+msgid "Style"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/blocks/modal/index.js:2
+msgid "Theme primary"
+msgstr ""
+
+#: build/admin/settings.js:5
+#: build/blocks/modal/index.js:2
+#: build/blocks/modal/index.js:22
+msgid "Custom"
+msgstr ""
+
+#. translators: %s: contrast ratio, e.g. 5.4.
+#: build/admin/settings.js:6
+#: build/blocks/modal/index.js:3
+#, js-format
+msgid "Text %s:1 ✓"
+msgstr ""
+
+#. translators: %s: contrast ratio, e.g. 3.2.
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:4
+#, js-format
+msgid "This accent is hard to read: %s:1 against its button text or the panel. Text needs at least 4.5:1."
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:4
+msgid "Fonts"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:4
+msgid "Style fonts"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:4
+msgid "Theme fonts"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:22
+msgid "Automatic"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:22
+msgid "Bottom sheet"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:22
+msgid "Full screen"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:22
+msgid "Centered dialog"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/admin/wizard.js:2
+#: build/blocks/modal/index.js:22
+msgid "Same as desktop"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:22
+msgid "S"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:22
+msgid "M"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:22
+msgid "L"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:22
+msgid "Wide"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Device"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/editor/index.js:3
+#: build/editor/index.js:8
+msgid "Desktop"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/editor/index.js:3
+#: build/editor/index.js:8
+msgid "Mobile"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Preview of a modal with these defaults"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Defaults for new modals"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "On mobile"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "Size"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "S / M / L map to your theme’s content and wide sizes."
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "Overlay"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "Opacity"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Your theme’s colors, or any color with the picker. Leave empty to use the style’s overlay color."
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Your theme’s colors, or any color with the picker. Leave empty to use the text color."
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/editor/index.js:8
+msgid "Close button"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Icon (×) with screen-reader label"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Icon + visible “Close” label"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "Animation"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "Fade + rise"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "Fade"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "None"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/blocks/modal/index.js:24
+msgid "Always replaced by a simple fade when the visitor prefers reduced motion."
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Advanced"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Mobile breakpoint"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Below this width modals switch to their mobile layout."
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Stacking (z-index)"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Raise this if your theme’s sticky header sits on top of modals."
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Defaults for every modal"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/editor/index.js:10
+msgid "Accessible name"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "The modal’s first heading"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "The modal’s title"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Used as the dialog’s label for screen readers."
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/editor/index.js:12
+msgid "Focus when opened"
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/editor/index.js:8
+msgid "The heading"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "The first button"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "The close button"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Fields and buttons can be chosen per modal."
+msgstr ""
+
+#: build/admin/settings.js:7
+#: build/editor/index.js:13
+msgid "Close button label"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Read aloud for the × button. Leave empty for “Close” in the visitor’s language."
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Page behind"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Lock scrolling for layouts with an overlay"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Make it inert while open"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Per-modal overrides"
+msgstr ""
+
+#: build/admin/settings.js:7
+msgid "Any modal can change these in its sidebar under Accessibility. Overridden modals are marked with a blue dot."
+msgstr ""
+
+#. translators: %d: number of modals.
+#: build/admin/settings.js:8
+#, js-format
+msgid "%d modal currently overrides defaults."
+msgid_plural "%d modals currently override defaults."
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/admin/settings.js:8
+msgid "Motion & timing"
+msgstr ""
+
+#: build/admin/settings.js:8
+msgid "Reduced motion"
+msgstr ""
+
+#: build/admin/settings.js:8
+msgid "Use a simple fade (recommended)"
+msgstr ""
+
+#: build/admin/settings.js:8
+msgid "No animation at all"
+msgstr ""
+
+#: build/admin/settings.js:8
+msgid "Applies when the visitor’s device asks for reduced motion."
+msgstr ""
+
+#: build/admin/settings.js:8
+msgid "Auto-close"
+msgstr ""
+
+#: build/admin/settings.js:8
+msgid "Allow modals to close on a timer"
+msgstr ""
+
+#: build/admin/settings.js:8
+msgid "Off by default. When allowed, visitors get a pause button (WCAG 2.2.1)."
+msgstr ""
+
+#. translators: 1: created, 2: updated, 3: skipped.
+#: build/admin/settings.js:9
+#, js-format
+msgid "Imported: %1$d new, %2$d updated, %3$d skipped."
+msgstr ""
+
+#: build/admin/settings.js:9
+msgid "Settings imported. Reload to see them."
+msgstr ""
+
+#: build/admin/settings.js:9
+msgid "That file isn’t valid JSON."
+msgstr ""
+
+#: build/admin/settings.js:9
+#: build/admin/settings.js:28
+msgid "Export"
+msgstr ""
+
+#: build/admin/settings.js:9
+msgid "Download modals with their triggers and rules, to move them between sites."
+msgstr ""
+
+#. translators: %d: number of modals.
+#: build/admin/settings.js:10
+#, js-format
+msgid "All modals (%d)"
+msgid_plural "All modals (%d)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/admin/settings.js:10
+msgid "Include settings"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Download .json"
+msgstr ""
+
+#: build/admin/settings.js:10
+#: build/admin/settings.js:24
+#: build/blocks/modal/index.js:4
+msgid "Import"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Drop a Modal Kit .json file here, or"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "choose a file"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Replace modals with the same slug"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Testing"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "This browser will see every modal again as a first-time visitor."
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Reset “already seen” for my browser"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Shows every modal again as a first-time visitor, so you can test frequency rules."
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Debug mode"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Log why each modal did or didn’t open"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Admins only. Messages appear in the browser console as [modal-kit]."
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Setup wizard"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Run setup again"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Walks through the look, behaviour and a first modal again. It only changes the settings you confirm."
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Uninstall"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Delete all modals and settings when the plugin is deleted"
+msgstr ""
+
+#: build/admin/settings.js:10
+msgid "Off by default, so deactivating or reinstalling never loses your work."
+msgstr ""
+
+#: build/admin/settings.js:10
+#: build/blocks/modal/index.js:4
+#: build/blocks/modal/index.js:22
+msgid "Import a style"
+msgstr ""
+
+#. translators: 1: file name, 2: size in KB.
+#: build/admin/settings.js:11
+#: build/blocks/modal/index.js:5
+#, js-format
+msgid "%1$s · %2$s KB"
+msgstr ""
+
+#: build/admin/settings.js:11
+#: build/blocks/modal/index.js:5
+msgid "A .json file exported from Modal Kit."
+msgstr ""
+
+#: build/admin/settings.js:11
+#: build/blocks/modal/index.js:5
+msgid "This file isn’t a Modal Kit style. Choose a .json file exported from Modal Kit."
+msgstr ""
+
+#: build/admin/settings.js:11
+#: build/blocks/modal/index.js:5
+msgid "Choose another"
+msgstr ""
+
+#: build/admin/settings.js:11
+#: build/blocks/modal/index.js:5
+msgid "Choose a file"
+msgstr ""
+
+#: build/admin/settings.js:11
+#: build/admin/settings.js:32
+#: build/blocks/modal/index.js:5
+#: build/blocks/modal/index.js:22
+msgid "Name"
+msgstr ""
+
+#: build/admin/settings.js:11
+#: build/admin/settings.js:32
+#: build/blocks/modal/index.js:5
+#: build/blocks/modal/index.js:22
+msgid "Description"
+msgstr ""
+
+#: build/admin/settings.js:11
+#: build/blocks/modal/index.js:5
+msgid "Used by search. Optional."
+msgstr ""
+
+#: build/admin/settings.js:11
+#: build/blocks/modal/index.js:5
+msgid "Checks"
+msgstr ""
+
+#. translators: 1: colours found, 2: corner sizes found.
+#: build/admin/settings.js:12
+#: build/blocks/modal/index.js:6
+#, js-format
+msgid "%1$d of 13 colours and %2$d of 3 corner sizes found"
+msgstr ""
+
+#. translators: %s: list of missing tokens.
+#: build/admin/settings.js:13
+#: build/blocks/modal/index.js:7
+#, js-format
+msgid "Missing, so Fieldnote’s is used: %s"
+msgstr ""
+
+#. translators: %s: list of tokens.
+#: build/admin/settings.js:14
+#: build/blocks/modal/index.js:8
+#, js-format
+msgid "Not a colour or length, so Fieldnote’s is used: %s"
+msgstr ""
+
+#. translators: %s: list of keys.
+#: build/admin/settings.js:15
+#: build/blocks/modal/index.js:9
+#, js-format
+msgid "Ignored: %s"
+msgstr ""
+
+#: build/admin/settings.js:15
+#: build/blocks/modal/index.js:9
+msgid "Contrast passes"
+msgstr ""
+
+#: build/admin/settings.js:15
+#: build/blocks/modal/index.js:9
+msgid "Some text may be hard to read. You can still import it."
+msgstr ""
+
+#. translators: 1: body text ratio, 2: button text ratio, 3: muted text ratio.
+#: build/admin/settings.js:16
+#: build/blocks/modal/index.js:10
+#, js-format
+msgid "Body text %1$s:1 · button text %2$s:1 · muted text %3$s:1"
+msgstr ""
+
+#. translators: 1: text colour token, 2: background token, 3: ratio, 4: minimum.
+#: build/admin/settings.js:17
+#: build/blocks/modal/index.js:11
+#, js-format
+msgid "%1$s on %2$s: %3$s:1 (needs %4$s:1)"
+msgstr ""
+
+#: build/admin/settings.js:17
+#: build/blocks/modal/index.js:11
+msgid "Adjust it in Manage styles"
+msgstr ""
+
+#. translators: %s: font family.
+#: build/admin/settings.js:18
+#: build/blocks/modal/index.js:12
+#, js-format
+msgid "Font “%s” isn’t on this site"
+msgstr ""
+
+#. translators: %s: fallback font family.
+#: build/admin/settings.js:19
+#: build/blocks/modal/index.js:13
+#, js-format
+msgid "%s is used until you upload it in Appearance → Fonts."
+msgstr ""
+
+#. translators: %s: style name.
+#: build/admin/settings.js:20
+#: build/blocks/modal/index.js:14
+#, js-format
+msgid "A style called “%s” already exists"
+msgstr ""
+
+#. translators: %s: new style name.
+#: build/admin/settings.js:21
+#: build/blocks/modal/index.js:15
+#, js-format
+msgid "Import as “%s”"
+msgstr ""
+
+#. translators: %d: number of modals.
+#: build/admin/settings.js:22
+#: build/blocks/modal/index.js:16
+#, js-format
+msgid "Replace it (%d modal uses it)"
+msgid_plural "Replace it (%d modals use it)"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: new style name.
+#: build/admin/settings.js:23
+#: build/blocks/modal/index.js:17
+#, js-format
+msgid "It’s imported as “%s”."
+msgstr ""
+
+#: build/admin/settings.js:23
+#: build/blocks/modal/index.js:17
+#: build/editor/index.js:4
+msgid "Cancel"
+msgstr ""
+
+#: build/admin/settings.js:23
+msgid "Built in"
+msgstr ""
+
+#: build/admin/settings.js:23
+msgid "Yours"
+msgstr ""
+
+#: build/admin/settings.js:23
+msgid "Imported"
+msgstr ""
+
+#: build/admin/settings.js:23
+msgid "Added by a plugin"
+msgstr ""
+
+#. translators: %s: style name.
+#: build/admin/settings.js:24
+#, js-format
+msgid "“%s” deleted."
+msgstr ""
+
+#: build/admin/settings.js:24
+#: build/admin/settings.js:34
+msgid "Styles"
+msgstr ""
+
+#: build/admin/settings.js:24
+msgid "Styles that bring their own colours, fonts and corners. Import one from a .json file, or export yours to use on another site."
+msgstr ""
+
+#: build/admin/settings.js:24
+msgid "Learn more"
+msgstr ""
+
+#: build/admin/settings.js:24
+msgid "(opens in a new tab)"
+msgstr ""
+
+#: build/admin/settings.js:24
+msgid "New style"
+msgstr ""
+
+#. translators: %d: number of styles.
+#: build/admin/settings.js:25
+#, js-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/admin/settings.js:25
+msgid "Export selected (.zip)"
+msgstr ""
+
+#: build/admin/settings.js:25
+msgid "Export selected (.json)"
+msgstr ""
+
+#: build/admin/settings.js:25
+msgid "Select"
+msgstr ""
+
+#: build/admin/settings.js:25
+msgid "Source"
+msgstr ""
+
+#: build/admin/settings.js:25
+msgid "Used by"
+msgstr ""
+
+#: build/admin/settings.js:25
+msgid "Actions"
+msgstr ""
+
+#. translators: %s: style name.
+#: build/admin/settings.js:26
+#, js-format
+msgid "Select %s"
+msgstr ""
+
+#. translators: %s: style name.
+#: build/admin/settings.js:27
+#, js-format
+msgid "Duplicated from %s"
+msgstr ""
+
+#. translators: %d: number of modals.
+#: build/admin/settings.js:28
+#, js-format
+msgid "%d modal"
+msgid_plural "%d modals"
+msgstr[0] ""
+msgstr[1] ""
+
+#: build/admin/settings.js:28
+msgid "Edit"
+msgstr ""
+
+#: build/admin/settings.js:28
+msgid "Delete"
+msgstr ""
+
+#. translators: %s: style name.
+#: build/admin/settings.js:29
+#: build/admin/settings.js:30
+#: build/blocks/modal/index.js:20
+#, js-format
+msgid "%s copy"
+msgstr ""
+
+#: build/admin/settings.js:29
+msgid "Edit a copy"
+msgstr ""
+
+#. translators: %s: style name.
+#: build/admin/settings.js:31
+#, js-format
+msgid "“%s” saved."
+msgstr ""
+
+#: build/admin/settings.js:31
+msgid "Export options"
+msgstr ""
+
+#: build/admin/settings.js:31
+msgid "Include font files"
+msgstr ""
+
+#: build/admin/settings.js:31
+msgid "Adds the .woff2 files the style uses. Leave off for fonts that can’t be shared."
+msgstr ""
+
+#: build/admin/settings.js:31
+msgid "JSON copied."
+msgstr ""
+
+#: build/admin/settings.js:31
+msgid "Copy JSON to clipboard"
+msgstr ""
+
+#: build/admin/settings.js:31
+msgid "One style: .json · several or with fonts: .zip"
+msgstr ""
+
+#. translators: %s: style name.
+#: build/admin/settings.js:32
+#, js-format
+msgid "“%s” imported."
+msgstr ""
+
+#: build/admin/settings.js:32
+msgid "Duplicate style"
+msgstr ""
+
+#. translators: %s: style name.
+#: build/admin/settings.js:33
+#, js-format
+msgid "Delete “%s”?"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Switch them to"
+msgstr ""
+
+#: build/admin/settings.js:34
+#: build/blocks/modal/index.js:17
+msgid "Your theme’s colours, fonts and corners"
+msgstr ""
+
+#: build/admin/settings.js:34
+#: build/blocks/modal/index.js:17
+msgid "Theme colours, tinted, rounder"
+msgstr ""
+
+#: build/admin/settings.js:34
+#: build/blocks/modal/index.js:17
+msgid "Theme’s dark colour, big type"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Switch and delete"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "9 layouts, 8 triggers, all rules"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Form blocks + 13 integrations"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "WooCommerce templates & triggers"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Pro template collections"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Games: spin, scratch, pick a gift, slots"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Results and analytics services"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "What Pro adds"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Feature"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Free"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Pro"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Included"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Not included"
+msgstr ""
+
+#: build/admin/settings.js:34
+#: build/editor/index.js:5
+msgid "Get Pro"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Already bought it?"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Download the add-on from your account"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Pro tips in the editor"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Pro tips"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Show Pro features in menus and pickers"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Turn off to hide every PRO badge, popover and Pro collection, for all users."
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "General"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Display"
+msgstr ""
+
+#: build/admin/settings.js:34
+#: build/editor/index.js:10
+msgid "Accessibility"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Tools"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Settings sections"
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Settings saved."
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Couldn’t save the settings."
+msgstr ""
+
+#: build/admin/settings.js:34
+msgid "Save Changes"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Welcome"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Look"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Behaviour"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "First modal"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Newsletter signups"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Grow your list with a well-timed invite."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Promotions"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Promotion"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Promotions & discounts"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Sales, codes and limited-time offers."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Announcements"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "News, events, opening hours."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Exit offers"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Exit"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "A last word before someone leaves."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Play tours and product clips in a lightbox."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "WooCommerce"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Quick view, cart drawer and cart offers."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "WooCommerce detected."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Autumn sale"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "20% off every notebook."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Get the code"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Flat, your theme’s radius and colors."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Rounded, layered, room for imagery."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Bold type, high contrast, full-bleed."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "The Modal Kit palette. Clean, violet, sans."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Paper, serif headings, square corners."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Dark panel, amber accent, pill buttons."
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Let’s set up Modal Kit"
+msgstr ""
+
+#: build/admin/wizard.js:1
+msgid "Two minutes and four quick steps. Everything here can be changed later in Settings."
+msgstr ""
+
+#. translators: %s: theme name.
+#: build/admin/wizard.js:2
+#, js-format
+msgid "We’ll use your theme: %s"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Modals pick up its colors, fonts and spacing. The editor shows exactly what visitors see."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Block theme"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "What will you use modals for?"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Pick a starting look"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Applied to new modals and starter templates. Each modal can still be styled with normal block controls."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Brings its own colors and fonts."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "On phones"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Dialogs and split layouts can become bottom sheets below 600px."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Use bottom sheets"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Keep dialogs, sheets for split"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "How polite should modals be?"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Good defaults keep visitors happy. Click-to-open modals are never limited."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Auto-opening modals per page"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Stops two offers fighting for attention."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "At most 1"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "At most 2"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "At most 3"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "After someone closes a modal"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Remembered in their browser. No cookies, nothing personal."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Wait 1 day"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Wait 7 days"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Wait 30 days"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Don’t show modals to administrators"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "You’ll still see them in previews and when you add <code>?modal=preview</code>."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Use a simple fade for visitors who prefer reduced motion"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Recommended. You can change this later in Settings → Accessibility."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Create your first modal"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Picked for what you told us. It opens in the editor as a draft, so nothing goes live yet."
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Filter starters"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "For you"
+msgstr ""
+
+#: build/admin/wizard.js:2
+#: build/editor/index.js:5
+msgid "Starters"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Added ✓"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Drawer · WooCommerce"
+msgstr ""
+
+#: build/admin/wizard.js:2
+#: build/editor/index.js:3
+#: build/editor/index.js:4
+#: build/editor/index.js:8
+msgid "PRO"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "About WooCommerce in Modal Kit Pro"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Blank modal"
+msgstr ""
+
+#: build/admin/wizard.js:2
+#: build/editor/index.js:5
+msgid "Start blank"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Any layout"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Exit setup"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "Skip setup"
+msgstr ""
+
+#: build/admin/wizard.js:2
+msgid "← Back"
+msgstr ""
+
+#. translators: %s: starter name.
+#: build/admin/wizard.js:3
+#, js-format
+msgid "%s selected"
+msgstr ""
+
+#: build/admin/wizard.js:3
+msgid "Continue"
+msgstr ""
+
+#: build/admin/wizard.js:3
+msgid "Something went wrong. Try again."
+msgstr ""
+
+#: build/admin/wizard.js:3
+msgid "Create and open in editor"
+msgstr ""
+
+#: build/blocks/modal/index.js:17
+msgid "Your styles"
+msgstr ""
+
+#: build/blocks/modal/index.js:17
+msgid "Search styles"
+msgstr ""
+
+#. translators: %d: number of styles.
+#: build/blocks/modal/index.js:18
+#, js-format
+msgid "Search %d styles"
+msgstr ""
+
+#: build/blocks/modal/index.js:18
+msgid "Style actions"
+msgstr ""
+
+#: build/blocks/modal/index.js:18
+msgid "Import style…"
+msgstr ""
+
+#. translators: %s: style name.
+#: build/blocks/modal/index.js:19
+#, js-format
+msgid "Export “%s”"
+msgstr ""
+
+#: build/blocks/modal/index.js:20
+#: build/blocks/modal/index.js:22
+msgid "Duplicate as new style"
+msgstr ""
+
+#: build/blocks/modal/index.js:20
+msgid "Manage styles…"
+msgstr ""
+
+#. translators: 1: styles shown, 2: all styles.
+#: build/blocks/modal/index.js:21
+#, js-format
+msgid "%1$d of %2$d style"
+msgid_plural "%1$d of %2$d styles"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: search text.
+#: build/blocks/modal/index.js:22
+#, js-format
+msgid "No styles match “%s”."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Import and apply"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Duplicate and apply"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Center"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Full"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Bottom right"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Bottom left"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Top right"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Top left"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Top"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Bottom"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Right"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Left"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Media left"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Media right"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Media top"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Full width minus the gutter, buttons stack."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "A full-width toast at the bottom."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Moves to the bottom, within thumb reach."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Stays full screen."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "85% of the screen width."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "A bottom sheet with the image as a short header."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "A full-width bottom sheet."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Stays in the content flow."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Full screen, the video fills the width."
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "Default"
+msgstr ""
+
+#: build/blocks/modal/index.js:22
+msgid "S = two thirds of the theme content size."
+msgstr ""
+
+#. translators: %s: theme content size, e.g. 780px.
+#: build/blocks/modal/index.js:23
+#, js-format
+msgid "M = theme content size (%s)."
+msgstr ""
+
+#: build/blocks/modal/index.js:23
+msgid "L = halfway between the content and wide sizes."
+msgstr ""
+
+#. translators: %s: theme wide size, e.g. 1200px.
+#: build/blocks/modal/index.js:24
+#, js-format
+msgid "Wide = theme wide size (%s)."
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Position"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+#: build/editor/index.js:4
+msgid "Change template"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Backdrop"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Site preview"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Plain"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Show overlay"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Leave empty to use the style’s overlay color."
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Leave empty to use the text color."
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Blur page behind"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Closing"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Close button (×)"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Show a visible “Close” label"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Esc key"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Click outside"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+#: build/editor/index.js:8
+msgid "Modal heading"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Write something, or add blocks…"
+msgstr ""
+
+#: build/blocks/modal/index.js:24
+msgid "Your homepage, behind the modal"
+msgstr ""
+
+#. translators: %s: style name, e.g. Fieldnote.
+#: build/editor/index.js:2
+#, js-format
+msgid "Uses the %s style"
+msgstr ""
+
+#: build/editor/index.js:2
+msgid "Uses your theme’s styles"
+msgstr ""
+
+#: build/editor/index.js:2
+msgid "Multi-step"
+msgstr ""
+
+#: build/editor/index.js:2
+msgid "Form"
+msgstr ""
+
+#: build/editor/index.js:2
+msgid "Countdown"
+msgstr ""
+
+#. translators: %d: number of steps.
+#: build/editor/index.js:3
+#, js-format
+msgid "%d steps"
+msgstr ""
+
+#: build/editor/index.js:3
+msgid "Preview size"
+msgstr ""
+
+#: build/editor/index.js:3
+msgid "Use template"
+msgstr ""
+
+#. translators: %s: template name.
+#: build/editor/index.js:4
+#, js-format
+msgid "Replace this modal with “%s”?"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "The modal’s blocks and look (layout, size, colors) are replaced by the template’s."
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Triggers, targeting, frequency and the title stay as they are. You can undo this."
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Replace content"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "From your theme"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "My patterns"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Choose a starting layout"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Search patterns"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Pattern categories"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "All"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Collections"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Features"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Pro collections"
+msgstr ""
+
+#: build/editor/index.js:4
+#: build/editor/index.js:8
+msgid "Not now"
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Starters pick up your theme’s colors, fonts and spacing."
+msgstr ""
+
+#: build/editor/index.js:4
+msgid "Filter by type"
+msgstr ""
+
+#. translators: %d: number of templates.
+#: build/editor/index.js:5
+#, js-format
+msgid "All %d"
+msgstr ""
+
+#: build/editor/index.js:5
+msgid "Filter by layout"
+msgstr ""
+
+#: build/editor/index.js:5
+msgid "All layouts"
+msgstr ""
+
+#: build/editor/index.js:5
+msgid "No starters match."
+msgstr ""
+
+#: build/editor/index.js:5
+msgid "Compare plans"
+msgstr ""
+
+#: build/editor/index.js:5
+msgid "Free look-alike:"
+msgstr ""
+
+#: build/editor/index.js:5
+msgid "Use it →"
+msgstr ""
+
+#: build/editor/index.js:5
+msgid "Keep current content"
+msgstr ""
+
+#. translators: %s: pattern title.
+#: build/editor/index.js:6
+#, js-format
+msgid "Use “%s”"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Choose a starter"
+msgstr ""
+
+#: build/editor/index.js:6
+#: build/editor/index.js:13
+msgid "Seconds"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Percent of the page"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "On touch devices"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Fast scroll up"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Don’t open"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Query or hash"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Block anchor"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Set it in the block’s Advanced panel (HTML anchor)."
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Link or button click"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Always on"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Link any block to this address:"
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Save the modal to get its link address."
+msgstr ""
+
+#: build/editor/index.js:6
+msgid "Homepage"
+msgstr ""
+
+#. translators: 1: post title, 2: post type, e.g. "About — Page".
+#: build/editor/index.js:7
+#, js-format
+msgid "%1$s — %2$s"
+msgstr ""
+
+#: build/editor/index.js:7
+msgid "(no title)"
+msgstr ""
+
+#. translators: 1: label such as "About — Page", 2: its path.
+#: build/editor/index.js:8
+#, js-format
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Search, or type a path…"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Tablet"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Chrome"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Safari"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Firefox"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Edge"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Opera"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Samsung Internet"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "In-app browsers"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Other"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Modal title"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Custom text"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "First field"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "First button"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Text to copy"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "For example a discount code. Visitors see “Copied” after clicking."
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "See what’s in Pro"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Open link"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Close modal"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Copy text"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Action"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "When clicked"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "More with Pro"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Learn about Pro for WooCommerce"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Hide this panel"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Page load + delay"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Open after N seconds on the page"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Scroll depth"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Open once the visitor scrolls this far"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "The pointer leaves the window (desktop)"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Time on site"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Total time across pages this visit"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Inactivity"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "No scroll, click or keypress for N seconds"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "URL hash or query"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Arrive with a query like utm_campaign=autumn, or a #hash"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "Element in view"
+msgstr ""
+
+#: build/editor/index.js:8
+msgid "When a block with an anchor scrolls into view"
+msgstr ""
+
+#. translators: %d: number of automatic triggers.
+#: build/editor/index.js:9
+#, js-format
+msgid "Triggers (%d)"
+msgstr ""
+
+#: build/editor/index.js:9
+msgid "The modal opens when any one of these happens."
+msgstr ""
+
+#. translators: %s: trigger name.
+#: build/editor/index.js:10
+#, js-format
+msgid "%s options"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Remove"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Add trigger"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Already added"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Display rules"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Show on"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Only these pages"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Everywhere except"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Pages"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Except"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Pages inside those sections to leave out."
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Except these pages"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Frequency"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Once per visit"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Once every few days"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Every time"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Days"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Stop after the visitor clicks a button"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "At most this many times in total"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "0 means no limit. Counts the times it opened by itself; links and buttons always open it."
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Devices"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Browsers"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "All browsers"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Only these"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "All except these"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Checked in the visitor’s browser. Brave counts as Chrome; in-app browsers are the ones inside Facebook, Instagram, TikTok and similar apps."
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Schedule"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Start"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "End"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Checked in the visitor’s browser, so it works on static sites. The modal is already in the page, so this won’t keep a code secret until the start date."
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Visitors"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Hide for logged-in users"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Not shown to logged-in users at all, not even from links. Check it with ?modal=preview."
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Only after this many page views"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "0 shows it from the first page."
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Overrides site defaults"
+msgstr ""
+
+#: build/editor/index.js:10
+msgid "Uses the site defaults from Settings → Accessibility. Change only what this modal needs."
+msgstr ""
+
+#. translators: %s: option name.
+#: build/editor/index.js:11
+#, js-format
+msgid "%s (default)"
+msgstr ""
+
+#. translators: %s: site default.
+#: build/editor/index.js:12
+#: build/editor/index.js:13
+#, js-format
+msgid "Overridden · site default is %s"
+msgstr ""
+
+#: build/editor/index.js:12
+msgid "Name read aloud"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Overridden"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Lock page scroll"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Auto-close after a delay"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "If turned on, visitors get a pause button."
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Reset to defaults"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Always on, not settings: native dialog focus trap, Esc to close, focus returns to the trigger, page behind made inert, 44px targets, reduced-motion fade."
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Aspect ratio"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Autoplay when opened (muted)"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Resume where they left off"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Close when the video ends"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Load video"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "When the modal opens"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "With the page"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Always pauses when the modal closes."
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Privacy"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Click-to-load screen for embeds"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Use youtube-nocookie.com"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Click-to-load message"
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Loads from YouTube, which may set cookies."
+msgstr ""
+
+#: build/editor/index.js:13
+msgid "Captions come from the Video block’s own text tracks. Visitors who prefer reduced motion press play themselves."
+msgstr ""
+
+#: build/extensions/video-lightbox.js:1
+msgid "Video file"
+msgstr ""
+
+#: build/extensions/video-lightbox.js:1
+msgid "Video lightbox"
+msgstr ""
+
+#: build/extensions/video-lightbox.js:1
+msgid "Video address"
+msgstr ""
+
+#: build/extensions/video-lightbox.js:1
+msgid "A YouTube or Vimeo link, or a video file."
+msgstr ""
+
+#: build/extensions/video-lightbox.js:1
+msgid "Play in video lightbox"
+msgstr ""
+
+#. translators: %s: video service, e.g. YouTube.
+#: build/extensions/video-lightbox.js:2
+#, js-format
+msgid "%s detected."
+msgstr ""
+
+#: build/extensions/video-lightbox.js:2
+msgid "Click-to-load screen"
+msgstr ""
+
+#: build/extensions/video-lightbox.js:2
+msgid "Nothing loads from the video service until the visitor presses play."
+msgstr ""
+
+#: build/extensions/video-lightbox.js:2
+msgid "Need a caption or button under it?"
+msgstr ""
+
+#: build/extensions/video-lightbox.js:2
+msgid "Turn it into a modal"
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block title"
+msgid "Modal"
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block description"
+msgid "A modal built from core blocks. Opens from links, buttons or triggers."
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block keyword"
+msgid "popup"
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block keyword"
+msgid "dialog"
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block keyword"
+msgid "lightbox"
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block keyword"
+msgid "slide-in"
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block keyword"
+msgid "drawer"
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block style label"
+msgid "Native"
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block style label"
+msgid "Soft"
+msgstr ""
+
+#: build/blocks/modal/block.json
+msgctxt "block style label"
+msgid "Editorial"
+msgstr ""
