@@ -1,0 +1,14 @@
+{
+	"reference": "twentytwentyfive",
+	"block": [
+		"twentytwentyfour",
+		"twentytwentythree",
+		"twentytwentytwo",
+		"extendable",
+		"ollie",
+		"raft",
+		"neve-fse",
+		"spectra-one"
+	],
+	"classic": [ "twentytwentyone", "kadence", "hello-elementor" ]
+}
