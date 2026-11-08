@@ -1,0 +1,76 @@
+name: Release
+
+# Push a tag such as v1.0.0 (v1.0.0-beta.1 for a pre-release). This is the only
+# thing that runs the checks automatically, to save Actions minutes. Each stage
+# waits for the one before it, and nothing is published if any of them fails:
+#
+#   version -> development.yml -> testing.yml -> publish
+#
+# WordPress.org: set the repository variable WPORG_DEPLOY to true, and the
+# secrets SVN_USERNAME and SVN_PASSWORD, to also deploy stable tags and the
+# .wordpress-org assets to the plugin's SVN.
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  version:
+    name: Check the tag matches the plugin's version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          version="${GITHUB_REF_NAME#v}"
+          grep -Eq "^ \* Version: +${version}\s*$" modal-kit.php
+          case "$version" in
+            *-*) ;;
+            *) grep -Eq "^Stable tag: +${version}\s*$" readme.txt ;;
+          esac
+
+  development:
+    needs: version
+    uses: ./.github/workflows/development.yml
+
+  testing:
+    needs: development
+    uses: ./.github/workflows/testing.yml
+
+  publish:
+    name: Build and publish Modal Kit
+    needs: testing
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run plugin-zip
+      - run: unzip -q releases/modal-kit-*.zip -d dist
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          case "$GITHUB_REF_NAME" in
+            *-*) prerelease=--prerelease ;;
+            *) prerelease= ;;
+          esac
+          gh release create "$GITHUB_REF_NAME" releases/modal-kit-*.zip \
+            --title "Modal Kit ${GITHUB_REF_NAME#v}" --generate-notes $prerelease
+      - name: Deploy to WordPress.org
+        if: vars.WPORG_DEPLOY == 'true' && !contains(github.ref_name, '-')
+        uses: 10up/action-wordpress-plugin-deploy@54bd289b8525fd23a5c365ec369185f2966529c2 # stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: modal-kit
+          BUILD_DIR: dist/modal-kit
+          ASSETS_DIR: .wordpress-org

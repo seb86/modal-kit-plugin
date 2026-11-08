@@ -1,0 +1,30 @@
+name: Development
+
+# The quick checks: lint, types, JS unit tests and a build.
+# Runs as part of a release (release.yml), or by hand from the Actions tab. It
+# doesn't run on pushes or pull requests, to save Actions minutes.
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    name: Lint, JS unit tests and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer
+      - run: npm ci
+      - run: composer install --no-interaction --no-progress
+      - run: npm run lint
+      - run: npm run lint:phpstan
+      - run: npm run test:js
+      - run: npm run build

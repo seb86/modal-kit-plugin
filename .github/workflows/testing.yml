@@ -1,0 +1,125 @@
+name: Testing
+
+# The full suites: PHPUnit across PHP and WordPress versions, Playwright, the
+# static export and Plugin Check.
+# Runs as part of a release (release.yml), or by hand from the Actions tab. It
+# doesn't run on pushes or pull requests, to save Actions minutes.
+#
+# Playwright skips the screenshot comparisons here (playwright.config.js): the
+# baselines are taken on Windows, so they're compared locally only.
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  unit:
+    name: PHPUnit (PHP ${{ matrix.php }}, WP ${{ matrix.wp }})
+    runs-on: ubuntu-latest
+    strategy:
+      # Stop at the first failure: the release won't publish anyway.
+      fail-fast: true
+      matrix:
+        # From the plugin's minimum (Requires PHP) to the newest PHP release.
+        php: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
+        # Latest and the release before it. Bump the second when WordPress ships a new major.
+        wp: ['latest', '7.0']
+        # The minimum (Requires at least), on the oldest and the PHP we develop on:
+        # older WordPress isn't tested by its own project on the newest PHP.
+        include:
+          - { php: '7.4', wp: '6.8' }
+          - { php: '8.3', wp: '6.8' }
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress_test
+        ports: ['3306:3306']
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+    env:
+      WP_TESTS_DIR: /tmp/wordpress-tests-lib
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mysqli
+          tools: composer
+      - run: sudo apt-get update && sudo apt-get install -y subversion
+      - run: composer install --no-interaction --no-progress
+      - run: npm ci
+      - run: npm run build
+      - run: bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 ${{ matrix.wp }}
+      - run: npm run test:php
+
+  e2e:
+    name: Playwright
+    runs-on: ubuntu-latest
+    env:
+      WP_BASE_URL: http://localhost:8889
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: mkdir -p artifacts/static-export
+      # Docker is native on GitHub runners; locally the suite runs against Laragon.
+      - run: npx @wordpress/env@12 start
+      - run: npx wp-scripts test-playwright
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: e2e-artifacts
+          path: artifacts
+          if-no-files-found: ignore
+
+  static-export:
+    name: Static export (Simply Static)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: mkdir -p artifacts/static-export
+      - run: npx @wordpress/env@12 start
+      # Exports the wp-env site with Simply Static, serves it, runs tests/static.
+      - run: npm run test:static
+        env:
+          STATIC_ENV: wp-env
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: static-export
+          path: artifacts
+          if-no-files-found: ignore
+
+  plugin-check:
+    name: Plugin Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run plugin-zip
+      - run: unzip -q releases/modal-kit-*.zip -d dist
+      - uses: wordpress/plugin-check-action@v1
+        with:
+          build-dir: dist/modal-kit
