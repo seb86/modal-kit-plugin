@@ -1,0 +1,633 @@
+/**
+ * Fixed styles (plan §3.6, Style Palette): Fieldnote, Harbor, Night, and any
+ * style added through `modal_kit_styles`. The dialog carries `.mk-style` and
+ * `.mk-style-{slug}`; the slug's rule (generated from its JSON file) sets the
+ * colors, fonts, radius and shadow, and everything below reads only those
+ * tokens, so a new style never touches this file.
+ *
+ * These styles bring their own look, so the theme's global button, field and
+ * heading rules mustn't leak in: everything here is scoped to `.mk-style` and
+ * outranks a theme's element and `:where()` rules. The modal's own block
+ * colors (preset classes and inline styles) still win.
+ */
+
+@use "generated";
+
+// Some themes style buttons through long selectors (Twenty Twenty-One:
+// `.wp-block-button:not(.is-style-outline) .wp-block-button__link:not(:hover)
+// :not(:active):not(.has-background)`). `:not(#mk-id)` matches every element
+// and weighs as much as an id, so the button rules below win over any class
+// chain. A color set on the block still wins: inline styles and the preset
+// classes (which use !important) outrank any selector.
+$beat-theme: ":not(#mk-id)";
+
+// The shared scale: every fixed style uses the same sizes and spacing.
+:where(.mk-style) {
+	--mk-text-display: 44px;
+	--mk-text-heading: clamp(24px, 1.1rem + 1.4vw, 30px);
+	--mk-text-body: 16px;
+	--mk-text-control: 15px;
+	--mk-text-small: 13px;
+	--mk-text-eyebrow: 12px;
+	--mk-space-1: 4px;
+	--mk-space-2: 8px;
+	--mk-space-3: 12px;
+	--mk-space-4: 16px;
+	--mk-space-5: 24px;
+	--mk-space-6: 32px;
+	--mk-space-7: 48px;
+	--mk-panel-padding: var(--mk-space-6);
+	--mk-control-height: 46px;
+}
+
+:where(.mk-style.is-mobile) {
+	--mk-text-display: 34px;
+	--mk-text-body: 15px;
+	--mk-panel-padding: var(--mk-space-5);
+	--mk-control-height: 48px;
+}
+
+// Layout values that would otherwise follow the theme.
+.mk-style {
+	--modal-kit-gutter: var(--mk-space-4);
+	--modal-kit-content: 640px;
+	--modal-kit-wide: 1200px;
+
+	// Core's layout rules read these directly, in this panel and in any group
+	// inside it, so a theme's sizes would otherwise set where the text wraps.
+	--wp--style--global--content-size: var(--modal-kit-content);
+	--wp--style--global--wide-size: var(--modal-kit-wide);
+	--wp--style--root--padding-top: 0;
+	--wp--style--root--padding-right: 0;
+	--wp--style--root--padding-bottom: 0;
+	--wp--style--root--padding-left: 0;
+	--wp--style--block-gap: var(--mk-space-3);
+}
+
+// Full-screen and bars use the style's dark trio.
+.mk-style:is(.modal-kit--full, .modal-kit--bar) {
+	--mk-surface: var(--mk-full-bg);
+	--mk-ink: var(--mk-full-ink);
+	--mk-accent: var(--mk-full-accent);
+	--mk-button: var(--mk-full-button);
+	--mk-on-button: var(--mk-on-full-button);
+	--mk-muted: color-mix(in srgb, var(--mk-full-ink) 76%, var(--mk-full-bg));
+	--mk-line: color-mix(in srgb, var(--mk-full-ink) 18%, var(--mk-full-bg));
+	--mk-field: color-mix(in srgb, var(--mk-full-ink) 55%, var(--mk-full-bg));
+	--mk-field-bg: transparent;
+	--mk-tint: color-mix(in srgb, var(--mk-full-ink) 10%, var(--mk-full-bg));
+	--mk-scheme: dark;
+	--mk-shadow: none;
+}
+
+// Panel widths: S 400, M 520, L 720 where the layout follows the size.
+.mk-style:is(.modal-kit--centered, .modal-kit--split, .modal-kit--sheet, .modal-kit--inline) {
+
+	&.modal-kit--size-s {
+		--modal-kit-width: 400px;
+	}
+
+	&.modal-kit--size-m {
+		--modal-kit-width: 520px;
+	}
+
+	&.modal-kit--size-l {
+		--modal-kit-width: 720px;
+	}
+}
+
+.mk-style > .modal-kit__panel {
+	color-scheme: var(--mk-scheme, light);
+	font-size: var(--mk-text-body);
+	font-style: normal;
+	line-height: 1.55;
+	letter-spacing: normal;
+	text-align: start;
+	text-transform: none;
+	text-wrap: pretty;
+	word-break: normal;
+	word-spacing: normal;
+	overflow-wrap: break-word;
+	hyphens: manual;
+
+	// Stack gap. A gap set on the block (a wp-container class) wins.
+	&:not([class*="wp-container-"]) {
+
+		> * {
+			margin-block: 0;
+		}
+
+		> * + * {
+			margin-block-start: var(--mk-space-3);
+		}
+
+		> .wp-block-buttons {
+			margin-block-start: calc(var(--mk-space-3) + var(--mk-space-2));
+		}
+	}
+
+	:where(h1, h2, h3, h4, h5, h6) {
+		color: inherit;
+		font-size: var(--mk-text-body);
+		line-height: 1.08;
+		text-wrap: balance;
+	}
+
+	:where(h1, h2) {
+		font-size: var(--mk-text-heading);
+	}
+
+	:where(h3) {
+		font-size: calc(var(--mk-text-body) * 1.25);
+		line-height: 1.2;
+	}
+
+	// "Small" is the style's small, not the theme's: the preset class uses
+	// !important, so this one does too. Other sizes stay the theme's.
+	.has-small-font-size {
+		font-size: var(--mk-text-small) !important;
+	}
+
+	// Eyebrows: the pattern helper's class, or an uppercase tracked paragraph.
+	:where(.modal-kit-eyebrow, p[style*="text-transform:uppercase"]):not(.has-text-color) {
+		color: var(--mk-accent);
+	}
+
+	:where(.modal-kit-eyebrow, p[style*="text-transform:uppercase"]) {
+		font-size: var(--mk-text-eyebrow) !important;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	// Links and muted copy only where no text color was chosen.
+	:where(a:not(.wp-element-button, .wp-block-button__link, .has-text-color, .has-text-color *)) {
+		color: var(--mk-accent);
+
+		&:hover {
+			color: var(--mk-accent-strong, var(--mk-accent));
+		}
+	}
+
+	:where(hr, .wp-block-separator) {
+		border-color: var(--mk-line);
+		color: var(--mk-line);
+	}
+
+	:where(code, kbd, pre) {
+		font-family: var(--mk-font-mono);
+	}
+}
+
+.mk-style > .modal-kit__panel:not(.has-text-color) > p:not(.has-text-color, .modal-kit-eyebrow, [style*="text-transform:uppercase"]) {
+	color: var(--mk-muted);
+}
+
+.mk-style.modal-kit--full > .modal-kit__panel {
+	text-align: center;
+}
+
+.mk-style.modal-kit--full > .modal-kit__panel :where(h1, h2) {
+	font-size: var(--mk-text-display);
+	line-height: 1;
+}
+
+// Core text blocks. Themes style these by element (`ul`, `blockquote`, `td`),
+// so the style answers for them too. Only core block classes are reached, so
+// other blocks' lists keep their own rules. What a block sets itself still
+// wins: its typography, colors and spacing are inline styles or !important
+// preset classes.
+$text-blocks: "p:not(.modal-kit-eyebrow, [style*='text-transform:uppercase']), .wp-block-list, .wp-block-list li, .wp-block-quote, .wp-block-quote p, .wp-block-table, .wp-block-table table, .wp-block-table :is(td, th), .wp-block-table figcaption, .wp-block-details, .wp-block-details summary, .wp-block-search__label";
+$colored-blocks: ".wp-block-list, .wp-block-list li, .wp-block-quote, .wp-block-quote p, .wp-block-table :is(td, th), .wp-block-details, .wp-block-details summary";
+
+$wrapped-blocks: "h1, h2, h3, h4, h5, h6, p, .wp-block-list li, .wp-block-quote, .wp-block-table :is(td, th), .wp-block-table figcaption, .wp-block-details summary, .wp-block-search__label";
+$stacked-blocks: "h1, h2, h3, h4, h5, h6, p, .wp-block-list, .wp-block-quote, .wp-block-table, .wp-block-details, .wp-block-separator, .wp-block-search, .wp-block-code";
+
+// The stack gap again, for the blocks themes give their own margins.
+.mk-style#{$beat-theme} > .modal-kit__panel:not([class*="wp-container-"]) {
+
+	> :where(#{$stacked-blocks}) {
+		margin-block: 0;
+	}
+
+	> * + :where(#{$stacked-blocks}) {
+		margin-block-start: var(--mk-space-3);
+	}
+
+	// Some themes give quotes margins with !important (Extendable). A margin
+	// set on the block is an inline style, and stays.
+	> .wp-block-quote:not([style*="margin"]) {
+		margin-block: 0 !important;
+	}
+
+	> * + .wp-block-quote:not([style*="margin"]) {
+		margin-block-start: var(--mk-space-3) !important;
+	}
+}
+
+.mk-style#{$beat-theme} > .modal-kit__panel {
+
+	:where(#{$wrapped-blocks}) {
+		text-wrap: inherit;
+		word-break: inherit;
+		word-spacing: inherit;
+		overflow-wrap: inherit;
+		hyphens: inherit;
+	}
+
+	:where(h1, h2, h3, h4, h5, h6) {
+		text-wrap: balance;
+	}
+
+	:where(#{$text-blocks}) {
+		font-size: inherit;
+		line-height: inherit;
+		text-transform: inherit;
+	}
+
+	.has-small-font-size {
+		line-height: 1.45;
+	}
+
+	:where(#{$colored-blocks}) {
+		color: inherit;
+	}
+
+	// Links in running text are underlined, at rest and on hover.
+	:is(p, .wp-block-list li, .wp-block-table td, .wp-block-table th, .wp-block-table figcaption) a:not(.wp-element-button, .wp-block-button__link) {
+		text-decoration-line: underline;
+		text-underline-offset: 0.15em;
+
+		&:focus-visible {
+			outline: 2px solid var(--mk-accent);
+			outline-offset: 2px;
+			box-shadow: none;
+		}
+	}
+
+	// The search block's label and field are the style's too.
+	.wp-block-search__inside-wrapper {
+		gap: var(--mk-space-2);
+		padding: 0;
+		border: 0;
+		background: none;
+	}
+
+	.wp-block-search__label {
+		display: block;
+		margin: 0 0 var(--mk-space-1);
+		font-size: var(--mk-text-small);
+		font-weight: 500;
+		line-height: 1.45;
+	}
+
+	.wp-block-list {
+		margin-inline: 0;
+		padding-inline-start: var(--mk-space-5);
+		background: none;
+		list-style-type: revert;
+
+		li {
+			margin: 0;
+			padding: 0;
+			background: none;
+
+			&::before {
+				content: none;
+			}
+
+			+ li {
+				margin-block-start: var(--mk-space-1);
+			}
+		}
+	}
+
+	.wp-block-quote {
+		margin-inline: 0;
+		padding: 0;
+		padding-inline-start: var(--mk-space-4);
+		border: 0;
+		border-inline-start: 2px solid var(--mk-line);
+		border-radius: 0;
+		background: none;
+		box-shadow: none;
+		font-style: normal;
+		quotes: none;
+
+		&::before,
+		&::after {
+			content: none;
+		}
+
+		p {
+			margin-block: 0;
+			font-style: normal;
+
+			+ p {
+				margin-block-start: var(--mk-space-2);
+			}
+		}
+
+		// Some themes set this width with !important (Ollie). A border set on
+		// the block is an inline style, and stays.
+		&:not([style*="border"]) {
+			border-block-width: 0 !important;
+			border-inline-width: 2px 0 !important;
+		}
+
+		cite {
+			display: block;
+			margin-block-start: var(--mk-space-1);
+			color: var(--mk-muted);
+			font-size: var(--mk-text-small);
+			font-style: normal;
+		}
+	}
+
+	.wp-block-table {
+		margin-inline: 0;
+
+		table {
+			width: 100%;
+			margin: 0;
+			border: 0;
+			border-radius: 0;
+			background: none;
+			box-shadow: none;
+			border-collapse: collapse;
+		}
+
+		:is(td, th) {
+			padding: var(--mk-space-2) var(--mk-space-3);
+			background: none;
+		}
+
+		figcaption {
+			margin-block: var(--mk-space-2) 0;
+			color: var(--mk-muted);
+			font-size: var(--mk-text-small);
+		}
+	}
+
+	.wp-block-table:not(.is-style-stripes) table:not(.has-border-color) :is(td, th) {
+		border: 1px solid var(--mk-line);
+	}
+
+	.wp-block-details {
+		padding: 0;
+		border: 0;
+		background: none;
+
+		summary {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background: none;
+			cursor: pointer;
+			list-style: revert;
+
+			&::before,
+			&::after {
+				content: none;
+			}
+		}
+
+		> summary ~ * {
+			margin-block: var(--mk-space-2) 0;
+		}
+	}
+
+	.wp-block-separator:not(.has-background, .has-text-color, .is-style-dots) {
+		width: 100%;
+		max-width: none;
+		height: 0;
+		margin-inline: 0;
+		border: 0;
+		border-block-start: 1px solid var(--mk-line);
+		background: none;
+		box-shadow: none;
+	}
+
+	:is(code, kbd) {
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: none;
+		color: inherit;
+		font-size: 0.9em;
+	}
+
+	.wp-block-code {
+		margin-inline: 0;
+		padding: var(--mk-space-3);
+		border: 0;
+		border-radius: var(--mk-radius-field);
+		background: var(--mk-tint);
+		color: inherit;
+		font-size: var(--mk-text-small);
+	}
+}
+
+// Buttons (core Button block and theme button elements). Outline buttons
+// are quiet: ink text on a field-colored border.
+.mk-style#{$beat-theme} > .modal-kit__panel .wp-block-button .wp-block-button__link,
+.mk-style#{$beat-theme} > .modal-kit__panel .wp-element-button {
+	display: inline-flex;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	min-height: var(--mk-control-height);
+	margin: 0;
+	padding: var(--mk-space-3) calc(var(--mk-space-4) + var(--mk-space-1));
+	border: 1px solid transparent;
+	border-radius: var(--mk-radius-button);
+	outline: none;
+	outline-offset: 0;
+	background-color: var(--mk-button, var(--mk-accent));
+	box-shadow: none;
+	color: var(--mk-on-button, var(--mk-on-accent));
+	font-size: var(--mk-text-control);
+	font-weight: max(600, var(--mk-head-weight, 600));
+	letter-spacing: normal;
+	line-height: 1.2;
+	text-decoration: none;
+	text-transform: none;
+	white-space: normal;
+
+	&:hover,
+	&:focus-visible {
+		background-color: var(--mk-button-strong, var(--mk-accent-strong, var(--mk-accent)));
+		color: var(--mk-on-button, var(--mk-on-accent));
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--mk-button, var(--mk-accent));
+		outline-offset: 2px;
+	}
+}
+
+// Some themes set hover colors with !important (Twenty Twenty-One), which only
+// !important can answer. Colors set on the block are left alone.
+.mk-style#{$beat-theme} > .modal-kit__panel .wp-block-button:not(.is-style-outline) .wp-block-button__link:is(:hover, :focus-visible) {
+
+	&:not(.has-background) {
+		background-color: var(--mk-button-strong, var(--mk-accent-strong, var(--mk-accent))) !important;
+	}
+
+	&:not(.has-text-color) {
+		color: var(--mk-on-button, var(--mk-on-accent)) !important;
+	}
+
+	&:not(.has-border-color) {
+		border-color: transparent !important;
+	}
+}
+
+.mk-style#{$beat-theme} > .modal-kit__panel .wp-block-button.is-style-outline .wp-block-button__link:is(:hover, :focus-visible) {
+
+	&:not(.has-background) {
+		background-color: var(--mk-tint) !important;
+	}
+
+	&:not(.has-text-color) {
+		color: var(--mk-ink) !important;
+	}
+
+	&:not(.has-border-color) {
+		border-color: var(--mk-field) !important;
+	}
+}
+
+// Action gap between buttons (a gap set on the block wins).
+.mk-style#{$beat-theme} > .modal-kit__panel .wp-block-buttons:not([class*="wp-container-"]) {
+	gap: var(--mk-space-2);
+}
+
+.mk-style:is(.modal-kit--full, .modal-kit--bar) {
+	--mk-button-strong: color-mix(in srgb, var(--mk-full-button) 85%, var(--mk-full-bg));
+}
+
+.mk-style#{$beat-theme} > .modal-kit__panel .wp-block-button.is-style-outline .wp-block-button__link {
+	border-color: var(--mk-field);
+	background-color: transparent;
+	color: var(--mk-ink);
+
+	&:hover,
+	&:focus-visible {
+		background-color: var(--mk-tint);
+		color: var(--mk-ink);
+	}
+}
+
+// Fields (blocks may add their own rules; these keep a theme's out).
+.mk-style > .modal-kit__panel :is(input:not([type="checkbox"], [type="radio"], [type="range"], [type="hidden"], [type="submit"], [type="button"], [type="image"]), select, textarea) {
+	box-sizing: border-box;
+	min-height: var(--mk-control-height);
+	margin: 0;
+	padding: 0 calc(var(--mk-space-3) + 2px);
+	border: 1px solid var(--mk-field);
+	border-radius: var(--mk-radius-field);
+	background-color: var(--mk-field-bg);
+	box-shadow: none;
+	color: var(--mk-ink);
+	font: inherit;
+	font-size: var(--mk-text-control);
+	line-height: 1.2;
+
+	&::placeholder {
+		color: var(--mk-muted);
+		opacity: 1;
+	}
+
+	&:focus-visible {
+		border-color: var(--mk-accent);
+		outline: 2px solid var(--mk-accent);
+		outline-offset: 1px;
+	}
+}
+
+.mk-style > .modal-kit__panel textarea {
+	padding-block: var(--mk-space-3);
+}
+
+.mk-style > .modal-kit__panel :is(input[type="checkbox"], input[type="radio"]) {
+	accent-color: var(--mk-accent);
+}
+
+// Close and pause buttons.
+.mk-style#{$beat-theme} :is(.modal-kit__close, .modal-kit__pause) {
+	background: transparent;
+	border-radius: var(--mk-radius-button);
+	color: var(--mk-muted);
+	font-family: inherit;
+
+	&:hover {
+		background: color-mix(in srgb, currentcolor 10%, transparent);
+		color: var(--mk-ink);
+	}
+
+	&:focus-visible {
+		outline-color: var(--mk-accent);
+	}
+}
+
+// On a split, the panel's colour behind the × (see the split in style.scss).
+.mk-style#{$beat-theme}.modal-kit--split > .modal-kit__panel > .modal-kit__close {
+
+	&,
+	&:hover {
+		background-color: inherit;
+	}
+
+	&:hover {
+		background-image: linear-gradient(color-mix(in srgb, currentcolor 10%, transparent) 0 0);
+	}
+}
+
+.mk-style#{$beat-theme} .modal-kit__close.has-label {
+	border-color: var(--mk-field);
+}
+
+// Style fonts (the bundled Instrument Sans, Instrument Serif and IBM Plex
+// Mono). With "Theme fonts" the dialog carries .mk-fonts-theme and the
+// theme's own families, weights and tracking apply.
+.mk-style:not(.mk-fonts-theme) {
+
+	> .modal-kit__panel {
+		font-family: var(--mk-font-body);
+		font-weight: 400;
+
+		:where(h1, h2, h3, h4, h5, h6) {
+			font-family: var(--mk-font-head);
+			font-weight: var(--mk-head-weight);
+			letter-spacing: var(--mk-head-tracking);
+		}
+
+		:where(.modal-kit-eyebrow, p[style*="text-transform:uppercase"]) {
+			font-family: var(--mk-font-mono);
+		}
+	}
+
+	.modal-kit__close,
+	.modal-kit__pause,
+	.wp-element-button,
+	.wp-block-button__link,
+	:is(input, select, textarea, button) {
+		font-family: var(--mk-font-body);
+	}
+}
+
+.mk-style#{$beat-theme}:not(.mk-fonts-theme) > .modal-kit__panel {
+
+	:where(#{$text-blocks}) {
+		font-family: inherit;
+		font-weight: inherit;
+		letter-spacing: inherit;
+	}
+
+	.wp-block-details summary,
+	.wp-block-search__label {
+		font-weight: 500;
+	}
+}

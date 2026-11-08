@@ -1,0 +1,938 @@
+/**
+ * Shared modal styles: the only modal stylesheet, loaded in the editor canvas
+ * and on the front end.
+ *
+ * Structure (front end):  dialog.modal-kit > .modal-kit__panel
+ * Structure (editor):     .is-root-container.modal-kit > .modal-kit__panel
+ *
+ * .modal-kit is a size container, so the mobile layouts below respond to the
+ * viewport on the site and to the canvas width (device preview) in the editor.
+ *
+ * Layouts and blocks read only the --mk-* style tokens (plan §3.6). The
+ * styles that follow the theme (Native, Soft, Editorial) fill them
+ * from the theme's global styles (the --modal-kit-* values from
+ * ThemeTokens.php), with the Fieldnote colors as fallback; the fixed styles
+ * (Fieldnote, Harbor, Night) set their own on the dialog (styles/_fixed.scss).
+ * Tokens left unset here keep each reader's own fallback.
+ */
+
+@use "sass:meta";
+
+:root {
+	--mk-surface: var(--modal-kit-surface, #fff);
+	--mk-ink: var(--modal-kit-ink, #1c1a24);
+	--mk-full-bg: var(--modal-kit-ink, #1c1a24);
+	--mk-full-ink: var(--modal-kit-surface, #fff);
+	--mk-radius-panel: var(--modal-kit-radius);
+	--mk-radius-button: var(--modal-kit-radius);
+	--mk-panel-padding: var(--modal-kit-space);
+	--mk-shadow: var(--modal-kit-shadow);
+}
+
+.modal-kit {
+	--modal-kit-gutter: var(--wp--style--root--padding-left, 1rem);
+	--modal-kit-content: var(--wp--style--global--content-size, 40rem);
+	--modal-kit-wide: var(--wp--style--global--wide-size, 75rem);
+	--modal-kit-width: var(--modal-kit-content);
+
+	position: fixed;
+	inset: 0;
+	z-index: var(--modal-kit-z, 100000);
+	box-sizing: border-box;
+	display: grid;
+	// Explicit tracks so percentages on the panel resolve against the container.
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-rows: minmax(0, 1fr);
+	width: auto;
+	height: auto;
+	max-width: none;
+	max-height: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	container: modal-kit / inline-size;
+
+	&::backdrop {
+		background: transparent;
+	}
+
+
+	// Overlay: preset color at the chosen opacity.
+	&.has-overlay::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: var(--modal-kit-overlay-color, var(--mk-overlay, var(--mk-ink)));
+		opacity: var(--modal-kit-overlay-opacity, 0.45);
+	}
+
+	&.has-overlay-blur::before {
+		backdrop-filter: blur(6px);
+	}
+
+	// Non-modal layouts stay below the admin bar.
+	.admin-bar &.modal-kit--corner,
+	.admin-bar &.modal-kit--bar {
+		inset-block-start: var(--wp-admin--admin-bar--height, 0px);
+	}
+
+	// Layouts without an overlay leave the page behind usable.
+	&.modal-kit--corner,
+	&.modal-kit--bar,
+	&.modal-kit--inline {
+		pointer-events: none;
+
+		> .modal-kit__panel {
+			pointer-events: auto;
+		}
+	}
+}
+
+// Native dialogs stay hidden until opened (the editor canvas is a div and is
+// always shown). Element + class + attribute beats every layout's display.
+dialog.modal-kit:not([open]) {
+	display: none;
+}
+
+// Focus moves to the heading for screen readers; no outline needed there.
+.modal-kit__panel :where(h1, h2, h3, h4, h5, h6)[tabindex="-1"]:focus {
+	outline: none;
+}
+
+// Sizes: S / M / L / Wide map to the theme's content and wide sizes.
+.modal-kit--size-s {
+	--modal-kit-width: calc(var(--modal-kit-content) * 0.66);
+}
+
+.modal-kit--size-l {
+	--modal-kit-width: calc((var(--modal-kit-content) + var(--modal-kit-wide)) / 2);
+}
+
+.modal-kit--size-wide {
+	--modal-kit-width: var(--modal-kit-wide);
+}
+
+.modal-kit__panel {
+	position: relative;
+	z-index: 1;
+	box-sizing: border-box;
+	width: var(--modal-kit-width);
+	max-width: calc(100% - 2 * var(--modal-kit-gutter));
+	max-height: calc(100% - 2 * var(--modal-kit-gutter));
+	margin: var(--modal-kit-gutter);
+	overflow: auto;
+	overscroll-behavior: contain;
+	border-radius: var(--mk-radius-panel, 0);
+	background-color: var(--mk-surface);
+	color: var(--mk-ink);
+	box-shadow: var(--mk-shadow, none);
+	place-self: center;
+
+	> :first-child {
+		margin-block-start: 0;
+	}
+}
+
+// Two classes, so the theme's .has-global-padding rules don't win.
+.modal-kit > .modal-kit__panel {
+	padding: var(--mk-panel-padding, 1.5rem);
+}
+
+// Tap targets: at least 44px in every style, whatever the theme's buttons do.
+.modal-kit__panel :is(.wp-block-button__link, .wp-element-button) {
+	display: inline-flex;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+}
+
+// Auto-close pause button (WCAG 2.2.1), next to the close button. Two classes
+// here and on the close button, so a theme's `button` and `[type=button]` rules
+// can't restyle them.
+.modal-kit .modal-kit__pause {
+	position: absolute;
+	inset-block-start: 0.25rem;
+	inset-inline-end: 3.25rem;
+	z-index: 2;
+	min-height: 44px;
+	padding: 0 0.875rem;
+	border: 1px solid currentcolor;
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	box-shadow: none;
+	font: inherit;
+	font-size: 0.875rem;
+	white-space: nowrap;
+	cursor: pointer;
+
+	&:focus {
+		background: transparent;
+		color: inherit;
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentcolor;
+		outline-offset: 2px;
+		box-shadow: none;
+	}
+}
+
+// Close button: labelled, 44px target.
+.modal-kit .modal-kit__close {
+	position: absolute;
+	inset-block-start: 0.25rem;
+	inset-inline-end: 0.25rem;
+	z-index: 2;
+	display: inline-flex;
+	gap: 0.375rem;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	min-width: 44px;
+	min-height: 44px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	box-shadow: none;
+	color: inherit;
+	font: inherit;
+	font-size: 0.875rem;
+	line-height: 1;
+	white-space: nowrap;
+	cursor: pointer;
+
+	&:focus {
+		background: transparent;
+		color: inherit;
+	}
+
+	&:hover {
+		background: color-mix(in srgb, currentcolor 10%, transparent);
+		color: inherit;
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentcolor;
+		outline-offset: 2px;
+		box-shadow: none;
+	}
+
+	&.has-label {
+		padding: 0 0.875rem 0 1rem;
+		border: 1px solid currentcolor;
+	}
+}
+
+// The theme's block gap (`:root :where(.is-layout-constrained) > *`) has
+// the same weight as `.modal-kit__close` and loads later: it pushed the
+// button down by the gap.
+.modal-kit__panel > .modal-kit__close {
+	margin-block: 0;
+}
+
+.modal-kit__close-icon {
+	flex: none;
+}
+
+// 01 Centered dialog.
+.modal-kit--centered > .modal-kit__panel {
+	padding-block-start: max(var(--mk-panel-padding, 1.5rem), 2.75rem);
+}
+
+// 02 Slide-in corner: no overlay, the page stays usable.
+.modal-kit--corner {
+	--modal-kit-width: 21.25rem;
+
+	&.modal-kit--size-s {
+		--modal-kit-width: 18rem;
+	}
+
+	&.modal-kit--size-l {
+		--modal-kit-width: 26rem;
+	}
+
+	&.modal-kit--size-wide {
+		--modal-kit-width: 32rem;
+	}
+
+	// Positions are physical on every site: right to left changes how text
+	// reads, not which side someone chose. The build flips `left:` and `right:`
+	// properties for right-to-left sites, but not these values, nor `inset` or
+	// `translate`, which is why the split layout and drawer below use those.
+	> .modal-kit__panel {
+		place-self: end right;
+		padding-block-start: max(var(--mk-panel-padding, 1.25rem), 2.75rem);
+	}
+
+	&.modal-kit--pos-bottom-left > .modal-kit__panel {
+		place-self: end left;
+	}
+
+	&.modal-kit--pos-top-right > .modal-kit__panel {
+		place-self: start right;
+	}
+
+	&.modal-kit--pos-top-left > .modal-kit__panel {
+		place-self: start left;
+	}
+}
+
+// 03 Top / bottom bar: the blocks in one centred row (wrapping when they
+// don't fit), the close button centred at the end. The theme's constrained
+// layout would stack them in its content column instead.
+.modal-kit--bar {
+
+	> .modal-kit__panel {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.25rem;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		max-width: 100%;
+		max-height: 50%;
+		margin: 0;
+		padding-block: calc(var(--mk-panel-padding, 1rem) / 2);
+		padding-inline: var(--modal-kit-gutter) 3.5rem;
+		border-radius: 0;
+		place-self: start stretch;
+
+		> :not(.modal-kit__close) {
+			max-width: none;
+			margin: 0 !important;
+		}
+	}
+
+	// Far enough from the screen edge for its focus ring (a bar without a
+	// heading focuses it on open).
+	> .modal-kit__panel > .modal-kit__close {
+		inset-block-start: 50%;
+		inset-inline-end: 0.75rem;
+		transform: translateY(-50%);
+	}
+
+	&.modal-kit--pos-bottom > .modal-kit__panel {
+		place-self: end stretch;
+	}
+}
+
+// 04 Full-screen takeover.
+.modal-kit--full {
+
+	> .modal-kit__panel {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		max-width: 100%;
+		height: 100%;
+		max-height: 100%;
+		margin: 0;
+		padding-block: max(var(--mk-panel-padding, 2rem), 4.5rem);
+		border-radius: 0;
+		box-shadow: none;
+		place-self: stretch;
+	}
+
+	> .modal-kit__panel > .modal-kit__close {
+		inset-block-start: 1rem;
+		inset-inline-end: 1rem;
+	}
+
+	// A centered column. Stated here because the theme's constrained layout
+	// rules aren't there in classic themes, and in a flex column they shrink
+	// each block to its text, so its edges no longer line up.
+	> .modal-kit__panel {
+		text-align: center;
+
+		> :not(.modal-kit__close, .modal-kit__pause, .alignfull) {
+			width: 100%;
+			max-width: var(--modal-kit-content);
+			margin-inline: auto;
+		}
+
+		> .wp-block-buttons:not([class*="is-content-justification-"]) {
+			justify-content: center;
+		}
+	}
+}
+
+// 05 Side drawer, 360–480px.
+.modal-kit--drawer {
+	--modal-kit-width: 25rem;
+
+	&.modal-kit--size-s {
+		--modal-kit-width: 22.5rem;
+	}
+
+	&.modal-kit--size-l {
+		--modal-kit-width: 30rem;
+	}
+
+	&.modal-kit--size-wide {
+		--modal-kit-width: 40rem;
+	}
+
+	> .modal-kit__panel {
+		max-width: 100%;
+		height: 100%;
+		max-height: none;
+		margin: 0;
+		padding-block-start: max(var(--mk-panel-padding, 2rem), 4rem);
+		border-radius: 0;
+		place-self: stretch right;
+	}
+
+	&.modal-kit--pos-left > .modal-kit__panel {
+		place-self: stretch left;
+	}
+}
+
+// 06 Split image + content. The first block (Image or Cover) is the media:
+// it covers one half, and the rest of the content flows in the other half.
+// Child margins (not panel padding) make the offset, because percentages
+// in padding resolve against the dialog, not the panel.
+.modal-kit--split {
+	--modal-kit-split-space: var(--mk-panel-padding, 1.5rem);
+
+	> .modal-kit__panel {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: min(24rem, calc(100% - 2 * var(--modal-kit-gutter)));
+		padding-block: max(var(--modal-kit-split-space), 2.75rem) var(--modal-kit-split-space);
+		padding-inline: 0;
+		overflow: hidden auto;
+		border-radius: max(var(--mk-radius-panel, 0px), 0.25rem);
+
+		> :not(:first-child, .modal-kit__close) {
+			box-sizing: border-box;
+			width: auto;
+			max-width: none;
+
+			margin-inline: 50% 0 !important;
+			padding-inline: var(--modal-kit-split-space);
+
+			[dir="rtl"] & {
+				margin-inline: 0 50% !important;
+			}
+		}
+
+		// Physical, like every position (see Corner), and not a logical inset either:
+		// that follows the block's own direction, and a Cover's isn't the page's.
+		> :first-child {
+			position: absolute;
+			inset: 0 auto 0 0;
+			box-sizing: border-box;
+			width: 50%;
+			max-width: none;
+			height: 100%;
+			min-height: 0;
+			margin: 0 !important;
+		}
+
+		> :first-child img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&.modal-kit--pos-media-right > .modal-kit__panel {
+
+		> :not(:first-child, .modal-kit__close) {
+			margin-inline: 0 50% !important;
+
+			[dir="rtl"] & {
+				margin-inline: 50% 0 !important;
+			}
+		}
+
+		> :first-child {
+			inset: 0 0 0 auto;
+		}
+	}
+
+	&.modal-kit--pos-media-top > .modal-kit__panel {
+		padding-block-start: 0;
+
+		> :not(:first-child, .modal-kit__close) {
+			margin-inline: 0 !important;
+		}
+
+		> :first-child {
+			position: relative;
+			inset: auto;
+			width: 100%;
+			min-height: 0 !important;
+			height: 12rem;
+			margin: 0 0 var(--modal-kit-split-space) !important;
+		}
+	}
+}
+
+// The close button can land on the media, which may be any colour, so it brings
+// the panel's colour with it: unseen on the text, a disc on the media. The
+// outline goes inside, on that disc, for the same reason.
+.modal-kit--split > .modal-kit__panel > .modal-kit__close {
+
+	&,
+	&:focus,
+	&:hover {
+		background-color: inherit;
+	}
+
+	&:hover {
+		background-image: linear-gradient(color-mix(in srgb, currentcolor 10%, transparent) 0 0);
+	}
+
+	&:focus-visible {
+		outline-offset: -2px;
+	}
+}
+
+// 07 Bottom sheet: docks bottom-centre at content width.
+.modal-kit--sheet {
+
+	> .modal-kit__panel {
+		max-height: 85%;
+		margin-block-end: 0;
+		padding-block-start: max(var(--mk-panel-padding, 1.5rem), 2.75rem);
+		border-end-start-radius: 0;
+		border-end-end-radius: 0;
+		border-start-start-radius: max(var(--mk-radius-panel, 0px), 1rem);
+		border-start-end-radius: max(var(--mk-radius-panel, 0px), 1rem);
+		place-self: end center;
+
+		// Drag handle.
+		&::before {
+			content: "";
+			position: absolute;
+			inset-block-start: 0.625rem;
+			inset-inline-start: 50%;
+			width: 2.5rem;
+			height: 0.25rem;
+			border-radius: 999px;
+			background: currentcolor;
+			opacity: 0.25;
+			transform: translateX(-50%);
+		}
+	}
+}
+
+// 09 Video lightbox (6a): a theatre on desktop, full screen on mobile. The
+// backdrop is the theme's ink, nearly opaque; text sits on it in the surface
+// color. The player keeps its aspect ratio (Video panel, 6c).
+.modal-kit--video {
+	--modal-kit-video-ratio: 16 / 9;
+
+	&.has-overlay::before {
+		opacity: max(var(--modal-kit-overlay-opacity, 0.92), 0.85);
+	}
+
+	> .modal-kit__panel {
+		width: min(100% - 2 * var(--modal-kit-gutter), 70rem, (100dvh - 9rem) * var(--modal-kit-video-ratio));
+		padding: 3.5rem 0 1rem;
+		overflow: visible;
+		border-radius: 0;
+		background: transparent;
+		color: var(--mk-full-ink);
+		box-shadow: none;
+	}
+
+	> .modal-kit__panel > .modal-kit__close {
+		inset-block-start: 0;
+		inset-inline-end: 0;
+	}
+}
+
+// The player: embeds and core/video fill the width at the chosen ratio.
+.modal-kit--video,
+.modal-kit--video.is-editor-preview {
+
+	// Full width: the player has no intrinsic size (its iframe is absolutely
+	// positioned), so in the centred flex panel on phones it would collapse.
+	.wp-block-embed,
+	.wp-block-video {
+		width: 100%;
+		margin-block: 0;
+	}
+
+	.wp-block-embed__wrapper {
+		position: relative;
+		aspect-ratio: var(--modal-kit-video-ratio);
+
+		&::before {
+			display: none;
+		}
+	}
+
+	.wp-block-embed__wrapper iframe,
+	.wp-block-video video {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		background: var(--mk-full-bg);
+	}
+
+	.wp-block-video {
+		position: relative;
+		aspect-ratio: var(--modal-kit-video-ratio);
+	}
+}
+
+.is-mobile.modal-kit--m-video > .modal-kit__panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	max-height: 100%;
+	margin: 0;
+	padding: 4rem 0 1.5rem;
+}
+
+// Click-to-load screen (6a): nothing loads from a video service until tapped.
+.modal-kit-consent {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	background: var(--mk-full-bg);
+	color: var(--mk-full-ink);
+	text-align: center;
+}
+
+.modal-kit-consent__play {
+	display: inline-flex;
+	gap: 0.5rem;
+	align-items: center;
+	min-height: 44px;
+	padding: 0 1.25rem;
+	border: 1px solid currentcolor;
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+
+	&:focus-visible {
+		outline: 2px solid currentcolor;
+		outline-offset: 2px;
+	}
+}
+
+.modal-kit-consent__note {
+	margin: 0;
+	font-size: 0.875rem;
+	opacity: 0.8;
+}
+
+// 08 Inline / embedded: renders in the content flow, no overlay.
+.modal-kit--inline {
+	position: relative;
+	inset: auto;
+	z-index: auto;
+	display: block;
+	padding: 0;
+	overflow: visible;
+
+	> .modal-kit__panel {
+		max-width: 100%;
+		margin: 0 auto;
+		max-height: none;
+		padding-block-start: max(var(--mk-panel-padding, 1.5rem), 2.75rem);
+		box-shadow: none;
+	}
+}
+
+// Mobile layouts (mockup 1d). The runtime (and the editor) add .is-mobile to
+// the container below the breakpoint from Settings → Display (600px by
+// default), measuring the container: the viewport on the site, the canvas
+// in the editor, so the device preview matches phones.
+.is-mobile.modal-kit--m-centered > .modal-kit__panel,
+.is-mobile.modal-kit--m-sheet > .modal-kit__panel {
+
+	.wp-block-buttons {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.wp-block-button {
+		width: 100%;
+	}
+}
+
+.is-mobile.modal-kit--m-centered > .modal-kit__panel {
+	width: 100%;
+}
+
+.is-mobile.modal-kit--m-toast > .modal-kit__panel,
+.is-mobile.modal-kit--m-corner > .modal-kit__panel {
+	width: 100%;
+	max-width: calc(100% - 1.5rem);
+	margin: 0.75rem;
+	place-self: end stretch;
+}
+
+.is-mobile.modal-kit--m-bar-bottom > .modal-kit__panel {
+	place-self: end stretch;
+}
+
+// On phones a bar's row wraps: start-aligned lines read better than
+// centred ones (including a centred group inside it).
+.is-mobile.modal-kit--bar > .modal-kit__panel {
+	justify-content: flex-start;
+
+	> .is-layout-flex {
+		justify-content: flex-start;
+	}
+}
+
+.is-mobile.modal-kit--m-drawer > .modal-kit__panel {
+	width: 85%;
+}
+
+.is-mobile.modal-kit--m-full > .modal-kit__panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	max-height: 100%;
+	margin: 0;
+	border-radius: 0;
+	place-self: stretch;
+}
+
+.is-mobile.modal-kit--m-sheet > .modal-kit__panel {
+	width: 100%;
+	max-width: 100%;
+	max-height: 90%;
+	margin: 0;
+	padding-block-start: 2.75rem;
+	border-radius: max(var(--mk-radius-panel, 0px), 1rem) max(var(--mk-radius-panel, 0px), 1rem) 0 0;
+	place-self: end stretch;
+
+	// Drag handle.
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: 2;
+		inset-block-start: 0.625rem;
+		inset-inline-start: 50%;
+		width: 2.5rem;
+		height: 0.25rem;
+		border-radius: 999px;
+		background: currentcolor;
+		opacity: 0.25;
+		transform: translateX(-50%);
+	}
+}
+
+// Split → sheet: the image becomes a short header above the content.
+.modal-kit--split.is-mobile.modal-kit--m-sheet > .modal-kit__panel {
+	padding-block-start: 0;
+
+	> :not(:first-child, .modal-kit__close) {
+		margin-inline: 0 !important;
+	}
+
+	> :first-child {
+		position: relative;
+		inset: auto;
+		width: 100%;
+		min-height: 0 !important;
+		height: 10rem;
+		margin: 0 0 var(--modal-kit-split-space) !important;
+	}
+}
+
+
+// Block styles that follow the theme: Soft (1b) and Editorial (1c).
+// Native (1a) is the default. The fixed styles are in styles/.
+.modal-kit__panel.is-style-soft {
+	--mk-radius-panel: max(1rem, calc(var(--modal-kit-radius, 0px) * 2));
+	padding: calc(var(--mk-panel-padding, 1.5rem) * 1.25);
+}
+
+.modal-kit__panel.is-style-editorial {
+	--mk-radius-panel: 0;
+	--mk-surface: var(--modal-kit-ink, #1c1a24);
+	--mk-ink: var(--modal-kit-surface, #fff);
+
+	:where(h1, h2, h3, h4) {
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		line-height: 1.05;
+		text-wrap: balance;
+	}
+
+	:where(h1, h2) {
+		font-size: var(--wp--preset--font-size--xx-large, clamp(2rem, 5cqi, 3.5rem));
+	}
+}
+
+// While an overlay modal is open, the page behind doesn't scroll.
+html.modal-kit-locked {
+	overflow: hidden;
+	scrollbar-gutter: stable;
+}
+
+// Without JavaScript, a #modal-… link (:target) shows the modal as an in-page
+// panel. The runtime adds .modal-kit-js to <html>, which turns this off.
+:root:not(.modal-kit-js) .modal-kit:target {
+	position: relative;
+	inset: auto;
+	z-index: auto;
+	display: block;
+	padding: var(--modal-kit-gutter);
+	overflow: visible;
+
+	&::before {
+		content: none;
+	}
+
+	> .modal-kit__panel {
+		max-width: 100%;
+		max-height: none;
+		margin: 0 auto;
+	}
+
+	.modal-kit__close {
+		display: none;
+	}
+}
+
+// Opening motion. The runtime adds .is-closing for the exit.
+@keyframes modal-kit-fade {
+
+	from {
+		opacity: 0;
+	}
+}
+
+@keyframes modal-kit-rise {
+
+	from {
+		opacity: 0;
+		transform: translateY(1.5rem);
+	}
+}
+
+@keyframes modal-kit-from-top {
+
+	from {
+		transform: translateY(-100%);
+	}
+}
+
+@keyframes modal-kit-from-bottom {
+
+	from {
+		transform: translateY(100%);
+	}
+}
+
+// From the side the drawer is on, on every site.
+@keyframes modal-kit-from-right {
+
+	from {
+		translate: 100%;
+	}
+}
+
+@keyframes modal-kit-from-left {
+
+	from {
+		translate: -100%;
+	}
+}
+
+.modal-kit[open]:not(.modal-kit--anim-none) {
+
+	&::before,
+	> .modal-kit__panel {
+		animation: modal-kit-fade 0.2s ease-out;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+	.modal-kit--anim-fade-rise[open] {
+
+		> .modal-kit__panel {
+			animation: modal-kit-rise 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
+		}
+
+		&.modal-kit--bar.modal-kit--pos-top > .modal-kit__panel {
+			animation-name: modal-kit-from-top;
+		}
+
+		&.modal-kit--bar.modal-kit--pos-bottom > .modal-kit__panel,
+		&.modal-kit--sheet > .modal-kit__panel {
+			animation-name: modal-kit-from-bottom;
+		}
+
+		&.modal-kit--drawer > .modal-kit__panel {
+			animation-name: modal-kit-from-right;
+		}
+
+		&.modal-kit--drawer.modal-kit--pos-left > .modal-kit__panel {
+			animation-name: modal-kit-from-left;
+		}
+	}
+}
+
+// Settings → Accessibility "No animation at all" for reduced motion.
+@media (prefers-reduced-motion: reduce) {
+
+	.modal-kit--rm-none,
+	.modal-kit--rm-none.is-closing {
+
+		&::before,
+		> .modal-kit__panel {
+			animation: none;
+		}
+	}
+}
+
+// Exit: the opening animation, reversed.
+.modal-kit.is-closing {
+
+	&::before,
+	> .modal-kit__panel {
+		animation: modal-kit-fade 0.18s ease-in reverse forwards;
+	}
+}
+
+// Live region for announcements (Copy text).
+.modal-kit-live {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+// The fixed styles come last, so they build on the rules above.
+@include meta.load-css("../../styles/fixed");

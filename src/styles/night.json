@@ -1,0 +1,34 @@
+{
+  "slug": "night",
+  "label": "Night",
+  "description": "Dark, amber, pill buttons",
+  "version": 1,
+  "color": {
+    "surface": "#221F2C",
+    "ink": "#F4F2EC",
+    "muted": "#B7B4BC",
+    "line": "#3A3646",
+    "field": "#75718A",
+    "accent": "#ECA851",
+    "accent-strong": "#F5BE73",
+    "on-accent": "#17151F",
+    "tint": "#2C2938",
+    "overlay": "rgba(0,0,0,.6)",
+    "full-bg": "#0E0D13",
+    "full-ink": "#F4F2EC",
+    "full-accent": "#ECA851"
+  },
+  "font": {
+    "head": "'Instrument Sans', sans-serif",
+    "body": "'Instrument Sans', sans-serif",
+    "mono": "'IBM Plex Mono', monospace",
+    "head-weight": 700,
+    "head-tracking": "-0.025em"
+  },
+  "radius": {
+    "panel": "16px",
+    "button": "999px",
+    "field": "12px"
+  },
+  "shadow": "0 0 0 1px #3A3646, 0 30px 80px rgba(0,0,0,.5)"
+}

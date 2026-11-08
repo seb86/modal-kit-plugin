@@ -1,0 +1,34 @@
+{
+  "slug": "fieldnote",
+  "label": "Fieldnote",
+  "description": "Crisp white, violet, rounded",
+  "version": 1,
+  "color": {
+    "surface": "#FFFFFF",
+    "ink": "#1C1A24",
+    "muted": "#55536A",
+    "line": "#EBE9F1",
+    "field": "#8E8B9C",
+    "accent": "#5E45CD",
+    "accent-strong": "#3F2A94",
+    "on-accent": "#FFFFFF",
+    "tint": "#EEECF9",
+    "overlay": "rgba(24,20,48,.5)",
+    "full-bg": "#1C1A24",
+    "full-ink": "#F4F2EC",
+    "full-accent": "#A796EC"
+  },
+  "font": {
+    "head": "'Instrument Sans', sans-serif",
+    "body": "'Instrument Sans', sans-serif",
+    "mono": "'IBM Plex Mono', monospace",
+    "head-weight": 600,
+    "head-tracking": "-0.02em"
+  },
+  "radius": {
+    "panel": "12px",
+    "button": "8px",
+    "field": "8px"
+  },
+  "shadow": "0 24px 60px rgba(24,20,48,.28)"
+}

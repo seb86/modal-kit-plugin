@@ -1,0 +1,261 @@
+/**
+ * Editor chrome only. All modal styles live in style.scss.
+ *
+ * The canvas becomes a contained stage: the Modal block's wrapper (the
+ * .modal-kit container) fills it, and the backdrop behind the overlay is
+ * the homepage ("Site preview"; a sketch of a page until it loads or for
+ * users without access) or the plain site background.
+ */
+
+@use "../../components/overlay-color/style" as overlay-color;
+@use "../../components/style-options/style" as style-options;
+@use "../../components/style-picker/style" as style-picker;
+
+.modal-kit-stage {
+
+	// The modal is the whole document; the title lives in the top bar.
+	.editor-visual-editor__post-title-wrapper,
+	.is-root-container > .block-list-appender {
+		display: none;
+	}
+
+	.is-root-container {
+		padding: 0 !important;
+	}
+
+	// Undo the root layout's width and margins: the container fills the canvas.
+	.is-root-container > .modal-kit.is-editor-preview {
+		position: relative;
+		inset: auto;
+		z-index: auto;
+		max-width: none !important;
+		min-height: 100vh;
+		margin: 0 !important;
+	}
+
+	// Pattern previews (4:3 cards rendered at 1200px wide).
+	.is-root-container > .modal-kit.is-editor-preview.is-preview {
+		min-height: 900px;
+	}
+
+	// Inline modals sit in a page-like flow.
+	.is-root-container > .modal-kit--inline.is-editor-preview {
+		display: grid;
+		align-content: center;
+	}
+
+	// The homepage frame sits above the stage background but below the
+	// overlay (::before) and the modal.
+	.is-root-container > .modal-kit.is-editor-preview {
+		isolation: isolate;
+	}
+
+	.modal-kit-editor-homepage {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		border: 0;
+		pointer-events: none;
+	}
+
+	// Until the homepage has loaded (or without one), a sketch of a page.
+	&.is-backdrop-site .modal-kit.is-editor-preview:not(.has-homepage) {
+		--modal-kit-sketch: color-mix(in srgb, currentcolor 9%, transparent);
+		background-image:
+			linear-gradient(var(--modal-kit-sketch), var(--modal-kit-sketch)),
+			linear-gradient(var(--modal-kit-sketch), var(--modal-kit-sketch)),
+			linear-gradient(var(--modal-kit-sketch), var(--modal-kit-sketch)),
+			linear-gradient(var(--modal-kit-sketch), var(--modal-kit-sketch)),
+			linear-gradient(var(--modal-kit-sketch), var(--modal-kit-sketch)),
+			linear-gradient(var(--modal-kit-sketch), var(--modal-kit-sketch));
+		background-repeat: no-repeat;
+		background-size:
+			100% 3.5rem,
+			40% 2.25rem,
+			60% 1rem,
+			55% 1rem,
+			80% 14rem,
+			70% 1rem;
+		background-position:
+			0 0,
+			10% 7rem,
+			10% 10.5rem,
+			10% 12.5rem,
+			10% 15.5rem,
+			10% 31rem;
+	}
+}
+
+// Sidebar: a note from an add-on that some settings are shared (Pro: by
+// every A/B variant).
+.modal-kit-shared-note {
+	margin: 0 0 12px;
+	color: #757575;
+	font-size: 12px;
+}
+
+// Sidebar: layout and size choices.
+.modal-kit-choice-group {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 4px;
+
+	.modal-kit-choice-group__option.components-button {
+		flex-direction: column;
+		gap: 2px;
+		justify-content: center;
+		height: auto;
+		min-height: 40px;
+		padding: 6px 2px;
+		font-size: 11px;
+		line-height: 1.2;
+	}
+}
+
+// Layout thumbnails (mockup 1b): a page outline with the modal's shape.
+.modal-kit-choice-group.has-thumbnails {
+	gap: 8px 4px;
+
+	.modal-kit-choice-group__option.components-button {
+		gap: 4px;
+		padding: 2px 0;
+		background: none;
+		color: #757575;
+		box-shadow: none;
+
+		&:hover:not(:disabled) {
+			color: #1e1e1e;
+			background: none;
+		}
+
+		&:focus-visible {
+			box-shadow: 0 0 0 var(--wp-admin-border-width-focus, 2px) var(--wp-admin-theme-color, #3858e9);
+		}
+
+		&.is-pressed,
+		&.is-pressed:hover:not(:disabled) {
+			color: var(--wp-admin-theme-color, #3858e9);
+			font-weight: 500;
+			background: none;
+		}
+
+		&:hover .modal-kit-layout-thumb {
+			border-color: #949494;
+		}
+
+		&.is-pressed .modal-kit-layout-thumb {
+			border: 2px solid var(--wp-admin-theme-color, #3858e9);
+		}
+	}
+}
+
+.modal-kit-layout-thumb {
+	position: relative;
+	box-sizing: border-box;
+	display: block;
+	width: 56px;
+	max-width: 100%;
+	height: 40px;
+	overflow: hidden;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	background: #fff;
+}
+
+.modal-kit-layout-thumb__shape,
+.modal-kit-layout-thumb__media {
+	position: absolute;
+	box-sizing: border-box;
+	border-radius: 1px;
+	background: #1e1e1e;
+}
+
+.is-centered > .modal-kit-layout-thumb__shape {
+	top: 11px;
+	left: calc(50% - 10px);
+	width: 20px;
+	height: 16px;
+}
+
+// Thumbnails show positions, which are physical on every site (BUILD-NOTES
+// #205), so the ones with a side use `inset`: the right-to-left build flips
+// `left:` and `right:`, not that.
+.is-corner > .modal-kit-layout-thumb__shape {
+	inset: auto 4px 4px auto;
+	width: 18px;
+	height: 12px;
+}
+
+.is-bar > .modal-kit-layout-thumb__shape {
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 7px;
+	border-radius: 0;
+}
+
+.is-full > .modal-kit-layout-thumb__shape {
+	inset: 3px;
+}
+
+.is-drawer > .modal-kit-layout-thumb__shape {
+	inset: 0 0 0 auto;
+	width: 18px;
+	border-radius: 0;
+}
+
+.is-split {
+
+	> .modal-kit-layout-thumb__media {
+		inset: 9px auto auto calc(50% - 16px);
+		width: 16px;
+		height: 18px;
+		border-radius: 0;
+		background: #bbb;
+	}
+
+	> .modal-kit-layout-thumb__shape {
+		inset: 9px auto auto 50%;
+		width: 16px;
+		height: 18px;
+		border-radius: 0;
+	}
+}
+
+.is-sheet > .modal-kit-layout-thumb__shape {
+	right: 8px;
+	bottom: 0;
+	left: 8px;
+	height: 16px;
+	border-radius: 3px 3px 0 0;
+}
+
+.is-inline > .modal-kit-layout-thumb__shape {
+	top: 14px;
+	right: 6px;
+	left: 6px;
+	height: 10px;
+	border: 1.5px dashed #1e1e1e;
+	background: none;
+}
+
+// Video (not in the mockup): a 16:9 player with a play mark.
+.is-video > .modal-kit-layout-thumb__shape {
+	top: 9px;
+	left: calc(50% - 15px);
+	width: 30px;
+	height: 18px;
+
+	// A play mark points the same way in every language.
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 5px auto auto 12px;
+		width: 7px;
+		height: 8px;
+		background: #fff;
+		clip-path: polygon(0 0, 100% 50%, 0 100%);
+	}
+}

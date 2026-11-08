@@ -1,0 +1,135 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "modal-kit/modal",
+	"version": "0.1.0",
+	"title": "Modal",
+	"category": "design",
+	"icon": "align-center",
+	"description": "A modal built from core blocks. Opens from links, buttons or triggers.",
+	"keywords": [ "popup", "dialog", "lightbox", "slide-in", "drawer" ],
+	"textdomain": "modal-kit",
+	"usesContext": [ "postId", "postType" ],
+	"attributes": {
+		"modalLayout": {
+			"type": "string",
+			"default": "centered"
+		},
+		"position": {
+			"type": "string",
+			"default": ""
+		},
+		"mobileLayout": {
+			"type": "string",
+			"enum": [ "auto", "same", "sheet", "full", "centered" ],
+			"default": "auto"
+		},
+		"size": {
+			"type": "string",
+			"enum": [ "s", "m", "l", "wide" ],
+			"default": "m"
+		},
+		"overlay": {
+			"type": "object",
+			"default": {
+				"show": true,
+				"color": "",
+				"customColor": "",
+				"opacity": 45,
+				"blur": false
+			}
+		},
+		"closeOptions": {
+			"type": "object",
+			"default": {
+				"button": true,
+				"esc": true,
+				"outside": true,
+				"visibleLabel": false
+			}
+		},
+		"animation": {
+			"type": "string",
+			"enum": [ "fade-rise", "fade", "none" ],
+			"default": "fade-rise"
+		},
+		"styleOptions": {
+			"type": "object",
+			"default": {
+				"accent": "style",
+				"accentColor": "",
+				"fonts": "style"
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"inserter": false,
+		"multiple": false,
+		"reusable": false,
+		"anchor": false,
+		"align": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": true,
+			"gradients": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"spacing": {
+			"padding": true,
+			"blockGap": true,
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"radius": true
+			}
+		},
+		"shadow": true,
+		"dimensions": {
+			"minHeight": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		},
+		"layout": {
+			"default": {
+				"type": "constrained"
+			},
+			"allowSwitching": false,
+			"allowInheriting": false,
+			"allowSizingOnChildren": true
+		}
+	},
+	"styles": [
+		{
+			"name": "default",
+			"label": "Native",
+			"isDefault": true
+		},
+		{
+			"name": "soft",
+			"label": "Soft"
+		},
+		{
+			"name": "editorial",
+			"label": "Editorial"
+		}
+	],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScriptModule": "file:./view.js"
+}
