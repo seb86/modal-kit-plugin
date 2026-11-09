@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 /**
- * Only web addresses may be followed or loaded (BUILD-NOTES #188). A link's
+ * Only web addresses may be followed or loaded. A link's
  * video address comes from saved content, which an Author can write by hand.
  */
 import { describe, expect, it } from 'vitest';

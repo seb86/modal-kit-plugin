@@ -212,7 +212,7 @@ export function readStyle( raw ) {
 }
 
 /**
- * The contrast test from S1, as import checks it: every text pair at 4.5:1,
+ * The contrast test, as import checks it: every text pair at 4.5:1,
  * field borders at 3:1.
  *
  * @param {Object} style Clean style.

@@ -165,7 +165,7 @@ export function openModal( slug, { source, trigger = null } ) {
 	}
 
 	// A layout that leaves the page usable (corner, bar, inline) and opens on
-	// its own doesn't take focus from the page (BUILD-NOTES #111): the
+	// its own doesn't take focus from the page: the
 	// visitor tabs into it when they want. Links and clicks still move focus.
 	entry.quiet = ! config.modal && source !== 'link';
 

@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Imported and duplicated styles, stored as the same JSON as
  * src/styles/*.json plus description and version, in one non-autoloaded
- * option (#124). They are registered through `modal_kit_styles`, so they
+ * option. They are registered through `modal_kit_styles`, so they
  * render exactly like the built-in ones.
  */
 final class UserStyles {

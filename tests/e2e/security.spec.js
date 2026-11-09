@@ -1,7 +1,7 @@
 /**
- * What the security review found, replayed in a real browser (BUILD-NOTES
- * #188). The posts are created as an administrator, whose content kses leaves
- * alone, so these prove the runtime itself refuses them.
+ * What the security review found, replayed in a real browser. The posts are
+ * created as an administrator, whose content kses leaves alone, so these
+ * prove the runtime itself refuses them.
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 const { createModal, deleteAllModals } = require( './utils/modals' );

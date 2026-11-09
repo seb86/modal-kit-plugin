@@ -45,7 +45,7 @@ export function layoutOf( blocks ) {
 }
 
 /**
- * What a starter uses (2e feature filters), read from its content.
+ * What a starter uses (for the feature filters), read from its content.
  *
  * @param {string}   content  Serialised blocks.
  * @param {string[]} keywords Pattern keywords.

@@ -1,7 +1,7 @@
 <?php
 /**
- * Regression tests for the security review before the first release
- * (BUILD-NOTES #188). Each test replays what an attacker would do.
+ * Regression tests for the security review before the first release.
+ * Each test replays what an attacker would do.
  *
  * @package ModalKit
  */

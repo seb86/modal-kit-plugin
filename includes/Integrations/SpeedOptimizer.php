@@ -1,6 +1,6 @@
 <?php
 /**
- * SiteGround Speed Optimizer (BUILD-NOTES #116).
+ * SiteGround Speed Optimizer.
  *
  * @package ModalKit
  */

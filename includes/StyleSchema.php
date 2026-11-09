@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  * Mirrors src/styles/schema.js, from the same schema/style.json: every value
  * is sanitised to a colour, length or font stack (url(), expression, `;` and
  * `}` never get through), unknown keys are ignored, missing ones come from
- * Fieldnote, and the S1 contrast test decides whether a style may be saved.
+ * Fieldnote, and the contrast test decides whether a style may be saved.
  */
 final class StyleSchema {
 

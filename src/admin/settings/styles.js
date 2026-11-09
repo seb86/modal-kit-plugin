@@ -5,7 +5,7 @@
  * after choosing where the modals that use it go. Built-in styles can't be
  * deleted. Modal Kit Pro adds the Style editor through the
  * `modalKit.styleEditor` filter (New style, Edit, Edit a copy); without it,
- * a dismissible note says what it does (listing `style-editor`, #133).
+ * a dismissible note says what it does (listing `style-editor`).
  */
 import { __, _n, sprintf } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';

@@ -1,7 +1,6 @@
 /**
- * Rules: page targeting on the server, frequency
- * across reloads, schedule, devices, page views and the site-wide limits
- * from 5a in the browser.
+ * Rules: page targeting on the server, frequency across reloads, schedule,
+ * devices, page views and the site-wide limits in the browser.
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 const {

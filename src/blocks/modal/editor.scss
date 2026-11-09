@@ -179,8 +179,8 @@
 	height: 16px;
 }
 
-// Thumbnails show positions, which are physical on every site (BUILD-NOTES
-// #205), so the ones with a side use `inset`: the right-to-left build flips
+// Thumbnails show positions, which are physical on every site, so
+// the ones with a side use `inset`: the right-to-left build flips
 // `left:` and `right:`, not that.
 .is-corner > .modal-kit-layout-thumb__shape {
 	inset: auto 4px 4px auto;

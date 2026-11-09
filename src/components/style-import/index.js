@@ -2,7 +2,7 @@
  * Import a style: reads a .json file, draws its tile, lets the
  * name and description change, and runs the checks before saving: what was
  * found and filled in from Fieldnote, the contrast test (a warning: low
- * contrast can still be imported, #137), fonts the site doesn't have, and a
+ * contrast can still be imported), fonts the site doesn't have, and a
  * name that's taken. The server
  * runs the same checks again (StyleSchema.php) and decides.
  */

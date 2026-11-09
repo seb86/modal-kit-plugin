@@ -144,7 +144,7 @@ final class Upsell {
 		$forms      = __( 'Collect emails right in the modal and send them to Kit, Mailchimp, HubSpot, GetResponse, Constant Contact, Keap, MailerLite, Brevo, Emma, MailPoet, FluentCRM, WPForms or a webhook.', 'modal-kit' );
 
 		$listings = array(
-			// 4a: Button "Action".
+			// The Button "Action" setting.
 			array(
 				'key'         => 'step-nav',
 				'area'        => 'button-action',
@@ -169,7 +169,7 @@ final class Upsell {
 				'description' => $forms,
 				'url'         => self::PRO_URL . '#forms',
 			),
-			// 4b: Pro collections in the pattern picker.
+			// Pro collections in the pattern picker.
 			array(
 				'key'     => 'collections',
 				'area'    => 'picker',
@@ -237,7 +237,7 @@ final class Upsell {
 					),
 				),
 			),
-			// 4c: the Forms panel in the Modal sidebar.
+			// The Forms panel in the Modal sidebar.
 			array(
 				'key'         => 'forms-panel',
 				'area'        => 'panel',
@@ -245,7 +245,7 @@ final class Upsell {
 				'description' => $forms,
 				'url'         => self::PRO_URL . '#forms',
 			),
-			// Display rules: Pro's visit count and audience rules (#121).
+			// Display rules: Pro's visit count and audience rules.
 			array(
 				'key'         => 'audience-rules',
 				'area'        => 'rules',
@@ -253,7 +253,7 @@ final class Upsell {
 				'description' => __( 'Show it from a visitor’s 2nd, 3rd or later visit (session), or only to new visitors, by referrer, cookie or country.', 'modal-kit' ),
 				'url'         => self::PRO_URL . '#audience',
 			),
-			// Settings → Styles: Pro's Style editor (#133).
+			// Settings → Styles: Pro's Style editor.
 			array(
 				'key'         => 'style-editor',
 				'area'        => 'styles',
@@ -261,7 +261,7 @@ final class Upsell {
 				'description' => __( 'Change a style’s colours, fonts, corners and shadow with a live preview, or start a new style from scratch.', 'modal-kit' ),
 				'url'         => self::PRO_URL . '#style-editor',
 			),
-			// 4d: one milestone notice on the modal list.
+			// One milestone notice on the modal list.
 			array(
 				'key'  => 'milestone',
 				'area' => 'notice',
@@ -269,7 +269,7 @@ final class Upsell {
 			),
 		);
 
-		// 4c: WooCommerce triggers only appear on sites with a store.
+		// WooCommerce triggers only appear on sites with a store.
 		if ( class_exists( 'WooCommerce' ) ) {
 			$listings[] = array(
 				'key'         => 'woo-triggers',

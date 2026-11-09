@@ -19,7 +19,7 @@ test.describe( 'Setup wizard', () => {
 	} ) => {
 		await admin.visitAdminPage( 'admin.php', 'page=modal-kit-setup' );
 
-		// 7a Welcome.
+		// Welcome.
 		await expect(
 			page.getByRole( 'heading', { name: 'Let’s set up Modal Kit' } )
 		).toBeVisible();
@@ -32,12 +32,12 @@ test.describe( 'Setup wizard', () => {
 		await page.screenshot( { path: 'artifacts/wizard-1.png' } );
 		await page.getByRole( 'button', { name: 'Continue' } ).click();
 
-		// 7b Look.
+		// Look.
 		await page.getByRole( 'radio', { name: /Soft/ } ).click();
 		await page.screenshot( { path: 'artifacts/wizard-2.png' } );
 		await page.getByRole( 'button', { name: 'Continue' } ).click();
 
-		// 7c Behaviour.
+		// Behaviour.
 		await page
 			.getByRole( 'combobox', { name: 'After someone closes a modal' } )
 			.selectOption( '30' );
@@ -49,7 +49,7 @@ test.describe( 'Setup wizard', () => {
 		await page.screenshot( { path: 'artifacts/wizard-3.png' } );
 		await page.getByRole( 'button', { name: 'Continue' } ).click();
 
-		// 7d First modal.
+		// First modal.
 		await page.getByRole( 'radio', { name: /Discount code/ } ).click();
 		await expect(
 			page.getByText( 'Discount code selected' )

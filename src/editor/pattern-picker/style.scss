@@ -209,7 +209,7 @@
 	}
 }
 
-// 2e: with the preview pane, the body gets a third column.
+// With the preview pane, the body gets a third column.
 .modal-kit-picker__body:has(.modal-kit-picker__pane) {
 	grid-template-columns: 220px minmax(0, 1fr) minmax(320px, 400px);
 }

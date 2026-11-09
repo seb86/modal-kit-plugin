@@ -42,7 +42,7 @@
 		</properties>
 	</rule>
 
-	<!-- Classes follow the plan's PSR-4 style file names (includes/PostType.php). -->
+	<!-- Classes use PSR-4 style file names (includes/PostType.php). -->
 	<rule ref="WordPress.Files.FileName">
 		<exclude-pattern>*/includes/*</exclude-pattern>
 		<exclude-pattern>*/tests/*</exclude-pattern>

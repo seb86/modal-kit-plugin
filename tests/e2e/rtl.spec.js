@@ -9,8 +9,8 @@ const {
 	freshStorage,
 } = require( './utils/modals' );
 
-// `side` is where the panel lands: positions are physical on every site
-// (BUILD-NOTES #205). Right to left changes how text reads, not the side chosen.
+// `side` is where the panel lands: positions are physical on every site.
+// Right to left changes how text reads, not the side chosen.
 const LAYOUTS = {
 	centered: {},
 	'drawer, right': {

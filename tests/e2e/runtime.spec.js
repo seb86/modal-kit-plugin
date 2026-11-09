@@ -350,7 +350,7 @@ test.describe( 'Runtime', () => {
 			await dialog.evaluate( ( el ) => el.matches( ':modal' ) )
 		).toBe( false );
 
-		// Opened on its own, it doesn't take focus from the page (#111).
+		// Opened on its own, it doesn't take focus from the page.
 		expect(
 			await dialog.evaluate( ( el ) =>
 				el.contains( el.ownerDocument.activeElement )

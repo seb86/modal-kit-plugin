@@ -187,7 +187,7 @@ final class StyleLibrary {
 		$style    = $read['style'];
 		$contrast = StyleSchema::contrast( $style );
 
-		// Contrast is reported, not enforced (#137): the result goes back with
+		// Contrast is reported, not enforced: the result goes back with
 		// the saved style, and the import dialog and Style editor warn.
 
 		$style['slug'] = '' !== $style['slug'] ? $style['slug'] : StyleSchema::slugify( $style['label'] );
@@ -206,7 +206,7 @@ final class StyleLibrary {
 			$stored = UserStyles::all()[ $old ];
 			$source = UserStyles::source( $old );
 
-			// A new name gets a slug to match (#138), so exports and class
+			// A new name gets a slug to match, so exports and class
 			// names follow it; modals and the site default move with it.
 			if ( (string) ( $stored['label'] ?? '' ) !== $style['label'] ) {
 				$wanted = StyleSchema::slugify( $style['label'] );

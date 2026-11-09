@@ -1,8 +1,9 @@
 <?php
 /**
- * Demo content for the local dev site: every starter (free and Pro) and the
- * Pro 1.3 features as a published modal with real conditions, each on a page
- * of its own that explains it, under "Modal Kit demos".
+ * Demo content for the local dev site: every starter (free and Pro) and
+ * the Pro features without a starter of their own, each as a published modal
+ * with real conditions on a page of its own that explains it, under "Modal
+ * Kit demos".
  *
  * Run with `npm run demos` (WP-CLI `eval-file` on the dev site). Running it
  * again updates the demos in place (same IDs), keeps any demo modal edited by
@@ -350,14 +351,14 @@ foreach ( WP_Block_Patterns_Registry::get_instance()->get_all_registered() as $p
 	);
 }
 
-/* Pro 1.3 features without a starter of their own --------------------------- */
+/* Pro features without a starter of their own ------------------------------- */
 
 if ( $pro ) {
 	$demos[] = array(
 		'slug'        => 'feature-teaser',
 		'title'       => 'Teaser',
 		'description' => 'A small pill (an edge tab on phones) that stays after the modal is closed and opens it again. × hides it for this visit.',
-		'group'       => 'Pro 1.3 features',
+		'group'       => 'Pro · More features',
 		'content'     => Patterns::modal(
 			array( 'size' => 's' ),
 			array(
@@ -390,7 +391,7 @@ if ( $pro ) {
 		'slug'        => 'feature-motion',
 		'title'       => 'Motion',
 		'description' => 'The modal scales in, the blocks inside follow one another, the heading’s words rise, and the picture zooms slowly (Ken Burns) and drifts with the pointer. With reduced motion turned on in your system, everything simply appears.',
-		'group'       => 'Pro 1.3 features',
+		'group'       => 'Pro · More features',
 		'content'     => Patterns::modal(
 			array( 'size' => 'l' ),
 			array(
@@ -417,7 +418,7 @@ if ( $pro ) {
 		'slug'        => 'feature-country',
 		'title'       => 'Country rule',
 		'description' => 'Shown only to visitors in the United Kingdom or Ireland, read from the CDN’s country header. This local server sends no country header, so the “If unknown” choice (Show) decides.',
-		'group'       => 'Pro 1.3 features',
+		'group'       => 'Pro · More features',
 		'content'     => Patterns::modal(
 			array( 'size' => 's' ),
 			array(
@@ -452,7 +453,7 @@ if ( $pro ) {
 		'slug'        => 'feature-carousel-on-a-page',
 		'title'       => 'Carousel on a page',
 		'description' => 'The Carousel block outside a modal: two per view on desktop, 1.2 on phones, with arrows, dots and a counter. Swipe or use ← and → on its slides.',
-		'group'       => 'Pro 1.3 features',
+		'group'       => 'Pro · More features',
 		'content'     => '',
 		'settings'    => array(),
 		'carousel'    => true,
