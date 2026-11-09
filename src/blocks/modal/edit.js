@@ -118,7 +118,7 @@ function CloseButton( { options } ) {
 }
 
 export default function Edit( { attributes, setAttributes, clientId } ) {
-	// A style previewed from the picker (13a) draws in place of the saved one.
+	// A style previewed from the picker draws in place of the saved one.
 	const { previewed, previewOptions } = useSelect(
 		( select ) => ( {
 			previewed: select( PREVIEW ).get( clientId ),

@@ -1,5 +1,5 @@
 {
-	"$comment": "Modal layouts (mockup 1d). Shared by PHP (Layouts.php) and JS (editor). 'modal' layouts block the page (showModal); the others leave it usable (show). 'mobile' is the automatic mobile mapping.",
+	"$comment": "Modal layouts. Shared by PHP (Layouts.php) and JS (editor). 'modal' layouts block the page (showModal); the others leave it usable (show). 'mobile' is the automatic mobile mapping.",
 	"layouts": {
 		"centered": {
 			"overlay": true,

@@ -90,7 +90,7 @@ const { state } = store( 'modal-kit', {
 				? ( i18n.resume ?? 'Resume' )
 				: ( i18n.pause ?? 'Pause' );
 		},
-		// "Play video" on a click-to-load screen (6a).
+		// "Play video" on a click-to-load screen.
 		loadVideo( event ) {
 			event.preventDefault();
 			const button = getElement().ref;
@@ -98,7 +98,7 @@ const { state } = store( 'modal-kit', {
 				video.loadFromConsent( button )
 			);
 		},
-		// "Play in video lightbox" links (6b). The link stays a real URL.
+		// "Play in video lightbox" links. The link stays a real URL.
 		playVideo( event ) {
 			const link = getElement().ref;
 			const lightbox = document.getElementById(
@@ -310,7 +310,7 @@ on( 'open', ( entry, { source } ) => {
 	}
 } );
 
-// "Wait N days" counts from when the visitor closed it (mockup 7c).
+// "Wait N days" counts from when the visitor closed it.
 on( 'close', ( entry ) => {
 	if ( state.remember !== false ) {
 		markSeen( entry.config.slug, { at: Date.now() } );

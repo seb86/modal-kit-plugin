@@ -1,5 +1,5 @@
 /**
- * Settings → Styles (mockup 14d): every fixed style with its source and the
+ * Settings → Styles: every fixed style with its source and the
  * modals that use it. Export one as .json or several (optionally with their
  * font files) as .zip, copy the JSON, duplicate any style, delete your own
  * after choosing where the modals that use it go. Built-in styles can't be

@@ -44,7 +44,7 @@ const PANELS = {
 	),
 	sheet: <Rect x="1.2" y="13.6" width="21.6" height="9.2" rx="1.2" />,
 	inline: <Rect x="2.8" y="7.2" width="18.4" height="4.8" rx="1.2" />,
-	// Derived: the full-screen panel with a play triangle cut out (6a).
+	// Derived: the full-screen panel with a play triangle cut out.
 	video: (
 		<Path
 			fillRule="evenodd"

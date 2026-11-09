@@ -1,6 +1,6 @@
 /**
  * Every layout looks the same in the editor and on the front end, at desktop
- * and at 375px (mockup 1d). The panel's placement inside its container
+ * and at 375px. The panel's placement inside its container
  * (which edges it touches, whether it is centred) must match, and each view
  * is compared against a visual baseline.
  */

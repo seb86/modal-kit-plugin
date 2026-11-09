@@ -1,5 +1,5 @@
 /**
- * Sidebar and toolbar controls for the Modal block (mockup 1e).
+ * Sidebar and toolbar controls for the Modal block.
  */
 import { __, sprintf } from '@wordpress/i18n';
 import {
@@ -168,7 +168,7 @@ function OverlayColor( { overlay, setOverlay } ) {
 }
 
 /**
- * A layout drawn as a small page with the modal's shape in it (mockup 1b).
+ * A layout drawn as a small page with the modal's shape in it.
  *
  * @param {Object} props      Props.
  * @param {string} props.name Layout.
@@ -425,7 +425,7 @@ export default function Inspector( {
 						}
 						onChange={ target.onChange }
 					/>
-					{ /* Accent and Fonts below the tiles (13a). */ }
+					{ /* Accent and Fonts below the tiles. */ }
 					{ targetSlug && (
 						<StyleOptions
 							styleSlug={ targetSlug }

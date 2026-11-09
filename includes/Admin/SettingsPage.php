@@ -1,6 +1,6 @@
 <?php
 /**
- * The Settings screen (mockups 5a, 5b, 5h, 5d, 4d).
+ * The Settings screen.
  *
  * @package ModalKit
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * The modal list screen (mockup 1i).
+ * The modal list screen.
  *
  * @package ModalKit
  */

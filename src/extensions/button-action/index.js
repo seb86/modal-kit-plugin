@@ -1,5 +1,5 @@
 /**
- * "Action" control for core/button inside modals (mockups 2b, 4a).
+ * "Action" control for core/button inside modals.
  *
  * The action is stored as block attributes only, so the button's saved
  * markup doesn't change. ButtonActions.php adds the runtime directives when

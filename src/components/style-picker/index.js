@@ -1,12 +1,12 @@
 /**
- * The style picker (mockups 13a–14b), in the Modal block's Styles tab.
+ * The style picker, in the Modal block's Styles tab.
  *
  * Every style is a tile drawn from its own tokens, grouped into "Follows your
  * theme", "{Modal Kit} styles" and "Your styles". The tiles are one radio
  * group with a roving tabindex: hovering or arrowing previews a style on the
  * canvas without saving, click, Enter or Space applies it (one undo step),
  * and mouse-out or Esc reverts. With seven or more styles a search shows;
- * results become list rows (13b) with the match marked. The ⋮ menu imports,
+ * results become list rows with the match marked. The ⋮ menu imports,
  * exports, duplicates and links to Settings → Styles. Styles: _style.scss.
  */
 import { __, _n, sprintf } from '@wordpress/i18n';

@@ -1,5 +1,5 @@
 /**
- * Rules (mockup 1f, plan §3.2): page targeting on the server, frequency
+ * Rules: page targeting on the server, frequency
  * across reloads, schedule, devices, page views and the site-wide limits
  * from 5a in the browser.
  */

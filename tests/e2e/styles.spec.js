@@ -1,5 +1,5 @@
 /**
- * Fixed styles (plan §3.6, Style Palette): Fieldnote, Harbor and Night look
+ * Fixed styles: Fieldnote, Harbor and Night look
  * the same in every theme. Each style is checked in all 8 layouts at desktop
  * and 375px in Twenty Twenty-Five, Ollie and a classic theme (Twenty
  * Twenty-One): a visual baseline of the panel, plus computed styles that would change if

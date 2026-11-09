@@ -10,8 +10,8 @@ namespace ModalKit;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Merges the site defaults (Settings → Accessibility, mockup 5h) with a
- * modal's own overrides (sidebar panel, mockup 5c).
+ * Merges the site defaults (Settings → Accessibility) with a
+ * modal's own overrides (sidebar panel).
  */
 final class Accessibility {
 
@@ -47,7 +47,7 @@ final class Accessibility {
 	}
 
 	/**
-	 * Number of modals that override any site default (shown on 5h).
+	 * Number of modals that override any site default (shown on Settings → Accessibility).
 	 *
 	 * @return int
 	 */

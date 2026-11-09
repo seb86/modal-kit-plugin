@@ -1,6 +1,6 @@
 <?php
 /**
- * Your styles (plan §3.6, mockups 14a–14d).
+ * Your styles.
  *
  * @package ModalKit
  */

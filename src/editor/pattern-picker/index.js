@@ -1,5 +1,5 @@
 /**
- * Pattern picker shown when a new modal is created (mockup 1h), and again
+ * Pattern picker shown when a new modal is created, and again
  * from the Modal block's "Change template".
  */
 import { __, sprintf } from '@wordpress/i18n';
@@ -221,7 +221,7 @@ const MOBILE_LABELS = {
 };
 
 /**
- * "3 steps · Form · Centered → Sheet" for the preview pane (2e).
+ * "3 steps · Form · Centered → Sheet" for the preview pane.
  *
  * @param {Object} starter Starter.
  * @return {string[]} Parts.
@@ -257,7 +257,7 @@ function detailsOf( starter ) {
 }
 
 /**
- * Live preview with a device switch (2e). Modal Kit Pro turns it on with
+ * Live preview with a device switch. Modal Kit Pro turns it on with
  * the `modalKit.pickerPreview` filter.
  *
  * @param {Object}     props         Props.
@@ -339,7 +339,7 @@ function matches( starter, search ) {
 }
 
 /**
- * A Pro template, shown as a listing (4b): a sketch, not a pattern.
+ * A Pro template, shown as a listing: a sketch, not a pattern.
  *
  * @param {Object}     props            Props.
  * @param {Object}     props.sample     Sample from the server listing.

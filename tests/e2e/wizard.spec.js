@@ -1,5 +1,5 @@
 /**
- * Setup wizard (mockups 7a–7d).
+ * Setup wizard.
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 const { deleteAllModals, setSettings } = require( './utils/modals' );

@@ -8,7 +8,7 @@
  * .modal-kit is a size container, so the mobile layouts below respond to the
  * viewport on the site and to the canvas width (device preview) in the editor.
  *
- * Layouts and blocks read only the --mk-* style tokens (plan §3.6). The
+ * Layouts and blocks read only the --mk-* style tokens. The
  * styles that follow the theme (Native, Soft, Editorial) fill them
  * from the theme's global styles (the --modal-kit-* values from
  * ThemeTokens.php), with the Fieldnote colors as fallback; the fixed styles
@@ -527,9 +527,9 @@ dialog.modal-kit:not([open]) {
 	}
 }
 
-// 09 Video lightbox (6a): a theatre on desktop, full screen on mobile. The
+// 09 Video lightbox: a theatre on desktop, full screen on mobile. The
 // backdrop is the theme's ink, nearly opaque; text sits on it in the surface
-// color. The player keeps its aspect ratio (Video panel, 6c).
+// color. The player keeps its aspect ratio (Video panel).
 .modal-kit--video {
 	--modal-kit-video-ratio: 16 / 9;
 
@@ -601,7 +601,7 @@ dialog.modal-kit:not([open]) {
 	padding: 4rem 0 1.5rem;
 }
 
-// Click-to-load screen (6a): nothing loads from a video service until tapped.
+// Click-to-load screen: nothing loads from a video service until tapped.
 .modal-kit-consent {
 	position: absolute;
 	inset: 0;
@@ -660,7 +660,7 @@ dialog.modal-kit:not([open]) {
 	}
 }
 
-// Mobile layouts (mockup 1d). The runtime (and the editor) add .is-mobile to
+// Mobile layouts. The runtime (and the editor) add .is-mobile to
 // the container below the breakpoint from Settings → Display (600px by
 // default), measuring the container: the viewport on the site, the canvas
 // in the editor, so the device preview matches phones.
@@ -764,8 +764,8 @@ dialog.modal-kit:not([open]) {
 }
 
 
-// Block styles that follow the theme: Soft (1b) and Editorial (1c).
-// Native (1a) is the default. The fixed styles are in styles/.
+// Block styles that follow the theme: Soft and Editorial.
+// Native is the default. The fixed styles are in styles/.
 .modal-kit__panel.is-style-soft {
 	--mk-radius-panel: max(1rem, calc(var(--modal-kit-radius, 0px) * 2));
 	padding: calc(var(--mk-panel-padding, 1.5rem) * 1.25);

@@ -114,7 +114,7 @@
 	}
 }
 
-// Layout thumbnails (mockup 1b): a page outline with the modal's shape.
+// Layout thumbnails: a page outline with the modal's shape.
 .modal-kit-choice-group.has-thumbnails {
 	gap: 8px 4px;
 
@@ -241,7 +241,7 @@
 	background: none;
 }
 
-// Video (not in the mockup): a 16:9 player with a play mark.
+// Video: a 16:9 player with a play mark.
 .is-video > .modal-kit-layout-thumb__shape {
 	top: 9px;
 	left: calc(50% - 15px);

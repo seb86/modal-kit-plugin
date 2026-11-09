@@ -51,8 +51,8 @@
 	gap: 4px;
 }
 
-// Form at its natural width, the preview beside it taking the rest
-// (mockup 5b). Capped so very wide screens don't spread it out.
+// Form at its natural width, the preview beside it taking the rest.
+// Capped so very wide screens don't spread it out.
 .modal-kit-display {
 	display: grid;
 	grid-template-columns: minmax(0, 680px) minmax(360px, 1fr);
@@ -136,7 +136,7 @@
 	margin: 16px 0 24px;
 }
 
-// Settings → Styles (14d).
+// Settings → Styles.
 .modal-kit-styles__bar {
 	display: flex;
 	gap: 12px;

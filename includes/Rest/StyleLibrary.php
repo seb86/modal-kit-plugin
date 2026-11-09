@@ -1,6 +1,6 @@
 <?php
 /**
- * Style import, export, duplicate and delete (mockups 14a–14d).
+ * Style import, export, duplicate and delete.
  *
  * @package ModalKit
  */

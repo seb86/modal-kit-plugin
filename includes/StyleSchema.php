@@ -1,6 +1,6 @@
 <?php
 /**
- * Style import and export checks (plan §3.6, mockups 14c–14d).
+ * Style import and export checks.
  *
  * @package ModalKit
  */

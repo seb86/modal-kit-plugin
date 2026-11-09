@@ -1,5 +1,5 @@
 /**
- * Setup wizard (mockups 7a–7d). wp-admin chrome on @wordpress/components.
+ * Setup wizard. wp-admin chrome on @wordpress/components.
  */
 
 // Fonts, radius and shadow of the Modal Kit styles, for their samples.
@@ -10,7 +10,7 @@
 	margin: 32px auto;
 }
 
-// Mockups 7a–7d: white header and footer around a grey body.
+// White header and footer around a grey body.
 .modal-kit-wizard {
 	overflow: hidden;
 	border: 1px solid #e0e0e0;
@@ -177,7 +177,7 @@
 	gap: 12px;
 }
 
-// Use-case cards (7a): white, a blue 2px border when chosen.
+// Use-case cards: white, a blue 2px border when chosen.
 .modal-kit-wizard__choice {
 	padding: 16px;
 	border: 1px solid #ddd;
@@ -241,7 +241,7 @@
 	}
 }
 
-// Starters (7d): a drawn preview on a striped page, then name and kind.
+// Starters: a drawn preview on a striped page, then name and kind.
 .modal-kit-wizard__starters {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -550,7 +550,7 @@
 	}
 }
 
-// Behaviour (7c): every setting in one panel, divided by thin rules.
+// Behaviour: every setting in one panel, divided by thin rules.
 .modal-kit-wizard__panel {
 	padding: 6px 20px 8px;
 	border: 1px solid #ddd;
@@ -594,7 +594,7 @@
 	}
 }
 
-// Filter chips (7d).
+// Filter chips.
 .modal-kit-wizard__filters {
 	display: flex;
 	flex-wrap: wrap;

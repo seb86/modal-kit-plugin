@@ -1,6 +1,6 @@
 /**
  * Leaving the page (shown as such in the UI). On desktop: the pointer leaves through the top of the window.
- * Touch devices have no pointer to track, so the fallback (mockup 1c) is a
+ * Touch devices have no pointer to track, so the fallback is a
  * fast scroll back up after reading down the page.
  *
  * @param {Object}     trigger       Settings.

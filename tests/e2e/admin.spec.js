@@ -1,5 +1,5 @@
 /**
- * Admin screens: the modal list (1i) and Settings (5a, 5b, 5h, 5d, 4d).
+ * Admin screens: the modal list and Settings.
  */
 const fs = require( 'fs' );
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );

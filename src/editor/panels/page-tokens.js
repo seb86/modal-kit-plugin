@@ -1,5 +1,5 @@
 /**
- * Pages for the Display rules (1f): search posts and pages as you type, or
+ * Pages for the Display rules: search posts and pages as you type, or
  * type a path. A picked post is saved as "post:123" (matched by ID on the
  * server, so it survives slug changes) and shown by its title. "Homepage"
  * is saved as "/", which matches the front page however it is set up.

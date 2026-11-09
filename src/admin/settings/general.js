@@ -1,5 +1,5 @@
 /**
- * General tab (mockup 5a): links, site-wide frequency, who never sees modals.
+ * General tab: links, site-wide frequency, who never sees modals.
  */
 import { __, _n, sprintf } from '@wordpress/i18n';
 import {

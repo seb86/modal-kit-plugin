@@ -1,6 +1,6 @@
 <?php
 /**
- * Fixed styles (plan §3.6).
+ * Fixed styles.
  *
  * @package ModalKit
  */
@@ -437,7 +437,7 @@ final class Styles {
 				'ink'          => $style['color']['ink'],
 				'accent'       => $style['color']['accent'],
 				'onAccent'     => $style['color']['on-accent'],
-				// What a picker tile draws (mockup 13a).
+				// What a picker tile draws.
 				'head'         => (string) ( $style['font']['head'] ?? '' ),
 				'headWeight'   => (string) ( $style['font']['head-weight'] ?? '' ),
 				'headTracking' => (string) ( $style['font']['head-tracking'] ?? '' ),

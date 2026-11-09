@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for the fixed styles (plan §3.6).
+ * Tests for the fixed styles.
  *
  * @package ModalKit
  */

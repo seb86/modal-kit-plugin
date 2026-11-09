@@ -312,7 +312,7 @@ add_filter(
 );
 
 /*
- * Modal Kit Pro bot checks (P11): the providers' `siteverify`, answered
+ * Modal Kit Pro bot checks: the providers' `siteverify`, answered
  * locally. The published test secrets pass (Turnstile's "2x" secret fails),
  * as their real services would. reCAPTCHA v3 has no test key: the e2e suite
  * serves a fake Google script whose tokens read "e2e-v3:{action}:{score}".

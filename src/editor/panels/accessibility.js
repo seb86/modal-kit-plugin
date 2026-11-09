@@ -1,6 +1,6 @@
 /**
- * Accessibility panel (mockup 5c): per-modal overrides of the site defaults
- * from Settings → Accessibility (5h). Overridden fields are marked, and the
+ * Accessibility panel: per-modal overrides of the site defaults
+ * from Settings → Accessibility. Overridden fields are marked, and the
  * panel title gets a dot while anything is overridden.
  */
 import { __, sprintf } from '@wordpress/i18n';

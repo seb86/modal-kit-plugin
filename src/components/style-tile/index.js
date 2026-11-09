@@ -1,5 +1,5 @@
 /**
- * A style drawn as a tiny modal from its own tokens (mockup 13a): surface,
+ * A style drawn as a tiny modal from its own tokens: surface,
  * ink, accent, heading font, weight and tracking, panel and button corners.
  * No screenshots, so a theme or imported style draws the same way. Styles:
  * _style.scss.
@@ -106,7 +106,7 @@ export function tileTokens( slug ) {
  * @param {Object}  props          Props.
  * @param {string}  props.slug     Style slug.
  * @param {Object}  [props.tokens] Tokens to draw instead of the slug's (import preview).
- * @param {boolean} [props.small]  The list-row size (13b).
+ * @param {boolean} [props.small]  The list-row size.
  * @return {Element} Tile drawing (decorative: the caller labels it).
  */
 export default function StyleTile( { slug, tokens, small = false } ) {

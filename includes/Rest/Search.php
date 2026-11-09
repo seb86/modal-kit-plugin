@@ -1,6 +1,6 @@
 <?php
 /**
- * Modals in the editor's link search (mockup 1g).
+ * Modals in the editor's link search.
  *
  * @package ModalKit
  */

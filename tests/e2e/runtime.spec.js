@@ -1,5 +1,5 @@
 /**
- * Front-end runtime (plan §3.2, §5): links, every automatic trigger,
+ * Front-end runtime: links, every automatic trigger,
  * closing, focus, scroll lock and the no-JS :target fallback.
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );

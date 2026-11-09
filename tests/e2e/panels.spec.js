@@ -1,6 +1,6 @@
 /**
- * The Modal sidebar panels: Triggers and Display rules (1f), Accessibility
- * overrides (5c).
+ * The Modal sidebar panels: Triggers and Display rules, Accessibility
+ * overrides.
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 const { deleteAllModals, newBlankModal } = require( './utils/modals' );

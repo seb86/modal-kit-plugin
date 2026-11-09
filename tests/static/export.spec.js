@@ -1,5 +1,5 @@
 /**
- * Modals on a Simply Static export (plan §5): no PHP, no REST, no admin-ajax.
+ * Modals on a Simply Static export: no PHP, no REST, no admin-ajax.
  * Links, triggers (lazily imported), page targeting, frequency and the no-JS
  * fallback must all keep working.
  */

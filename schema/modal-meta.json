@@ -1,7 +1,7 @@
 {
 	"$comment": "Post meta for mk_modal. Shared by PHP (register_post_meta) and JS (editor defaults, rule evaluator). Uses only the JSON-schema subset the WordPress REST API understands.",
 	"enabled": {
-		"description": "The On / off switch in the modal list (1i). Off: never printed.",
+		"description": "The On / off switch in the modal list. Off: never printed.",
 		"type": "boolean",
 		"default": true
 	},

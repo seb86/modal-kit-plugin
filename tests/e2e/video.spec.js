@@ -1,5 +1,5 @@
 /**
- * Video (mockups 6a–6c): privacy-friendly embeds that load on open, pause on
+ * Video: privacy-friendly embeds that load on open, pause on
  * close, and links that play in a lightbox.
  *
  * YouTube is stubbed: oEmbed answers come from the e2e mu-plugin, and the

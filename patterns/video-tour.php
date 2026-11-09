@@ -1,6 +1,6 @@
 <?php
 /**
- * Starter pattern: Video tour (video lightbox, mockup 6a).
+ * Starter pattern: Video tour (video lightbox).
  *
  * @package ModalKit
  */

@@ -1,5 +1,5 @@
 /**
- * Triggers panel (mockup 1f): link clicks are always on; automatic triggers
+ * Triggers panel: link clicks are always on; automatic triggers
  * are added from a menu, each with its own settings.
  */
 import { __, sprintf } from '@wordpress/i18n';
@@ -264,7 +264,7 @@ export default function TriggersPanel() {
 		setTriggers( [ ...triggers, { type, ...types[ type ].defaults } ] );
 
 	/**
-	 * Extra trigger groups (Pro listings for WooCommerce triggers, 4c).
+	 * Extra trigger groups (Pro listings for WooCommerce triggers).
 	 */
 	const extraGroups = applyFilters( 'modalKit.triggerMenuGroups', [] );
 

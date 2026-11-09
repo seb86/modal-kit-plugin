@@ -1,5 +1,5 @@
 /**
- * Style preview (mockup 13a): hovering or arrowing over a tile shows that
+ * Style preview: hovering or arrowing over a tile shows that
  * style on the canvas without saving it, and without an undo step. The
  * picker writes the previewed slug here; the Modal block draws with it in
  * place of its own.

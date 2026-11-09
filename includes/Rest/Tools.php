@@ -1,6 +1,6 @@
 <?php
 /**
- * Export and import (mockup 5d).
+ * Export and import.
  *
  * @package ModalKit
  */

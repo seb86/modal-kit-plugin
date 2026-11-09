@@ -1,5 +1,5 @@
 /**
- * The Copy text button action (mockups 1b, 2d): copies, shows "Copied ✓" on
+ * The Copy text button action: copies, shows "Copied ✓" on
  * the button for a moment, and announces it to screen readers.
  */
 

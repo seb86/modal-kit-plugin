@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 final class Patterns {
 
 	/**
-	 * Pattern categories (mockup 1h), slug => label.
+	 * Pattern categories, slug => label.
 	 *
 	 * @return array<string, string>
 	 */
@@ -80,7 +80,7 @@ final class Patterns {
 	}
 
 	/**
-	 * Template collections (mockup 2e), slug => label. Empty in the free
+	 * Template collections, slug => label. Empty in the free
 	 * plugin; Modal Kit Pro adds Studio, Shop, Events…
 	 *
 	 * @return array<string, string>

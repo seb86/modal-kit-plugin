@@ -111,7 +111,7 @@ final class ThemeTokens {
 	}
 
 	/**
-	 * The theme's button radius ("your theme's radius", mockup 7b).
+	 * The theme's button radius ("your theme's radius").
 	 *
 	 * @return string
 	 */

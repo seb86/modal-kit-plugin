@@ -211,7 +211,7 @@ final class Render {
 			}
 		}
 
-		// "Play in video lightbox" links share one lightbox (6b).
+		// "Play in video lightbox" links share one lightbox.
 		if ( VideoLinks::needed() && ! isset( $this->rendered[ VideoLinks::SLUG ] ) ) {
 			$this->rendered[ VideoLinks::SLUG ] = self::dialog(
 				VideoLinks::post(),
@@ -331,7 +331,7 @@ final class Render {
 		$panel    = $labelled['html'];
 		$video    = null;
 
-		// Video and Embed blocks: privacy, deferred loading, player APIs (6a–6c).
+		// Video and Embed blocks: privacy, deferred loading, player APIs.
 		if ( Video::has_video( $panel ) || 'video' === $resolved['layout'] ) {
 			$video = Video::settings( $post->ID );
 			$panel = Video::prepare( $panel, $video );
@@ -340,7 +340,7 @@ final class Render {
 			'id'         => $post->ID,
 			'slug'       => $post->post_name,
 			'layout'     => $resolved['layout'],
-			// Overlay layouts make the page behind inert unless that's turned off (5h).
+			// Overlay layouts make the page behind inert unless that's turned off.
 			'modal'      => $resolved['modal'] && $a11y['inert'],
 			'esc'        => $resolved['closeOptions']['esc'],
 			'outside'    => $resolved['closeOptions']['outside'],
@@ -351,7 +351,7 @@ final class Render {
 			'targeted'   => (bool) $targeted,
 			'rules'      => Rules::for_browser( $rules ),
 			'hidden'     => Rules::hidden_for_visitor( $rules ),
-			// Editing the modal resets its "already seen" state (mockup 5a).
+			// Editing the modal resets its "already seen" state.
 			'version'    => substr( md5( $post->post_content . wp_json_encode( $rules ) ), 0, 8 ),
 			'video'      => $video,
 		);
@@ -385,8 +385,8 @@ final class Render {
 			'data-wp-on--click'   => 'actions.onClick',
 		);
 
-		// Accessible name: the first heading by default (5h), or the title or
-		// a custom name (5c).
+		// Accessible name: the first heading by default, or the title or
+		// a custom name.
 		if ( 'custom' === $a11y['name'] && '' !== $a11y['customName'] ) {
 			$attributes['aria-label'] = $a11y['customName'];
 		} elseif ( 'heading' === $a11y['name'] && $labelled['id'] ) {
@@ -418,7 +418,7 @@ final class Render {
 	}
 
 	/**
-	 * Prefix of modal link anchors (mockup 5a "Link prefix").
+	 * Prefix of modal link anchors (Settings → General, "Link prefix").
 	 *
 	 * @return string
 	 */
@@ -440,7 +440,7 @@ final class Render {
 	 */
 	public static function close_label( $post_id = 0 ) {
 		/**
-		 * Filters the close button label (mockup 5h).
+		 * Filters the close button label.
 		 *
 		 * @param string $label   Label.
 		 * @param int    $post_id Modal ID.

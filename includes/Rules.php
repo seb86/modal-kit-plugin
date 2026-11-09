@@ -19,7 +19,7 @@ final class Rules {
 	/**
 	 * Whether a modal's page targeting matches the current request.
 	 *
-	 * Three modes (1f): "all" (entire site), "include" (only these pages)
+	 * Three modes: "all" (entire site), "include" (only these pages)
 	 * and "exclude" (everywhere except these pages). Only the list for the
 	 * mode is used, except that "include" also honours exceptions when it
 	 * lists a section ("/shop/*"): the only case where they change anything.
@@ -164,7 +164,7 @@ final class Rules {
 	/**
 	 * Whether automatic triggers should skip the current (logged-in) visitor:
 	 * the modal hides from logged-in users, or the user's role is excluded
-	 * site-wide (mockup 5a "Don't show to").
+	 * site-wide (Settings → General, "Don't show to").
 	 *
 	 * @param array<string, mixed> $rules Modal rules.
 	 * @return bool
@@ -186,7 +186,7 @@ final class Rules {
 
 	/**
 	 * Whether this request is an admin preview (?modal=preview), which
-	 * bypasses every rule (mockup 7c).
+	 * bypasses every rule.
 	 *
 	 * @return bool
 	 */

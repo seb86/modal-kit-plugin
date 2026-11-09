@@ -1,5 +1,5 @@
 /**
- * First-run setup wizard (mockups 7a–7d). Four steps that pre-fill the
+ * First-run setup wizard. Four steps that pre-fill the
  * General, Display and Accessibility settings, then create the first modal
  * as a draft and open it in the editor.
  */
@@ -126,7 +126,7 @@ const STYLES = [
 	},
 ];
 
-// The Modal Kit styles bring their own colors and fonts (Style Palette).
+// The Modal Kit styles bring their own colors and fonts.
 const FIXED_DESCRIPTIONS = {
 	fieldnote: __( 'The Modal Kit palette. Clean, violet, sans.', 'modal-kit' ),
 	harbor: __( 'Paper, serif headings, square corners.', 'modal-kit' ),
@@ -232,7 +232,7 @@ function textOf( content ) {
 }
 
 /**
- * A miniature of a starter (7d): its layout, heading and button on a striped
+ * A miniature of a starter: its layout, heading and button on a striped
  * page, in the theme's colors and the look picked in step 2.
  *
  * @param {Object} props

@@ -100,7 +100,7 @@ final class Meta {
 		 */
 		$schema = (array) apply_filters( 'modal_kit_meta_schema', $schema, $key );
 
-		// New modals wait the site's default number of days (setup wizard, 7c).
+		// New modals wait the site's default number of days (setup wizard).
 		if ( 'rules' === $key && class_exists( Settings::class ) ) {
 			$schema['default']['frequency']['days'] = (int) Settings::value( 'general', 'defaultWaitDays' );
 		}

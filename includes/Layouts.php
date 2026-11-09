@@ -129,7 +129,7 @@ final class Layouts {
 				'button'       => $closable && (bool) $close['button'],
 				'esc'          => $closable && (bool) $close['esc'],
 				'outside'      => $closable && (bool) $close['outside'],
-				// Full-screen close is always a labelled pill (mockup 1d).
+				// Full-screen close is always a labelled pill.
 				'visibleLabel' => 'full' === $layout || (bool) $close['visibleLabel'],
 			),
 			'animation'    => $animation,

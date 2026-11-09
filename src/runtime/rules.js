@@ -1,6 +1,6 @@
 /**
  * The rule evaluator: decides in the browser whether an automatic trigger may
- * open a modal (plan §3.2, mockups 1f and 5a). Pure, so it can be unit
+ * open a modal. Pure, so it can be unit
  * tested: everything it needs is passed in.
  */
 

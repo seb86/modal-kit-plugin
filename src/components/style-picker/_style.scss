@@ -1,5 +1,5 @@
 /**
- * The style picker, its tiles and the import dialog (mockups 13a–14d).
+ * The style picker, its tiles and the import dialog.
  * Imported by the Modal block's editor styles and the Settings screen.
  */
 
@@ -162,7 +162,7 @@
 	gap: 16px;
 }
 
-// Import a style (14c).
+// Import a style.
 .modal-kit-style-import {
 	width: min(560px, calc(100vw - 32px));
 }
@@ -239,7 +239,7 @@
 	margin-top: 24px;
 }
 
-// The Style panel leads the Block → Styles tab (13a). Core shows a block's
+// The Style panel leads the Block → Styles tab. Core shows a block's
 // own "styles" panels after its colour, type and spacing panels; this moves
 // the Modal block's (Style, Overlay) to the top. Found by the panels' own
 // class, which is there when they're collapsed too.
@@ -252,7 +252,7 @@
 	}
 }
 
-// Accent and Fonts under the tiles (13a).
+// Accent and Fonts under the tiles.
 .modal-kit-style-picker + .modal-kit-style-options {
 	margin-top: 20px;
 	padding-top: 16px;

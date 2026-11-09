@@ -1,5 +1,5 @@
 /**
- * Fixed styles (plan §3.6): every style JSON keeps its text readable and its
+ * Fixed styles: every style JSON keeps its text readable and its
  * field borders and focus rings visible, and the compiled token rules are up
  * to date with the JSON files.
  */

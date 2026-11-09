@@ -1,5 +1,5 @@
 /**
- * Upgrade prompts (mockups 4a–4d): listings only on our own screens,
+ * Upgrade prompts: listings only on our own screens,
  * dismissible, with a free path.
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );

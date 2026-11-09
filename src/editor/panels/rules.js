@@ -1,5 +1,5 @@
 /**
- * Display rules panel (mockup 1f): where, how often, on which devices and
+ * Display rules panel: where, how often, on which devices and
  * browsers, when and for whom. Page targeting runs on the server; the rest in
  * the browser.
  */

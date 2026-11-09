@@ -1,5 +1,5 @@
 /**
- * Video panel (mockup 6c): appears when the modal contains a Video or Embed
+ * Video panel: appears when the modal contains a Video or Embed
  * block. Settings live in the modal's overrides (video).
  */
 import { __ } from '@wordpress/i18n';

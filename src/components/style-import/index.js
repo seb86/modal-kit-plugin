@@ -1,5 +1,5 @@
 /**
- * Import a style (mockup 14c): reads a .json file, draws its tile, lets the
+ * Import a style: reads a .json file, draws its tile, lets the
  * name and description change, and runs the checks before saving: what was
  * found and filled in from Fieldnote, the contrast test (a warning: low
  * contrast can still be imported, #137), fonts the site doesn't have, and a

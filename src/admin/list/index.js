@@ -1,5 +1,5 @@
 /**
- * Modal list (mockup 1i): On / off switches saved through REST, and the
+ * Modal list: On / off switches saved through REST, and the
  * Copy link row action.
  */
 import apiFetch from '@wordpress/api-fetch';
@@ -56,7 +56,7 @@ async function copy( button ) {
 }
 
 /**
- * Remembers that the user dismissed a Pro notice, for good (4d).
+ * Remembers that the user dismissed a Pro notice, for good.
  *
  * @param {string} key Listing key.
  */

@@ -1,5 +1,5 @@
 /**
- * Pro tab (mockup 4d): what Pro adds, and the switch that hides every Pro tip.
+ * Pro tab: what Pro adds, and the switch that hides every Pro tip.
  */
 import { __ } from '@wordpress/i18n';
 import { ExternalLink, ToggleControl } from '@wordpress/components';

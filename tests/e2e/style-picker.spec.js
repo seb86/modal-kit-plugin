@@ -1,5 +1,5 @@
 /**
- * The style picker, search, import and export (S2, mockups 13a–14d):
+ * The style picker, search, import and export:
  * keyboard selection with preview and revert, search with 7+ styles, an
  * import → apply → export round trip that gives the same JSON, deleting a
  * style in use, and the picker's look in Twenty Twenty-Five and Ollie.

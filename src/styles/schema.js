@@ -1,5 +1,5 @@
 /**
- * Style import and export (plan §3.6, mockups 14c–14d): checks a style JSON
+ * Style import and export: checks a style JSON
  * against schema/style.json, sanitises every value to a colour, length or
  * font stack, fills what's missing from Fieldnote, and runs the contrast
  * test. includes/StyleSchema.php does the same on the server, which is what

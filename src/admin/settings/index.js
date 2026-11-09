@@ -1,5 +1,5 @@
 /**
- * Settings screen (mockups 5a, 5b, 5h, 5d, 4d): one page, tabs in the URL
+ * Settings screen: one page, tabs in the URL
  * hash, saved through the Settings API (REST /wp/v2/settings via core-data).
  */
 import { __ } from '@wordpress/i18n';

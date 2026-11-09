@@ -327,7 +327,7 @@ export function toggleAutoClose( dialog ) {
 }
 
 /**
- * Moves focus into the modal: the heading by default (mockup 5h), or the
+ * Moves focus into the modal: the heading by default, or the
  * first field, first button or the close button.
  *
  * @param {HTMLDialogElement} dialog Dialog.

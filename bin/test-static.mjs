@@ -1,5 +1,5 @@
 /**
- * Static-export suite (plan §5): seeds fixtures, exports the test site with
+ * Static-export suite: seeds fixtures, exports the test site with
  * Simply Static, serves the output folder and runs tests/static against it.
  *
  *   Locally (default): the Laragon test site from .env.

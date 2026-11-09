@@ -1,6 +1,6 @@
 /**
- * Accessibility tab (mockup 5h): site-wide defaults that each modal can
- * override in its sidebar (5c).
+ * Accessibility tab: site-wide defaults that each modal can
+ * override in its sidebar.
  */
 import { __, _n, sprintf } from '@wordpress/i18n';
 import {

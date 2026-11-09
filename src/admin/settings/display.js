@@ -1,5 +1,5 @@
 /**
- * Display tab (mockup 5b): defaults for new modals, advanced options and a
+ * Display tab: defaults for new modals, advanced options and a
  * live preview on the real front end (so it uses the theme's own styles).
  */
 import { __ } from '@wordpress/i18n';

@@ -71,7 +71,7 @@ final class PostType {
 
 	/**
 	 * Attributes of the Modal block in a new modal: locked, with the defaults
-	 * from Settings → Display (mockup 5b).
+	 * from Settings → Display.
 	 *
 	 * @return array<string, mixed>
 	 */

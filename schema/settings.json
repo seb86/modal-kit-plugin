@@ -1,5 +1,5 @@
 {
-	"$comment": "Site settings, one option per Settings tab (mockups 5a, 5b, 5h, 5d, 4d). Registered with register_setting (show_in_rest) and read by the settings app through core-data.",
+	"$comment": "Site settings, one option per Settings tab. Registered with register_setting (show_in_rest) and read by the settings app through core-data.",
 	"general": {
 		"type": "object",
 		"additionalProperties": false,
@@ -28,7 +28,7 @@
 				"maximum": 10
 			},
 			"defaultWaitDays": {
-				"description": "Days a new modal waits after a visitor closes it (setup wizard, 7c).",
+				"description": "Days a new modal waits after a visitor closes it (setup wizard).",
 				"type": "integer",
 				"minimum": 1,
 				"maximum": 365

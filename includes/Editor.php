@@ -30,7 +30,7 @@ final class Editor {
 	}
 
 	/**
-	 * "Play in video lightbox" (6b) works in every block editor.
+	 * "Play in video lightbox" works in every block editor.
 	 *
 	 * @return void
 	 */
@@ -114,7 +114,7 @@ final class Editor {
 			'backdropUrl'     => Backdrop::url(),
 			'styles'          => Styles::for_js(),
 			'themePrimary'    => self::theme_primary(),
-			// The style picker (13a–14c).
+			// The style picker.
 			'themeTile'       => ThemeTokens::preview(),
 			'themeName'       => wp_get_theme()->get( 'Name' ),
 			'fonts'           => Styles::available_fonts(),

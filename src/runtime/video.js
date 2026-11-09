@@ -1,5 +1,5 @@
 /**
- * Video in modals (mockups 6a–6c). Imported only when a modal with video
+ * Video in modals. Imported only when a modal with video
  * opens. Players load on open (or behind the click-to-load screen), always
  * pause on close, and can autoplay muted, resume, or close when they end.
  * YouTube and Vimeo are controlled through their postMessage player APIs.
@@ -286,7 +286,7 @@ export function loadFromConsent( button ) {
 }
 
 /**
- * A player for a URL (6b): YouTube, Vimeo or a video file.
+ * A player for a URL: YouTube, Vimeo or a video file.
  *
  * @param {string} url URL.
  * @return {Object|null} { provider, src } or null.
@@ -342,7 +342,7 @@ export function playerFor( url ) {
 }
 
 /**
- * Fills the shared lightbox with a player for a link (6b).
+ * Fills the shared lightbox with a player for a link.
  *
  * @param {HTMLDialogElement} dialog      The shared lightbox.
  * @param {string}            url         Video URL.

@@ -1,5 +1,5 @@
 /**
- * Builds the fixed styles (plan §3.6): each `src/styles/{slug}.json` in the
+ * Builds the fixed styles: each `src/styles/{slug}.json` in the
  * free plugin becomes a `.mk-style-{slug}` rule in `src/styles/_generated.scss`,
  * which the Modal block's style.scss imports, so the editor and the front end
  * get the same tokens. Runs before `build` and `start`; a unit test fails if

@@ -1,6 +1,6 @@
 <?php
 /**
- * Video in modals (mockups 6a, 6c).
+ * Video in modals.
  *
  * @package ModalKit
  */
@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 final class Video {
 
 	/**
-	 * Defaults of the Video panel (6c).
+	 * Defaults of the Video panel.
 	 *
 	 * @return array{aspectRatio: string, autoplay: bool, resume: bool, closeOnEnd: bool, load: string, clickToLoad: bool, nocookie: bool, clickToLoadMessage: string}
 	 */
@@ -194,7 +194,7 @@ final class Video {
 	}
 
 	/**
-	 * The click-to-load screen (6a).
+	 * The click-to-load screen.
 	 *
 	 * @param string $provider youtube | vimeo.
 	 * @param string $message  Custom message, or '' for the default.

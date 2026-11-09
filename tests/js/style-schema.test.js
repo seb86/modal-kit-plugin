@@ -1,5 +1,5 @@
 /**
- * Style import and export (S2, plan §3.6): the schema, the sanitiser, the
+ * Style import and export: the schema, the sanitiser, the
  * contrast block, clash naming and the export format. includes/StyleSchema.php
  * mirrors this; tests/phpunit/StyleLibraryTest.php checks the PHP side.
  */

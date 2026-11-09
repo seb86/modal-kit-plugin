@@ -1,6 +1,6 @@
 <?php
 /**
- * Simply Static exports (plan §5).
+ * Simply Static exports.
  *
  * @package ModalKit
  */

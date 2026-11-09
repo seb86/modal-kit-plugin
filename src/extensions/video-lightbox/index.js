@@ -1,5 +1,5 @@
 /**
- * "Play in video lightbox" (mockup 6b) for Button, Image and Cover, in every
+ * "Play in video lightbox" for Button, Image and Cover, in every
  * block editor. A Button or Image keeps its link (a real URL, so it still
  * works without JavaScript); a Cover gets a video address of its own.
  * Stored in block attributes only, so the saved markup doesn't change.

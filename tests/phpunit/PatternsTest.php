@@ -13,7 +13,7 @@ use ModalKit\Patterns;
 class PatternsTest extends WP_UnitTestCase {
 
 	/**
-	 * Expected starters, slug => layout (mockup 1h).
+	 * Expected starters, slug => layout.
 	 */
 	const STARTERS = array(
 		'modal-kit/monthly-letter'     => 'centered',

@@ -20,7 +20,7 @@ registerBlockType( metadata.name, {
 	save: () => <InnerBlocks.Content />,
 } );
 
-// The style picker (13a) replaces core's block style buttons for this block.
+// The style picker replaces core's block style buttons for this block.
 // Block styles stay registered on the server, where `is-style-*` classes are
 // read, and the block keeps its className; only the buttons go.
 function dropStyleButtons() {

@@ -1,6 +1,6 @@
 <?php
 /**
- * First-run setup wizard (mockups 7a–7d).
+ * First-run setup wizard.
  *
  * @package ModalKit
  */
@@ -181,7 +181,7 @@ final class Wizard {
 	}
 
 	/**
-	 * The theme's colors for the starter previews (7d): its button colors,
+	 * The theme's colors for the starter previews: its button colors,
 	 * background and text, resolved from global styles and the palette.
 	 *
 	 * @return array<string, string>

@@ -96,7 +96,7 @@
 		white-space: nowrap;
 	}
 
-	// Accent and Fonts (13a), one option per row: side by side, "Theme
+	// Accent and Fonts, one option per row: side by side, "Theme
 	// primary" and "Custom" don't fit the 280px sidebar.
 	&.is-stacked {
 		flex-direction: column;
@@ -114,7 +114,7 @@
 	}
 }
 
-// Swatches and "Aa" samples on the Accent and Fonts options (13a).
+// Swatches and "Aa" samples on the Accent and Fonts options.
 .modal-kit-style-options__swatch {
 	flex: none;
 	width: 14px;

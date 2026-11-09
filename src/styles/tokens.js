@@ -1,5 +1,5 @@
 /**
- * A fixed style's custom properties (plan §3.6): the `.mk-style-{slug}` rule
+ * A fixed style's custom properties: the `.mk-style-{slug}` rule
  * the front end, the editor and the Pro Style editor's preview use. The
  * style build (bin/build-styles.mjs) writes these rules for the bundled
  * styles; Styles.php writes the same for styles added at runtime

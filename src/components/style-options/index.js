@@ -1,6 +1,6 @@
 /**
  * The Style dropdown, grouped into styles that follow the theme and the
- * Modal Kit styles (Style Palette 01), and the two overrides a Modal Kit
+ * Modal Kit styles, and the two overrides a Modal Kit
  * style gets: Accent (style, theme primary, custom) and Fonts (style fonts,
  * theme fonts). Used by Settings → Display and the Modal block (Styles →
  * Style options). Styles: _style.scss, imported by each screen's stylesheet.
@@ -217,7 +217,7 @@ export function StyleOptions( {
 	}
 
 	const problem = accentProblem( accentColor, style.surface );
-	// Swatches and "Aa" samples on the options (13a).
+	// Swatches and "Aa" samples on the options.
 	const shown = accentColor || style.accent;
 	const ratio = contrast( textOn( shown, '#fff', '#17151f' ), shown );
 	const swatch = ( color ) => (

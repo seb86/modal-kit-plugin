@@ -1,6 +1,6 @@
 <?php
 /**
- * Live preview of the display defaults (mockup 5b).
+ * Live preview of the display defaults.
  *
  * @package ModalKit
  */

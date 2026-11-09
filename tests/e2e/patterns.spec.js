@@ -1,5 +1,5 @@
 /**
- * Starter patterns and the picker (mockup 1h): each pattern inserts cleanly,
+ * Starter patterns and the picker: each pattern inserts cleanly,
  * with valid blocks and no hard-coded colors, in Twenty Twenty-Five and Ollie.
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );

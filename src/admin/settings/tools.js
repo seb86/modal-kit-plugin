@@ -1,5 +1,5 @@
 /**
- * Tools tab (mockup 5d): export / import, testing helpers, uninstall.
+ * Tools tab: export / import, testing helpers, uninstall.
  */
 import { __, _n, sprintf } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';

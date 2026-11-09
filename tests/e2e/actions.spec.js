@@ -1,5 +1,5 @@
 /**
- * Button actions (mockups 2b, 4a) and modals in the link popover (1g).
+ * Button actions and modals in the link popover.
  */
 const { test, expect } = require( '@wordpress/e2e-test-utils-playwright' );
 const {

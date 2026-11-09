@@ -1,6 +1,6 @@
 <?php
 /**
- * Pro listings and upgrade prompts (mockups 4a–4d).
+ * Pro listings and upgrade prompts.
  *
  * @package ModalKit
  */
@@ -126,7 +126,7 @@ final class Upsell {
 	}
 
 	/**
-	 * Whether Pro tips are shown (Settings → Pro, mockup 4d).
+	 * Whether Pro tips are shown (Settings → Pro).
 	 *
 	 * @return bool
 	 */
@@ -175,7 +175,7 @@ final class Upsell {
 				'area'    => 'picker',
 				'url'     => self::PRO_URL . '#templates',
 				'compare' => self::PRO_URL . '#compare',
-				// The number of templates in each Pro collection (Pro 1.3).
+				// The number of templates in each Pro collection.
 				'groups'  => array(
 					array(
 						'name'  => __( 'Events', 'modal-kit' ),
@@ -331,7 +331,7 @@ final class Upsell {
 	}
 
 	/**
-	 * One "Go Pro" link on the Plugins screen (4d).
+	 * One "Go Pro" link on the Plugins screen.
 	 *
 	 * @param array<string, string> $links Links.
 	 * @return array<string, string>
@@ -347,7 +347,7 @@ final class Upsell {
 	}
 
 	/**
-	 * The only notice: on the modal list, once three modals are live (4d).
+	 * The only notice: on the modal list, once three modals are live.
 	 *
 	 * @return void
 	 */

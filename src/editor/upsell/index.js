@@ -1,5 +1,5 @@
 /**
- * Upgrade prompts in the modal editor (mockup 4c): the WooCommerce trigger
+ * Upgrade prompts in the modal editor: the WooCommerce trigger
  * group (only on sites with a store) and the collapsed Forms panel. Both are
  * plain listings; Modal Kit Pro removes them by filtering the listings.
  */

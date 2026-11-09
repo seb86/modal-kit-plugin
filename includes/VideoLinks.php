@@ -1,6 +1,6 @@
 <?php
 /**
- * "Play in video lightbox" links (mockup 6b).
+ * "Play in video lightbox" links.
  *
  * @package ModalKit
  */

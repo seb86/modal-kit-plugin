@@ -1,5 +1,5 @@
 /**
- * Time on site: total time across pages during this visit (mockup 1f).
+ * Time on site: total time across pages during this visit.
  * The running total lives in localStorage; a visit ends after 30 minutes
  * without a page view. Time only counts while the page is visible.
  */

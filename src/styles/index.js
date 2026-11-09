@@ -1,5 +1,5 @@
 /**
- * Fixed styles (plan §3.6), mirroring includes/Styles.php: which block style
+ * Fixed styles, mirroring includes/Styles.php: which block style
  * is a fixed one, and the dialog classes and inline accent tokens it gets.
  */
 import { textOn } from './contrast';
