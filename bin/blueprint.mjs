@@ -41,8 +41,7 @@ export function blueprint( plugin ) {
 		meta: {
 			title: 'Modal Kit',
 			author: 'Sébastien Dumont',
-			description:
-				'Every free starter as a modal, on a front page with a button for each.',
+			description: 'Try each free starter Modal.',
 		},
 		landingPage: '/',
 		preferredVersions: { php: '8.3', wp: 'latest' },
