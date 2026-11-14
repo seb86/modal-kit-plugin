@@ -54,6 +54,24 @@ final class Render {
 	private $enqueued = false;
 
 	/**
+	 * Whether this page prints modals (their assets are enqueued).
+	 *
+	 * @var bool
+	 */
+	private static $on_page = false;
+
+	/**
+	 * Whether this page prints modals. Known once the assets are enqueued:
+	 * before the head in block themes, before the footer scripts in classic
+	 * ones.
+	 *
+	 * @return bool
+	 */
+	public static function on_page() {
+		return self::$on_page;
+	}
+
+	/**
 	 * Registers hooks.
 	 *
 	 * @return void
@@ -235,6 +253,7 @@ final class Render {
 	private function enqueue_assets() {
 		if ( $this->rendered && ! $this->enqueued ) {
 			$this->enqueued = true;
+			self::$on_page  = true;
 			wp_enqueue_style( ThemeTokens::STYLE_HANDLE );
 			wp_enqueue_script_module( self::MODULE_ID );
 			wp_interactivity_state( 'modal-kit', self::state() );

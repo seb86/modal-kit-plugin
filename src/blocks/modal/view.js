@@ -32,13 +32,19 @@ import {
 import { bindLinks, openFromArrival } from '../../runtime/links';
 import { startTriggers } from '../../runtime/triggers';
 import { whenReady } from '../../runtime/wait';
+import { whenShown } from '../../runtime/shown';
 import { setDebug } from '../../runtime/log';
 import { copyText } from '../../runtime/copy';
 
 // The runtime is here: the no-JS :target fallback in style.scss stands down.
 document.documentElement.classList.add( 'modal-kit-js' );
 
-const visit = currentVisit();
+// A prerendered page, or one about to reload (LiteSpeed's Guest Mode), isn't
+// a page view: the visit and each modal start once the visitor has the page.
+let visit = null;
+whenShown( () => {
+	visit = currentVisit();
+} );
 const browser = browserFor( window.navigator.userAgent );
 let pageAutoOpens = 0;
 
@@ -171,82 +177,92 @@ const { state } = store( 'modal-kit', {
 			const dialog = getElement().ref;
 			const config = JSON.parse( JSON.stringify( context ) );
 
-			setDebug( state.debug );
-			setBreakpoint( state.breakpoint ?? 600 );
-			const formats = {
-				hash: state.linkHash !== false,
-				query: state.linkQuery !== false,
-			};
+			// Everything else waits until the visitor has the page.
+			whenShown( () => {
+				setDebug( state.debug );
+				setBreakpoint( state.breakpoint ?? 600 );
+				const formats = {
+					hash: state.linkHash !== false,
+					query: state.linkQuery !== false,
+				};
 
-			bindLinks( state.prefix ?? 'modal-', formats );
-			registerModal( dialog, config );
+				bindLinks( state.prefix ?? 'modal-', formats );
+				registerModal( dialog, config );
 
-			// Any link or button in the modal, other than closing it, is the
-			// call to action ("stop after the visitor clicks a button").
-			dialog.addEventListener( 'click', ( event ) => {
-				const target = event.target.closest?.(
-					'a[href], button, .wp-block-button__link'
+				// Any link or button in the modal, other than closing it, is the
+				// call to action ("stop after the visitor clicks a button").
+				dialog.addEventListener( 'click', ( event ) => {
+					const target = event.target.closest?.(
+						'a[href], button, .wp-block-button__link'
+					);
+
+					if (
+						target &&
+						! target.closest( '.modal-kit__close' ) &&
+						target.dataset.modalKitAction !== 'close' &&
+						state.remember !== false
+					) {
+						markSeen( config.slug, { cta: true } );
+					}
+				} );
+
+				// Add-ons open modals for their own triggers (e.g. "Added to
+				// cart"); rules apply unless the source is a link.
+				dialog.addEventListener(
+					'modal-kit:request-open',
+					( event ) => {
+						openModal( config.slug, {
+							source: event.detail?.source ?? 'add-on',
+							trigger: event.detail?.trigger ?? null,
+						} );
+					}
 				);
 
-				if (
-					target &&
-					! target.closest( '.modal-kit__close' ) &&
-					target.dataset.modalKitAction !== 'close' &&
-					state.remember !== false
-				) {
-					markSeen( config.slug, { cta: true } );
-				}
-			} );
-
-			// Add-ons open modals for their own triggers (e.g. "Added to
-			// cart"); rules apply unless the source is a link.
-			dialog.addEventListener( 'modal-kit:request-open', ( event ) => {
-				openModal( config.slug, {
-					source: event.detail?.source ?? 'add-on',
-					trigger: event.detail?.trigger ?? null,
+				// Add-ons ask for "never again" (e.g. after a form is sent).
+				dialog.addEventListener( 'modal-kit:suppress', () => {
+					if ( state.remember !== false ) {
+						markSeen( config.slug, { never: true } );
+					}
 				} );
-			} );
 
-			// Add-ons ask for "never again" (e.g. after a form is sent).
-			dialog.addEventListener( 'modal-kit:suppress', () => {
-				if ( state.remember !== false ) {
-					markSeen( config.slug, { never: true } );
-				}
-			} );
+				openFromArrival(
+					config.slug,
+					state.prefix ?? 'modal-',
+					formats
+				);
 
-			openFromArrival( config.slug, state.prefix ?? 'modal-', formats );
+				// Add-ons may hold the triggers back to set the modal up first
+				// (data-modal-kit-wait), then adjust them on modal-kit:configure
+				// (Pro: an A/B variant's own trigger and delay).
+				whenReady( dialog, () => {
+					dialog.dispatchEvent(
+						new window.CustomEvent( 'modal-kit:configure', {
+							detail: { slug: config.slug, config },
+						} )
+					);
 
-			// Add-ons may hold the triggers back to set the modal up first
-			// (data-modal-kit-wait), then adjust them on modal-kit:configure
-			// (Pro: an A/B variant's own trigger and delay).
-			whenReady( dialog, () => {
+					// An inline modal without triggers shows as soon as the page
+					// loads.
+					const triggers =
+						config.layout === 'inline' && ! config.triggers?.length
+							? [ { type: 'load', delay: 0 } ]
+							: config.triggers;
+
+					startTriggers( triggers, ( type ) =>
+						openModal( config.slug, { source: type } )
+					);
+				} );
+
+				// Add-ons that open a modal themselves (Pro: the age gate) wait
+				// for this: from now on it answers modal-kit:request-open.
+				dialog.setAttribute( 'data-modal-kit-ready', '' );
 				dialog.dispatchEvent(
-					new window.CustomEvent( 'modal-kit:configure', {
-						detail: { slug: config.slug, config },
+					new window.CustomEvent( 'modal-kit:ready', {
+						bubbles: true,
+						detail: { slug: config.slug },
 					} )
 				);
-
-				// An inline modal without triggers shows as soon as the page
-				// loads.
-				const triggers =
-					config.layout === 'inline' && ! config.triggers?.length
-						? [ { type: 'load', delay: 0 } ]
-						: config.triggers;
-
-				startTriggers( triggers, ( type ) =>
-					openModal( config.slug, { source: type } )
-				);
 			} );
-
-			// Add-ons that open a modal themselves (Pro: the age gate) wait
-			// for this: from now on it answers modal-kit:request-open.
-			dialog.setAttribute( 'data-modal-kit-ready', '' );
-			dialog.dispatchEvent(
-				new window.CustomEvent( 'modal-kit:ready', {
-					bubbles: true,
-					detail: { slug: config.slug },
-				} )
-			);
 		},
 	},
 } );

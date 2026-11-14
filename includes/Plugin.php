@@ -68,7 +68,7 @@ final class Plugin {
 		( new Upsell() )->register_hooks();
 		( new Wizard() )->register_hooks();
 		( new Integrations\SimplyStatic() )->register_hooks();
-		( new Integrations\SpeedOptimizer() )->register_hooks();
+		( new Integrations\Optimizers() )->register_hooks();
 
 		add_filter( 'wp_rest_search_handlers', array( Rest\Search::class, 'register' ) );
 
